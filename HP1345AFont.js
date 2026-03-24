@@ -5,7 +5,8 @@
 // https://phk.freebsd.dk/_downloads/e52aa694fd64ff9d2a1a7291b7697f3e/hp1345_font.py
 // https://phk.freebsd.dk/_downloads/a89c073235ca9c2b13d657173d32bf78/01347-80012.bin
 // https://phk.freebsd.dk/_downloads/2355976608a6359335e30a88e181f1fc/1816-1500.bin
-//HP1345AFont.js has been modified, but its original owner is 
+
+//HP1345AFont.js has been modified for the purposes of our project, but its original owner is 
 //https://github.com/golanlevin/p5-single-line-font-resources/tree/main
 
 /*
@@ -116,7 +117,14 @@ class HP1345AFont {
     const spacing = 16;
     for (let i = 0; i < w.length; i++) {
       const ch = w[i];
-      this.drawCharacter(ch, px + i * spacing, py);
+      let newPx = px + i * spacing;
+      
+      if(ch == "\n") {
+      px -= (i + 2) * spacing;
+      py += 32;
+      }
+      
+      this.drawCharacter(ch, newPx, py);
     }
   }
 }
