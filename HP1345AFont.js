@@ -120,7 +120,7 @@ class HP1345AFont {
       let newPx = px + i * spacing;
       
       if(ch == "\n") {
-      px -= (i + 2) * spacing;
+      px -= (i + 1) * spacing;
       py += 32;
       }
       

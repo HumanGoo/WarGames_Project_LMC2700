@@ -9,5 +9,5 @@ function draw() {
   background(0);
   stroke(0, 255, 0);
 
-  writeStream("hello /|!@#$^&*()_+  world"   , 80, 420, 25);
+  writeStream("hello /|!@#$^&*()_+  \nworld"   , 80, 420, 25);
 }
