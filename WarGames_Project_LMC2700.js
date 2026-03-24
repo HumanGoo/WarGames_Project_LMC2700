@@ -7,7 +7,7 @@ function setup() {
 }
 function draw() {
   background(0);
-  stroke(255);
-  
-  hpLineFont.drawString("2erwewt", 80,420); 
+  stroke(0, 255, 0);
+
+  writeStream("ni hao fine shyt", 80, 420, 25);
 }
