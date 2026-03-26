@@ -123,8 +123,8 @@ class HP1345AFont {
       px -= (i + 1) * spacing;
       py += 32;
       }
-      
       this.drawCharacter(ch, newPx, py);
+      
     }
   }
 }

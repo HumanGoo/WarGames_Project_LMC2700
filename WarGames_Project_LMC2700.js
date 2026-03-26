@@ -8,6 +8,8 @@ function setup() {
 function draw() {
   background(0);
   stroke(0, 255, 0);
-
-  writeStream("hello /|!@#$^&*()_+  \nworld"   , 80, 420, 25);
+  //when resizing the text, the only way I found that worked was resizing it with scale(); However, it displaces the text, so the next best thing to would be to
+  //apply a matrix that sets your desired coordinates to the origin. Now when you resize it, it doesn't displace the text.
+  applyMatrix(1.6,0,0,1.6,width/2,height/2);
+  writeStream("KSJDFLASJDF", 0, 0, 25);
 }
