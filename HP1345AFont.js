@@ -1,4 +1,4 @@
-// Poul-Henning Kamp reverse-engineered the character 
+// Poul-Henning Kamp reverse-engineered the character
 // generator on the HP1345A digital vector display, c.1985
 // Ported from https://phk.freebsd.dk/hacks/Wargames/index.html
 // Uses or adapts the following resources:
@@ -6,7 +6,7 @@
 // https://phk.freebsd.dk/_downloads/a89c073235ca9c2b13d657173d32bf78/01347-80012.bin
 // https://phk.freebsd.dk/_downloads/2355976608a6359335e30a88e181f1fc/1816-1500.bin
 
-//HP1345AFont.js has been modified for the purposes of our project, but its original owner is 
+//HP1345AFont.js has been modified for the purposes of our project, but its original owner is
 //https://github.com/golanlevin/p5-single-line-font-resources/tree/main
 
 /*
@@ -18,7 +18,7 @@
  * ----------------------------------------------------------------------------
  * This file reads the ROMs and produces a list of delta-vectors.
  */
- let hpLineFont;
+let hpLineFont;
 let strokeBytes;
 let indexBytes;
 let romFilesLoaded = false;
@@ -83,34 +83,89 @@ class HP1345AFont {
     if (!bbox) bbox = [0, 0, -999, -999];
     this.v[ch].forEach((i) =>
       i.forEach(([dx, dy]) => {
-        x += dx;
-        y += dy;
-        bbox[0] = Math.min(bbox[0], x);
-        bbox[1] = Math.min(bbox[1], y);
-        bbox[2] = Math.max(bbox[2], x);
-        bbox[3] = Math.max(bbox[3], y);
-      })
+      x += dx;
+      y += dy;
+      bbox[0] = Math.min(bbox[0], x);
+      bbox[1] = Math.min(bbox[1], y);
+      bbox[2] = Math.max(bbox[2], x);
+      bbox[3] = Math.max(bbox[3], y);
+    }
+    )
     );
     return [bbox, x, y];
   }
-  
+
   drawCharacter(ch, px, py) {
-    let asciiCode = ch.charCodeAt(0) & 0xff;
+    let count = 0;
+    let unmodifiedCode = ch.charCodeAt(0);
+    let asciiCode = unmodifiedCode & 0xff; //fits the given code within the range of our characters' ascii codes
+    //console.log(asciiCode);
     let x = px;
     let y = py;
     beginShape();
+    if (unmodifiedCode == 8254) {
+      asciiCode = 95;
+    }
     this.vectors(asciiCode).forEach((j) => {
       j.forEach(([dx, dy]) => {
-        x += dx;
-        y -= dy;
+        switch(unmodifiedCode) {
+        case 95:
+          x -= dx;
+          y -= dy;
+          break;
+        case 8254:
+          x -= dx;
+          let newY = y - 18;
+          vertex(x, newY);
+          return;
+          break;
+        case 126:
+          switch(count) {
+          case 0:
+            x-=0;
+            y-=8;
+            break;
+          case 1:
+            x+=4
+            y+=49;
+            break;
+          case 2:
+            x-=46;
+            y+=4;
+            break;
+          case 3:
+            x+=4;
+            y-=57;
+            break;
+          case 4:
+            x+=53;
+            y+=0;
+            break;
+          }
+
+          x += dx;
+          y -= dy;
+          break;
+
+        default:
+          x += dx;
+          y -= dy;
+          break;
+        }
+
         vertex(x, y);
-      });
+        ;
+        count++;
+      }
+      );
+
       endShape();
       beginShape();
-    });
+    }
+    );
     endShape();
   }
-  
+
   drawString(w, px, py) {
     noFill();
     strokeWeight(1);
@@ -118,19 +173,20 @@ class HP1345AFont {
     for (let i = 0; i < w.length; i++) {
       const ch = w[i];
       let newPx = px + i * spacing;
-      
-      if(ch == "\n") {
-      px -= (i + 1) * spacing;
-      py += 32;
+
+      if (ch == "\n") {
+        px -= (i + 1) * spacing;
+        py += 32;
       }
+
+
       this.drawCharacter(ch, newPx, py);
-      
     }
   }
 }
 
-function loadWarGamesFont(){
-    if (romFilesLoaded){
+function loadWarGamesFont() {
+  if (romFilesLoaded) {
     hpLineFont = new HP1345AFont();
   }
 }
@@ -141,15 +197,17 @@ function checkIfBothFilesAreLoaded() {
   }
 }
 
-function preLoadFont(){
-    // Load files with loadBytes
+function preLoadFont() {
+  // Load files with loadBytes
   loadBytes("data/01347-80012.bin", (data) => {
     strokeBytes = data;
     checkIfBothFilesAreLoaded();
-  });
+  }
+  );
 
   loadBytes("data/1816-1500.bin", (data) => {
     indexBytes = data;
     checkIfBothFilesAreLoaded();
-  });
+  }
+  );
 }

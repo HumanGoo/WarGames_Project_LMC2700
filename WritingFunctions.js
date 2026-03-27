@@ -10,7 +10,7 @@ function writeStream(str, x, y, rate) {
   let frame = Math.round(time%1); //the exact moment the next character is added
   let addend;
   if (frame==1 ||(charPerSec < len && charPerSec > 0)) {
-    addend = " _";
+    addend = "_";
   } else {
     addend = "";
   }
