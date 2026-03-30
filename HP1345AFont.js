@@ -95,14 +95,14 @@ class HP1345AFont {
     return [bbox, x, y];
   }
 
-  drawCharacter(ch, px, py) {
+  drawCharacter(ch, px, py, e) {
     let count = 0;
     let unmodifiedCode = ch.charCodeAt(0);
     let asciiCode = unmodifiedCode & 0xff; //fits the given code within the range of our characters' ascii codes
     //console.log(asciiCode);
     let x = px;
     let y = py;
-    beginShape();
+    e.beginShape();
     if (unmodifiedCode == 8254) {
       asciiCode = 95;
     }
@@ -153,22 +153,22 @@ class HP1345AFont {
           break;
         }
 
-        vertex(x, y);
+        e.vertex(x, y);
         ;
         count++;
       }
       );
 
-      endShape();
-      beginShape();
+      e.endShape();
+      e.beginShape();
     }
     );
-    endShape();
+    e.endShape();
   }
 
-  drawString(w, px, py) {
-    noFill();
-    strokeWeight(1);
+  drawString(w, px, py, e) {
+    e.noFill();
+    e.strokeWeight(1);
     const spacing = 16;
     for (let i = 0; i < w.length; i++) {
       const ch = w[i];
@@ -180,7 +180,7 @@ class HP1345AFont {
       }
 
 
-      this.drawCharacter(ch, newPx, py);
+      this.drawCharacter(ch, newPx, py,e);
     }
   }
 }

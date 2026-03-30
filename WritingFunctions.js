@@ -1,6 +1,8 @@
-function write(str, x, y) {
-  hpLineFont.drawString(str, x, y);
+function write(str, x, y, e) {
+  hpLineFont.drawString(str, x, y,e);
 }
+
+
 //rate is in seconds... i e the amount of letters that are written per second.
 // This means that it should work regardless of the frame rate.
 function writeStream(str, x, y, rate) {
