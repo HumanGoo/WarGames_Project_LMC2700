@@ -2,11 +2,11 @@ function preload() {
   preLoadFont();
 }
 let sceneNeedsChanging = false;
-let currentScene = "Main Menu";
+let currentScene;
 function setup() {
   stroke(0,255,0);
   loadWarGamesFont();
-  menu = new p5(mainMenu);
+  currentScene = new p5(mainMenu);
 }
 
 function draw() {
@@ -23,4 +23,11 @@ function draw() {
     }
     sceneNeedsChanging = false;
   }
+}
+
+function switchScene(newScene) {
+  //remove the current Scene
+  currentScene.remove();
+  //set current scene to the new one
+  currentScene = new p5(newScene);
 }

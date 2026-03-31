@@ -11,7 +11,8 @@ function mainMenu(m) {
     m.textSize(6);
     m.strokeWeight(1);
     m.imageMode(CENTER);
-    m.createCanvas(800, 500);
+    cnv = m.createCanvas(750, 450);
+    cnv.position((windowWidth - m.width)/2,(windowHeight - m.height)/2 - 50);
     m.pg = m.createGraphics(220, 220, WEBGL);
     m.pg.noFill();
     m.pg.stroke(0, 255, 0);
@@ -39,7 +40,7 @@ function mainMenu(m) {
       //apply a matrix that sets your desired coordinates to the origin. Now when you resize it, it doesn't displace the text.
       //Use backticks when displaying multi-line strings
 
-      write(`TITLE HERE`, -85, -50,m);
+      write(`TITLE HERE`, -75, -50,m);
       
       m.resetMatrix();
       m.applyMatrix(1.75, 0, 0, 1.75, m.width/2, m.height/2);
