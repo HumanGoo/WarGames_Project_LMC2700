@@ -22,6 +22,8 @@ let hpLineFont;
 let strokeBytes;
 let indexBytes;
 let romFilesLoaded = false;
+let alignment = false;
+
 class HP1345AFont {
   constructor() {
     this.v = Array(256).fill([]);
@@ -152,8 +154,14 @@ class HP1345AFont {
           y -= dy;
           break;
         }
-
+        //each character is about 18 pixels wide
         e.vertex(x, y);
+        /* for debugging the text.
+        e.textSize(5);
+        e.circle(x,y,2);
+        e.line(x,y, x + 10, y-10);
+        e.text(`(${x},${y})`,x +10,y -10);
+        */
         ;
         count++;
       }
@@ -170,6 +178,7 @@ class HP1345AFont {
     e.noFill();
     e.strokeWeight(1);
     const spacing = 16;
+    px = charAlign(w,px);
     for (let i = 0; i < w.length; i++) {
       const ch = w[i];
       let newPx = px + i * spacing;
@@ -210,4 +219,67 @@ function preLoadFont() {
     checkIfBothFilesAreLoaded();
   }
   );
+}
+
+//WRITING FUNCTIONS ____ ORIGINAL
+function write(str, x, y, e) {
+  hpLineFont.drawString(str, x, y,e);
+}
+//rate is in seconds... i e the amount of letters that are written per second.
+// This means that it should work regardless of the frame rate.
+function writeStream(str, x, y, rate, e) {
+  let len = str.length;
+  let time = millis()/1000;
+  let charPerSec = time * rate;
+  let frame = Math.round(time%1); //the exact moment the next character is added
+  let addend;
+  if (frame==1 ||(charPerSec < len && charPerSec > 0)) {
+    addend = "_";
+  } else {
+    addend = "";
+  }
+  let subString = str.substring(0, charPerSec) + addend;
+  write(subString, x, y, e);
+}
+
+function charAlign(string,x) {
+  if(!alignment) {
+    return x;
+  }
+  let displacement = (measureText(string,20) / 2);
+  return x - displacement;
+}
+
+function setAlignment(bool) {
+  alignment = bool;
+}
+
+/*I did not code this. Thankfully someone else on the internet measured all the lengths of the individual
+  ASCII characters. linked here: https://blocks.roadtolarissa.com/tophtucker/62f93a4658387bb61e4510c37e2e97cf
+*/
+function measureText(string, fontSize = 10) {
+  const widths = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.1433349609375
+    ,0.4133331298828125,0.4883331298828125,0.6916671752929687,0.6916671752929687,1.02166748046875
+    ,0.8,0.325,0.46666717529296875,0.46666717529296875,0.523333740234375,0.720001220703125
+    ,0.4133331298828125,0.46666717529296875,0.4133331298828125,0.4133331298828125,0.6916671752929687
+    ,0.6916671752929687,0.6916671752929687,0.6916671752929687,0.6916671752929687,0.6916671752929687
+    ,0.6916671752929687,0.6916671752929687,0.6916671752929687,0.6916671752929687,0.4133331298828125
+    ,0.4133331298828125,0.720001220703125,0.720001220703125,0.720001220703125,0.6916671752929687
+    ,1.15,0.8,0.8,0.8583343505859375,0.8583343505859375,0.8,0.748333740234375,0.9116668701171875
+    ,0.8583343505859375,0.4133331298828125,0.6333343505859375,0.8,0.6916671752929687,0.9666671752929688
+    ,0.8583343505859375,0.9116668701171875,0.8,0.9116668701171875,0.8583343505859375,0.8
+    ,0.748333740234375,0.8583343505859375,0.8,1.0783340454101562,0.8,0.8,0.748333740234375
+    ,0.4133331298828125,0.4133331298828125,0.4133331298828125,0.6050003051757813,0.6916671752929687
+    ,0.46666717529296875,0.6916671752929687,0.6916671752929687,0.6333343505859375,0.6916671752929687
+    ,0.6916671752929687,0.4133331298828125,0.6916671752929687,0.6916671752929687,0.35666656494140625
+    ,0.35666656494140625,0.6333343505859375,0.35666656494140625,0.9666671752929688,0.6916671752929687
+    ,0.6916671752929687,0.6916671752929687,0.6916671752929687,0.46666717529296875,0.6333343505859375
+    ,0.4133331298828125,0.6916671752929687,0.6333343505859375,0.8583343505859375,0.6333343505859375
+    ,0.6333343505859375,0.6333343505859375,0.46666717529296875,0.395001220703125,0.46666717529296875
+    ,0.720001220703125]
+  const avg = 0.6589302785773028
+  return string
+    .split('')
+    .map(c => c.charCodeAt(0) < widths.length ? widths[c.charCodeAt(0)] : avg)
+    .reduce((cur, acc) => acc + cur) * fontSize
 }
