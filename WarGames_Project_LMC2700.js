@@ -17,7 +17,7 @@ function setup() {
   loadWarGamesFont();
   new p5(outsideConsole);
   currentScene = new p5(mainMenu);
-  //new p5(overlay);
+  new p5(overlay);
 }
 
 function draw() {

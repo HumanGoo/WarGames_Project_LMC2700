@@ -8,23 +8,23 @@ function outsideConsole(c) {
     c.cnv = c.createCanvas(windowWidth, windowHeight);
     c.cnv.position(0,0);
     c.background(100);
-    c.fill(255,0,0);
+    
 
     c.strokeWeight(5);
     c.stroke(0);
-    /** 
-    c.beginShape();
-    c.vertex(computer.location.x, computer.location.y + computer.size.y);
     
-    c.vertex(computer.location.x + computer.size.x, computer.location.y + computer.size.y);
+    c.fill(150);
+    c.beginShape();
+    c.vertex(computer.location.x, computer.location.y + computer.size.height);
+    
+    c.vertex(computer.location.x + computer.size.width, computer.location.y + computer.size.height);
+        c.vertex(c.width,c.height);
     c.vertex(0,c.height);
-    c.vertex(400,400);
+    c.vertex(computer.location.x, computer.location.y + computer.size.height);
     c.endShape();
-    **/
+    
     c.strokeWeight(10);
-    c.stroke(0,0,255);
-    c.point(computer.location.x, computer.location.y + computer.size.y);
-
+    c.fill(255,0,0);
     c.circle(windowWidth/2,(windowHeight + 450)/2 + 20,125);
   }
   
