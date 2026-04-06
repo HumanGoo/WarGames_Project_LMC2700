@@ -112,9 +112,10 @@ function mainMenu(m) {
 
     //if clicking start
     if (m.startButton.isClicking()) {
-      m.offTitle = true;
       sceneNeedsChanging = true;
-      //m.remove();
+      m.remove();
+      switchScene(playState);
+      
     }
   }
 
