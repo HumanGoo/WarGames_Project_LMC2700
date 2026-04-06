@@ -4,20 +4,25 @@ function playState(p) {
   p.preload = function() {
     p.phone = p.loadImage('data/phone.png');
     p.guy = p.loadImage('data/guytemplate.png');
+    //load other people images
   }
   p.setup = function(){
+    
     canvas = p.createCanvas(computer.size.width,computer.size.height);
     canvas.position(computer.location.x,computer.location.y);
     
     p.imageMode(CENTER)
     p.image(p.phone,computer.size.width/2,computer.size.height/2);
     p.ellipseMode(RADIUS);
+
+    loadOverlay();
   }
   p.draw = function(){
     p.background(0);
     if(p.someoneIsCalling){
     p.incomingCall();
     } else {
+      p.pickupPhone();
       p.image(p.guy,computer.size.width/2,computer.size.height/2);
     }
   }
@@ -46,13 +51,15 @@ function playState(p) {
     p.noStroke();
     p.fill(255,p.opacity);
     p.circle(0,75 - 10,25);
-    p.triangle(0, 75-10-30  , 40, -75 + 10, -40, -75 + 10);
+    p.triangle(0, 75-10-30, 40, -75 + 10, -40, -75 + 10);
     p.pop();
     
-
- 
-
     p.resetMatrix();
+  }
+  p.pickupPhone = function(){
+    //check who is calling based on other flags
+    //set that person to the p.personCalling property
+    p.personCalling;
   }
 
   p.checkCall = function(){

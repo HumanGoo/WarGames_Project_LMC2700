@@ -30,6 +30,10 @@ function outsideConsole(c) {
     c.ellipse(windowWidth/2,(windowHeight + 450)/2 + 50,125,100);
     c.ellipse(windowWidth/2,(windowHeight + 450)/2 + 40,125,100);
   }
+
+  c.mousePressed = function(){
+
+  }
   
 }
 

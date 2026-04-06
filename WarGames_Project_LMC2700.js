@@ -29,6 +29,7 @@ function switchScene(newScene) {
   overlayScene.remove();
   //set current scene to the new one
   currentScene = new p5(newScene);
-  loadOverlay();
+  //new p5(overlay);
+  //loadOverlay();
 }
 function loadOverlay(){overlayScene = new p5(overlay);}
