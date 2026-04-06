@@ -1,14 +1,23 @@
+let computer = {};
 function preload() {
   preLoadFont();
+  computer.outline = loadImage('data/terminal.png');
+  computer.board = loadImage('data/board.jpg');
 }
 let sceneNeedsChanging = false;
 let currentScene;
-let computerScreenLocation = new p5.Vector(0,0);
+computer.size = {width: 750, height: 450};
+
+
+
 function setup() {
+  computer.location = new p5.Vector((windowWidth - computer.size.width)/2,
+  (windowHeight - computer.size.height)/2 - 60);
   stroke(0,255,0);
   loadWarGamesFont();
+  new p5(outsideConsole);
   currentScene = new p5(mainMenu);
-  console.log(Object.getPrototypeOf(currentScene).toString());
+  //new p5(overlay);
 }
 
 function draw() {
