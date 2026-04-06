@@ -13,9 +13,14 @@ class Dialogue {
   
   display() {
     let e = this.parentCanvas;
-    
+    e.fill(0,200);
+    e.rect(50, e.height - 175, e.width - 100, 150);
+    e.noFill();
+    e.stroke(0,255,0);
+    setAlignment(false);
     e.rect(50, e.height - 175, e.width - 100, 150);
     writeStream(this.dial[this.curLine], 75, e.height - 140, 25, e);
+    setAlignment(true);
   }
   
   nextLine() {
