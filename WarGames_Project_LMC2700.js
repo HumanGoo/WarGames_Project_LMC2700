@@ -1,14 +1,15 @@
 let computer = {};
+let json;
 function preload() {
   preLoadFont();
   computer.outline = loadImage('data/terminal.png');
   computer.board = loadImage('data/board.jpg');
+  json = loadJSON("data/dialogue/test.json");
 }
 let sceneNeedsChanging = false;
 let currentScene;
+let dialStart;
 computer.size = {width: 750, height: 450};
-
-
 
 function setup() {
   computer.location = new p5.Vector((windowWidth - computer.size.width)/2,

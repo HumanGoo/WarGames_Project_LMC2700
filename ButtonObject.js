@@ -66,6 +66,7 @@ class Button {
  checkClick() {
     if (this.isClicking()) {
         this.setState(true);
+        dialStart = millis();
         console.log("clicked " + this.label);
       }
  }

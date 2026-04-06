@@ -234,7 +234,7 @@ function write(str, x, y, e) {
 // This means that it should work regardless of the frame rate.
 function writeStream(str, x, y, rate, e) {
   let len = str.length;
-  let time = millis()/1000;
+  let time = (millis() - dialStart)/1000;
   let charPerSec = time * rate;
   let frame = Math.round(time%1); //the exact moment the next character is added
   let addend;

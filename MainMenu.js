@@ -34,6 +34,9 @@ function mainMenu(m) {
     m.options = new Button(`OPTIONS`, -175, 75, 118, 32, m);
     m.options.setSize(1.75);
     m.options.setDisplacement(0.5, 9);
+    
+    // dialogue
+    m.dialogue = new Dialogue("test", m);
   }
 
   m.draw = function() {
@@ -70,12 +73,15 @@ function mainMenu(m) {
       //m.resetMatrix();
       m.image(m.pg, m.width/2, m.height/2);
     } else {
-      m.applyMatrix(2, 0, 0, 2, m.width/2, m.height/2);
       setAlignment(false);
+      /*m.applyMatrix(2, 0, 0, 2, m.width/2, m.height/2);
     write(`GAME COMING SOON! :
       )`, -150, 0, m)
-        m.resetMatrix();
+        m.resetMatrix();*/
+        
+      canWriteDialogue = true;
       write(`<--`, 20, 40, m);
+      m.dialogue.display();
     }
     if (m.optionsWindowNeeded) {
       m.optionsWindow = new p5(options);
@@ -90,11 +96,18 @@ function mainMenu(m) {
     if (!m.offTitle) {
       m.startButton.checkClick();
       m.options.checkClick();
+      m.dialogue.curLine = 0;
     } else {
       //for the arrow
       if (m.mouseX > 20 && m.mouseX < 65 && m.mouseY > 20 && m.mouseY < 55) {
         m.offTitle = false;
       }
+    }
+  }
+  
+  m.keyPressed = function() {
+    if (m.offTitle && keyCode === 13) {
+      m.dialogue.nextLine();
     }
   }
 
