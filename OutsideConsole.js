@@ -23,9 +23,12 @@ function outsideConsole(c) {
     c.vertex(computer.location.x, computer.location.y + computer.size.height);
     c.endShape();
     
-    c.strokeWeight(10);
+    c.strokeWeight(5);
+    c.fill(140);
+    c.ellipse(windowWidth/2,(windowHeight + 450)/2 + 55,150,120);
     c.fill(255,0,0);
-    c.circle(windowWidth/2,(windowHeight + 450)/2 + 20,125);
+    c.ellipse(windowWidth/2,(windowHeight + 450)/2 + 50,125,100);
+    c.ellipse(windowWidth/2,(windowHeight + 450)/2 + 40,125,100);
   }
   
 }
