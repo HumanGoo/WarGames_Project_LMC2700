@@ -1,6 +1,7 @@
 function playState(p) {
   p.someoneIsCalling = true;
-
+  p.inDialogue = false;
+  
   p.preload = function() {
     p.phone = p.loadImage('data/phone.png');
     p.guy = p.loadImage('data/guytemplate.png');
@@ -15,6 +16,7 @@ function playState(p) {
     p.image(p.phone,computer.size.width/2,computer.size.height/2);
     p.ellipseMode(RADIUS);
 
+    p.newDialogue = new Dialogue("test", p);
     loadOverlay();
   }
   p.draw = function(){
@@ -26,7 +28,6 @@ function playState(p) {
       p.tint(0, 255, 0, 255);
       p.image(p.guy,computer.size.width/2,computer.size.height/2);
 
-      p.newDialogue = new Dialogue("test", p);
       p.newDialogue.display();
     }
   }
@@ -77,7 +78,14 @@ function playState(p) {
     if(p.checkCall()){
       console.log("sdfsdf");
       p.someoneIsCalling = false;
+      p.inDialogue = true;
+      dialStart = millis();
+    }
+  }
+  
+  p.keyPressed = function() {
+    if (p.inDialogue && keyCode === 13) {
+      p.newDialogue.nextLine();
     }
   }
 }
-
