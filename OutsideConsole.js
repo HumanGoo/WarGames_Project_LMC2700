@@ -32,7 +32,12 @@ function outsideConsole(c) {
   }
 
   c.mousePressed = function(){
+    c.mouseLoc = new p5.Vector(c.mouseX,c.mouseY);
+    c.buttonR = new p5.Vector(windowWidth/2,(windowHeight + 450)/2 + 40);
 
+    if(c.mouseLoc.sub(c.buttonR).mag() < 100) {
+      console.log("dd");
+    }
   }
   
 }

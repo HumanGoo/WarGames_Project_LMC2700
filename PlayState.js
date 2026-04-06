@@ -23,6 +23,7 @@ function playState(p) {
     p.incomingCall();
     } else {
       p.pickupPhone();
+      p.tint(0, 255, 0, 255);
       p.image(p.guy,computer.size.width/2,computer.size.height/2);
     }
   }
