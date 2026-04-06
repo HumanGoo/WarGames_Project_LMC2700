@@ -17,6 +17,7 @@ function playState(p) {
     p.ellipseMode(RADIUS);
 
     p.newDialogue = new Dialogue("test", p);
+    p.newDialogue.canDisplay = false;
     loadOverlay();
   }
   p.draw = function(){
@@ -28,7 +29,9 @@ function playState(p) {
       p.tint(0, 255, 0, 255);
       p.image(p.guy,computer.size.width/2,computer.size.height/2);
 
-      p.newDialogue.display();
+      if (p.newDialogue.canDisplay) {
+        p.newDialogue.display();
+      }
     }
   }
   p.incomingCall = function(){
@@ -79,6 +82,7 @@ function playState(p) {
       console.log("sdfsdf");
       p.someoneIsCalling = false;
       p.inDialogue = true;
+      p.newDialogue.canDisplay = true;
       dialStart = millis();
     }
   }
