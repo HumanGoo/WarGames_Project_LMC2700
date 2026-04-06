@@ -9,6 +9,8 @@ function preload() {
 let sceneNeedsChanging = false;
 let currentScene;
 let dialStart;
+let outsideConsoleScene;
+let overlayScene;
 computer.size = {width: 750, height: 450};
 
 function setup() {
@@ -16,30 +18,19 @@ function setup() {
   (windowHeight - computer.size.height)/2 - 60);
   stroke(0,255,0);
   loadWarGamesFont();
-  new p5(outsideConsole);
+  outsideConsoleScene = new p5(outsideConsole);
   currentScene = new p5(mainMenu);
-  new p5(overlay);
-}
-
-function draw() {
-  //State Machine: needs to be called once
-  //console.log(sceneNeedsChanging);
-  if(sceneNeedsChanging) {
-    switch(currentScene) {
-      /*
-      case "Main Menu":
-        new p5(mainMenu);
-        console.log("scene update");
-        break;
-        */
-    }
-    sceneNeedsChanging = false;
-  }
+  loadOverlay();
 }
 
 function switchScene(newScene) {
   //remove the current Scene
   currentScene.remove();
+  //outsideConsoleScene.remove();
+  overlayScene.remove();
   //set current scene to the new one
   currentScene = new p5(newScene);
+  //new p5(overlay);
+  //loadOverlay();
 }
+function loadOverlay(){overlayScene = new p5(overlay);}

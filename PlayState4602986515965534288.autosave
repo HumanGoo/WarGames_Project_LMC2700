@@ -1,0 +1,13 @@
+function playState(p) {
+  p.preload = function(){
+  }
+  p.setup = function(){
+    canvas = p.createCanvas(computer.size.width,computer.size.height);
+    canvas.position(computer.location.x,computer.location.y);
+    p.background(0);
+  }
+
+  p.incomingCall() = function(){
+    
+  }
+}
