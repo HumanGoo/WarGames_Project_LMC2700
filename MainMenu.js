@@ -26,7 +26,7 @@ function mainMenu(m) {
     computer.location.set(cnv.position().x,cnv.position().y);
 
     //start button
-    m.startButton = new Button(`START`, -175, 75, 118, 32, m);
+    m.startButton = new Button(`START`, -175, 25, 118, 32, m);
     m.startButton.setSize(1.75);
     m.startButton.setDisplacement(1.5, 9);
 
