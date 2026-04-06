@@ -2,8 +2,9 @@ function options(o) {
   o.setup = function() {
     panel = o.createCanvas(400, 300);
     //position is always in relation to the entire window's width and height
-    console.log(computerScreenLocation);
-    panel.position(computerScreenLocation.x + currentScene.width/2 - o.width/2, computerScreenLocation.y + currentScene.height/2 - o.height/2);
+
+    panel.position(computer.location.x + currentScene.width/2 - o.width/2, computer.location.y 
+      + currentScene.height/2 - o.height/2);
     o.background(100,150);
 
     o.exit = new Button(`X`,220,-183,25,25,o);

@@ -6,7 +6,7 @@ function mainMenu(m) {
   m.optionsWindowNeeded = false;
   m.optionsWindowExists = false;
   m.optionsWindow;
-  
+
   m.setup = function() {
     loadWarGamesFont();
     m.textSize(6);
@@ -20,30 +20,36 @@ function mainMenu(m) {
     m.pg.stroke(0, 255, 0);
     m.gl = m.pg._renderer.GL;
     
-    cnv = m.createCanvas(750, 450);
-    cnv.position((windowWidth - m.width)/2, (windowHeight - m.height)/2 - 50);
-    computerScreenLocation.set(cnv.position().x,cnv.position().y);
-    
+    cnv = m.createCanvas(computer.size.width,computer.size.height);
+    console.log(computer.location);
+    cnv.position(computer.location.x, computer.location.y);
+    computer.location.set(cnv.position().x,cnv.position().y);
+
     //start button
-    m.startButton = new Button(`START`,-175, 25, 85, 32,m);
+    m.startButton = new Button(`START`, -175, 75, 118, 32, m);
     m.startButton.setSize(1.75);
-    m.startButton.setDisplacement(1.5,9);
+    m.startButton.setDisplacement(1.5, 9);
 
     //options button
     m.options = new Button(`OPTIONS`, -175, 75, 118, 32, m);
     m.options.setSize(1.75);
-    m.options.setDisplacement(0.5,9);
+    m.options.setDisplacement(0.5, 9);
   }
 
   m.draw = function() {
-    m.background(0); m.stroke(0, 255, 0); m.noFill();
+    m.background(0);
+    //m.line(m.width/3,0,m.width/3,m.height);
+    //m.line(2*m.width/3,0,2*m.width/3,m.height);
+    m.stroke(0, 255, 0);
+    m.noFill();
     m.pg.clear();
     m.pg.push();
-    m.pg.rotateX(2.2); m.pg.rotateY(millis()*.0002); m.pg.rotateZ(-0.28);
+    m.pg.rotateX(2.2); 
+    m.pg.rotateY(millis()*.0002); 
+    m.pg.rotateZ(-0.28);
     m.pg.sphere(150, 18, 9);
     m.pg.pop();
-    // m.image(m.pg, m.width/2 + 200, m.height/2);
-    m.gl.clearDepth(1); m.gl.clear(m.gl.DEPTH_BUFFER_BIT);
+    m.gl.clear(m.gl.DEPTH_BUFFER_BIT);
     
     if (!m.offTitle) {
       m.line(m.width/2 + 140, 0, m.width/2 + 140, 50);
@@ -52,12 +58,12 @@ function mainMenu(m) {
       //when resizing the text, the only way I found that worked was resizing it with scale(); However, it displaces the text, so the next best thing to would be to
       //apply a matrix that sets your desired coordinates to the origin. Now when you resize it, it doesn't displace the text.
       //Use backticks when displaying multi-line strings
-      
+
       setAlignment(true);
       write(`The\nGold\nCode`, -76.5, -75, m);
 
       m.resetMatrix();
-      
+
       m.startButton.show();
       m.options.show();
 
@@ -66,22 +72,21 @@ function mainMenu(m) {
     } else {
       m.applyMatrix(2, 0, 0, 2, m.width/2, m.height/2);
       setAlignment(false);
-      write(`GAME COMING SOON! :)`, -150, 0, m)
-      m.resetMatrix();
+    write(`GAME COMING SOON! :
+      )`, -150, 0, m)
+        m.resetMatrix();
       write(`<--`, 20, 40, m);
     }
     if (m.optionsWindowNeeded) {
       m.optionsWindow = new p5(options);
       m.optionsWindowNeeded = false;
-
     }
-
   }
 
   m.mousePressed = function() {
     // Note that all numbers must be multiplied by 1.75 b/c the matrix for the rects was scaled up by x1.75 (besides width/2 and height/2 b/c they are the
     // origin of where the scaling took place!)
-    
+
     if (!m.offTitle) {
       m.startButton.checkClick();
       m.options.checkClick();
@@ -95,7 +100,7 @@ function mainMenu(m) {
 
   m.mouseReleased = function() {
     if (m.options.isClicking()) {
-      if(!m.optionsWindowExists) {
+      if (!m.optionsWindowExists) {
         m.optionsWindowNeeded = true;
         m.optionsWindowExists = true;
       } else {
@@ -112,11 +117,11 @@ function mainMenu(m) {
       //m.remove();
     }
   }
-  
+
   m.removeOptionsWindow = function() {
-        m.optionsWindow.remove();
-        m.optionsWindowExists = false;
-        m.options.setState(false); //turn off
-        console.log(m.options.clickedButton);
+    m.optionsWindow.remove();
+    m.optionsWindowExists = false;
+    m.options.setState(false); //turn off
+    console.log(m.options.clickedButton);
   }
 }
