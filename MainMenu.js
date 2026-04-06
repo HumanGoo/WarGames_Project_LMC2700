@@ -12,21 +12,25 @@ function mainMenu(m) {
     m.textSize(6);
     m.strokeWeight(1);
     m.imageMode(CENTER);
-    cnv = m.createCanvas(750, 450);
-    cnv.position((windowWidth - m.width)/2, (windowHeight - m.height)/2 - 50);
-    computerScreenLocation.set(cnv.position().x,cnv.position().y);
-    m.pg = m.createGraphics(220, 220, WEBGL);
+    
+    m.pg = m.createGraphics(750, 450, WEBGL);
+    m.pg.translate(120, 0);
+    m.pg.setAttributes("alpha", true);
     m.pg.noFill();
     m.pg.stroke(0, 255, 0);
     m.gl = m.pg._renderer.GL;
     
+    cnv = m.createCanvas(750, 450);
+    cnv.position((windowWidth - m.width)/2, (windowHeight - m.height)/2 - 50);
+    computerScreenLocation.set(cnv.position().x,cnv.position().y);
+    
     //start button
-    m.startButton = new Button(`START`,-180, 75, 85, 32,m);
+    m.startButton = new Button(`START`,-175, 25, 85, 32,m);
     m.startButton.setSize(1.75);
     m.startButton.setDisplacement(1.5,9);
 
     //options button
-    m.options = new Button(`OPTIONS`, 70, 75, 118, 32, m);
+    m.options = new Button(`OPTIONS`, -175, 75, 118, 32, m);
     m.options.setSize(1.75);
     m.options.setDisplacement(0.5,9);
   }
@@ -35,20 +39,22 @@ function mainMenu(m) {
     m.background(0); m.stroke(0, 255, 0); m.noFill();
     m.pg.clear();
     m.pg.push();
-    m.pg.rotateX(2.2); m.pg.rotateZ(-0.28); m.pg.rotateY(millis()*.0002);
-    m.pg.sphere(90, 18, 9);
+    m.pg.rotateX(2.2); m.pg.rotateY(millis()*.0002); m.pg.rotateZ(-0.28);
+    m.pg.sphere(150, 18, 9);
     m.pg.pop();
+    // m.image(m.pg, m.width/2 + 200, m.height/2);
     m.gl.clearDepth(1); m.gl.clear(m.gl.DEPTH_BUFFER_BIT);
-
+    
     if (!m.offTitle) {
-      m.line(m.width/2,0,m.width/2,m.height);
-      m.applyMatrix(2.5, 0, 0, 2.5, m.width/2, m.height/2);
+      m.line(m.width/2 + 140, 0, m.width/2 + 140, 50);
+      m.line(m.width/2 + 140, m.height - 50, m.width/2 + 140, m.height);
+      m.applyMatrix(2, 0, 0, 2, m.width/2, m.height/2);
       //when resizing the text, the only way I found that worked was resizing it with scale(); However, it displaces the text, so the next best thing to would be to
       //apply a matrix that sets your desired coordinates to the origin. Now when you resize it, it doesn't displace the text.
       //Use backticks when displaying multi-line strings
       
       setAlignment(true);
-      write(`Hello  Mr.President`, 0, -50, m);
+      write(`The\nGold\nCode`, -76.5, -75, m);
 
       m.resetMatrix();
       

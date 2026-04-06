@@ -175,17 +175,22 @@ class HP1345AFont {
   }
 
   drawString(w, px, py, e) {
+    let lineCharCount = 0;
+    
     e.noFill();
     e.strokeWeight(1);
     const spacing = 16;
     px = charAlign(w,px);
     for (let i = 0; i < w.length; i++) {
+      lineCharCount++
+      
       const ch = w[i];
       let newPx = px + i * spacing;
 
       if (ch == "\n") {
-        px -= (i + 1) * spacing;
+        px -= (lineCharCount) * spacing;
         py += 32;
+        lineCharCount = 0;
       }
 
 
