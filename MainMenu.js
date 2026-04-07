@@ -12,18 +12,18 @@ function mainMenu(m) {
     m.textSize(6);
     m.strokeWeight(1);
     m.imageMode(CENTER);
-    
+
     m.pg = m.createGraphics(750, 450, WEBGL);
     m.pg.translate(120, 0);
     m.pg.setAttributes("alpha", true);
     m.pg.noFill();
     m.pg.stroke(0, 255, 0);
     m.gl = m.pg._renderer.GL;
-    
-    cnv = m.createCanvas(computer.size.width,computer.size.height);
+
+    cnv = m.createCanvas(computer.size.width, computer.size.height);
     console.log(computer.location);
     cnv.position(computer.location.x, computer.location.y);
-    computer.location.set(cnv.position().x,cnv.position().y);
+    computer.location.set(cnv.position().x, cnv.position().y);
 
     //start button
     m.startButton = new Button(`START`, -175, 25, 118, 32, m);
@@ -44,13 +44,13 @@ function mainMenu(m) {
     m.noFill();
     m.pg.clear();
     m.pg.push();
-    m.pg.rotateX(2.2); 
-    m.pg.rotateY(millis()*.0002); 
+    m.pg.rotateX(2.2);
+    m.pg.rotateY(millis()*.0002);
     m.pg.rotateZ(-0.28);
     m.pg.sphere(150, 18, 9);
     m.pg.pop();
     m.gl.clear(m.gl.DEPTH_BUFFER_BIT);
-    
+
     if (!m.offTitle) {
       m.line(m.width/2 + 140, 0, m.width/2 + 140, 50);
       m.line(m.width/2 + 140, m.height - 50, m.width/2 + 140, m.height);
@@ -72,10 +72,10 @@ function mainMenu(m) {
     } else {
       setAlignment(false);
       /*m.applyMatrix(2, 0, 0, 2, m.width/2, m.height/2);
-    write(`GAME COMING SOON! :
-      )`, -150, 0, m)
-        m.resetMatrix();*/
-        
+       write(`GAME COMING SOON! :
+       )`, -150, 0, m)
+       m.resetMatrix();*/
+
       write(`<--`, 20, 40, m);
     }
     if (m.optionsWindowNeeded) {
@@ -116,7 +116,6 @@ function mainMenu(m) {
       sceneNeedsChanging = true;
       m.remove();
       switchScene(playState);
-      
     }
   }
 
