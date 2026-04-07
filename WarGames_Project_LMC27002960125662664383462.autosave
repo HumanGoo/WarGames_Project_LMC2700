@@ -12,14 +12,16 @@ let dialStart;
 let outsideConsoleScene;
 let overlayScene;
 /** the current dialogue being shown on CurrentScreen*/
-let currentDialogue; 
+let currentDialogue;
 
-computer.size = {width: 750, height: 450};
+computer.size = {width:
+750, height:
+450};
 
 function setup() {
   computer.location = new p5.Vector((windowWidth - computer.size.width)/2,
-  (windowHeight - computer.size.height)/2 - 60);
-  stroke(0,255,0);
+    (windowHeight - computer.size.height)/2 - 60);
+  stroke(0, 255, 0);
   loadWarGamesFont();
   outsideConsoleScene = new p5(outsideConsole);
   currentScene = new p5(mainMenu);
@@ -36,12 +38,14 @@ function switchScene(newScene) {
   //new p5(overlay);
   //loadOverlay();
 }
-function loadOverlay(){overlayScene = new p5(overlay);}
+function loadOverlay() {
+  overlayScene = new p5(overlay);
+}
 /*
 const redScreen = {
-  blare() {
-
-  }
-}
-p5.prototype.redScreenBlaringA = redScreen.blare;
-*/
+ blare() {
+ 
+ }
+ }
+ p5.prototype.redScreenBlaringA = redScreen.blare;
+ */

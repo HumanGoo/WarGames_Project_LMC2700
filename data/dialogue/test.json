@@ -1,6 +1,28 @@
 {
+    "id": "test",
     "dialogue": [
-        "This is test dialogue.",
-        "Yippee!"
-    ]
+        {
+            "index": 0,
+            "id": "test",
+            "text": ["this is a test dialogue!",
+            "Yippee"
+            ],
+            "branching":true,
+            "links":[
+                {"label":"Yippee!",
+                "linkTo":0},
+                {"label":"I hate joy.",
+                "linkTo":1}
+            ]
+        },
+        {
+            "index": 1,
+            "id": "testNextBranch",
+            "text":["this is the next branch. You can make multiple branches"],
+            "branching": false,
+            "links":[]
+        }
+
+    ],
+    "links": [""]
 }
