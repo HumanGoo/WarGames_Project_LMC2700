@@ -1,5 +1,5 @@
 class Dialogue {
-  constructor(fileName, parentCanvas) {
+  constructor(fileName, parentCanvas, linkToList = null) {
     this.fileName = fileName;
     this.parentCanvas = parentCanvas;
     if (this.parentCanvas == null) {
@@ -15,16 +15,17 @@ class Dialogue {
     this.name = json['id'];
     this.curLine = 0;
     this.canClose = false
-      this.canDisplay = true;
+    this.canDisplay = true;
     this.closingTimer = 0;
 
     this.delay = false;
     //sizes // constant
     this.cornerPoint = new p5.Vector(50, parentCanvas.height - 175);
-  this.size = {width:
+    this.size = {width:
   parentCanvas.width-100, height:
     150
   };
+    this.linkToNext = {}
 }
 
 display() {
@@ -58,6 +59,7 @@ display() {
 }
 
 nextLine() {
+  console.log(this.curLine + "" + this.dial.length)
   if ((this.curLine + 1) < this.dial.length) {
     this.curLine++;
     dialStart = millis();
@@ -65,7 +67,7 @@ nextLine() {
     this.canClose = true;
     this.closingTimer = millis();
   }
-  if ((this.curLine) < this.dial.length && this.canBranch) {
+  if ((this.curLine + 1) == this.dial.length && this.canBranch) {
     givenDialogueChoices = true;
   }
   this.delay = false;
@@ -85,10 +87,11 @@ branchDialoguePaths(index) {
     this.canBranch = false;
   }
   this.name = json['id'];
-  this.curLine = 0;
+  this.curLine = 1;
   this.canClose = false
-    this.canDisplay = true;
+  this.canDisplay = true;
   this.closingTimer = 0;
+  dialStart = millis();
 }
 }
 
@@ -102,7 +105,7 @@ class DialogueChoice {
     }
     this.button = createButton(htmlButton);
     this.linkTo = link;
-    console.log(this.linkTo);
+    //console.log(this.linkTo);
     this.button.position(DialogueChoice.position.x, DialogueChoice.position.y);
     DialogueChoice.position.add(0, 50);
     this.button.mousePressed(this.whenClicked);
