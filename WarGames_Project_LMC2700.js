@@ -4,7 +4,7 @@ function preload() {
   preLoadFont();
   computer.outline = loadImage('data/terminal.png');
   computer.board = loadImage('data/board.jpg');
-  json = loadJSON("data/dialogue/test.json");
+  json = loadJSON("data/dialogue/secretary.json");
 }
 let sceneNeedsChanging = false;
 let currentScene; //the current scene on screen

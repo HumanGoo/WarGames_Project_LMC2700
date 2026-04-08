@@ -15,7 +15,7 @@ function playState(p) {
     p.imageMode(CENTER)
       p.image(p.phone, computer.size.width/2, computer.size.height/2);
     p.ellipseMode(RADIUS);
-    p.newDialogue = new Dialogue("test", p);
+    p.newDialogue = new Dialogue("secretary", p);
     currentDialogue = p.newDialogue;
     p.newDialogue.canDisplay = false;
     loadOverlay();
