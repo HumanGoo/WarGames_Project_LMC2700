@@ -65,7 +65,7 @@ nextLine() {
     this.canClose = true;
     this.closingTimer = millis();
   }
-  if ((this.curLine) < this.dial.length && this.canBranch) {
+  if ((this.curLine + 1) == this.dial.length && this.canBranch) {
     givenDialogueChoices = true;
   }
   this.delay = false;
@@ -89,6 +89,7 @@ branchDialoguePaths(index) {
   this.canClose = false
     this.canDisplay = true;
   this.closingTimer = 0;
+  dialStart = millis();
 }
 }
 
