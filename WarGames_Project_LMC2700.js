@@ -1,11 +1,21 @@
 let computer = {};
 let json;
+
+
+
+let jsonList = [];
 function preload() {
   preLoadFont();
   computer.outline = loadImage('data/terminal.png');
   computer.board = loadImage('data/board.jpg');
-  json = loadJSON("data/dialogue/secretary.json");
+  let stringsList = ["secretary","congress","press","businessman","leader"];
+  stringsList.forEach(elem => {
+    let temp = loadJSON("data/dialogue/"+elem+".json");
+    jsonList.push(temp)
+  
+  });
 }
+
 let sceneNeedsChanging = false;
 let currentScene; //the current scene on screen
 let dialStart;
@@ -18,6 +28,12 @@ computer.size = {width:
 750, height:
 450};
 
+let secretaryDial;
+let pressDial;
+let congressDial;
+let ceoDial;
+let leaderDial;
+
 function setup() {
   computer.location = new p5.Vector((windowWidth - computer.size.width)/2,
     (windowHeight - computer.size.height)/2 - 60);
@@ -26,6 +42,9 @@ function setup() {
   outsideConsoleScene = new p5(outsideConsole);
   currentScene = new p5(mainMenu);
   loadOverlay();
+
+  initializeDialogues();
+
 }
 
 function switchScene(newScene) {
@@ -49,3 +68,15 @@ const redScreen = {
  }
  p5.prototype.redScreenBlaringA = redScreen.blare;
  */
+
+ function initializeDialogues() {
+  secretaryDial = new Dialogue(jsonList[0], "sec");
+  congressDial = new Dialogue(jsonList[1], "cong");
+  pressDial = new Dialogue(jsonList[2], "press");
+  ceoDial = new Dialogue(jsonList[3], "ceo");
+  leaderDial = new Dialogue(jsonList[4], "lead");
+
+  secretaryDial.setNewLinks([pressDial,congressDial,ceoDial,leaderDial]);
+
+  console.log(secretaryDial.linkToList);
+ }

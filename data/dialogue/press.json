@@ -1,15 +1,19 @@
 {
-    "id": "Secretary",
+    "id": "press",
     "dialogue": [
         {
             "index": 0,
             "id": "start",
-            "text": ["Come in, Come in! President, do you\ncopy?",
-            "Please confirm receipt of this\ntransmission on your terminal\ndashboard."
+            "text": ["Hello? Hello? is this thing on?\nAre we live? Okay...",
+            "Good morning, people of America and\nthe wonderful listeners of NSBNC!", 
+            "I'm Jeronica Wilkins, reporting live,\nwith what is the most consequential\ninterview of our time.", 
+            "With me, inside of a computer screen,\nis the President of our wonderful\ncountry",
+            "Mr. President, I'll be blunt.\nThe people want answers.","Rumors are flying every which way,\ntheorizing about your whereabouts.",
+            "So, lets put those conspiracies to\nrest. Where exactly are you right\nnow?"
             ],
             "branching":true,
             "links":[
-                {"label":"Affirmative",
+                {"label":"Everything is fine",
                 "linkTo":1}
             ]
         },
@@ -28,11 +32,12 @@
         "Who would you like me to connect to\nyou first?"
         ],
             "branching": true,
-            "links":[{"label":"Press","linkTo":["press",0]},
-        {"label":"Congress","linkTo":["cong",0]},
-        {"label":"The CEO","linkTo":["ceo",0]},
-        {"label":"Foreign Leader","linkTo":["lead",0]}]
+            "links":[{"label":"Press","linkTo":"press"},
+        {"label":"Congress","linkTo":"congressMan"},
+        {"label":"The CEO","linkTo":"businessMan"},
+        {"label":"Foreign Leader","linkTo":"foreignLeader"}]
         }
+
     ],
     "links": [""]
 }

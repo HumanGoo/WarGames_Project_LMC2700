@@ -59,6 +59,12 @@ function outsideConsole(c) {
     c.vertex(computer.location.x, computer.location.y + computer.size.height);
     c.endShape();
     //button
+
+    if(!DialogueChoice.positionInitialized) {
+      DialogueChoice.position = new p5.Vector(c.width/2 - 200, (c.height + 450)/2 - 35);
+      DialogueChoice.origin = new p5.Vector(c.width/2 - 200, (c.height + 450)/2 - 35);
+      DialogueChoice.positionInitialized = true;
+    }
     c.strokeWeight(5);
     c.fill(140);
     c.ellipse(c.width/2, (c.height + 450)/2 + 55, 150, 120);

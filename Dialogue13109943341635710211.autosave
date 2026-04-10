@@ -73,22 +73,19 @@ isInsideBox() {
     && mouseVector.y > point.y && mouseVector.y < point.y + this.size.height;
 }
 branchDialoguePaths(index) {
-  //check if array
-  //if so, index 0 is the file name we path to
-  //index 1 is the index we set it to be.
-  if(typeof index === 'object') {
+  //check if string
+  //if so, change current dialogue variable to the other object
+  if(typeof index === 'string') {
     console.log("sending you to: " + index);
-    let newDest = this.searchFor(index[0]);
+    let newDest = this.searchFor(index);
     console.log(newDest);
     currentDialogue = newDest;
     this.canDisplay = false;
     this.parentCanvas.inDialogue = false;
     this.parentCanvas.someoneIsCalling = true;
-    this.currentBranchIndex = index[1];
   } else {
     this.currentBranchIndex = index;
-  }
-  this.dial = this.json['dialogue'][this.currentBranchIndex]['text'];
+    this.dial = this.json['dialogue'][this.currentBranchIndex]['text'];
     this.canBranch = this.json['dialogue'][this.currentBranchIndex]['branching'];
     if (this.canBranch == undefined) {
       this.canBranch = false;
@@ -98,10 +95,9 @@ branchDialoguePaths(index) {
     this.canClose = false
     this.canDisplay = true;
     this.closingTimer = 0;
+  }
   dialStart = millis();
   this.paths = undefined;
-
-  
 }
 
 setNewLinks(linkToList) {
@@ -109,11 +105,11 @@ setNewLinks(linkToList) {
     throw new Error("Illegal Argument");
   }
   this.linkToList = linkToList;
-  console.log(this.id + " links established");
+  console.log("secretary links established");
 }
 
 setParentCanvas(newParent) {
-  //console.log(newParent);
+  console.log(newParent);
     if (newParent == null) {
       throw new Error("**Parent Canvas not stated as parameter!**");
     }
@@ -134,25 +130,18 @@ searchFor(givenName){
 }
 
 class DialogueChoice {
-  static position = new p5.Vector(600, 230); //doesnt' matter. OutsideConsole.js reconfigures this position
-  static positionInitialized = false;
-  static origin;
-  static num = 0;
+  static position = new p5.Vector(500, 630);
   static hasBeenPicked = false;
   constructor(htmlButton, link) {
     if (DialogueChoice.hasBeenPicked) {
       DialogueChoice.hasBeenPicked = false;
-      DialogueChoice.position.set(DialogueChoice.origin.x,DialogueChoice.origin.y);
-      Dialogue.num = 0;
+      DialogueChoice.position.set(500, 630);
     }
     this.button = createButton(htmlButton);
     this.linkTo = link;
     //console.log(this.linkTo);
-    
-
     this.button.position(DialogueChoice.position.x, DialogueChoice.position.y);
-    DialogueChoice.position.add(80, 0);
-    DialogueChoice.num++;
+    DialogueChoice.position.add(0, 50);
     this.button.mousePressed(this.whenClicked);
   }
   //this solution was figured out by AI. I didn't know that arrow functions tie the this keyword to the instance.

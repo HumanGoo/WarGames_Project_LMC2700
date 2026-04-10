@@ -1,5 +1,5 @@
 {
-    "id": "Secretary",
+    "id": "secretary",
     "dialogue": [
         {
             "index": 0,
@@ -28,11 +28,12 @@
         "Who would you like me to connect to\nyou first?"
         ],
             "branching": true,
-            "links":[{"label":"Press","linkTo":["press",0]},
-        {"label":"Congress","linkTo":["cong",0]},
-        {"label":"The CEO","linkTo":["ceo",0]},
-        {"label":"Foreign Leader","linkTo":["lead",0]}]
+            "links":[{"label":"Press","linkTo":"press"},
+        {"label":"Congress","linkTo":"congressMan"},
+        {"label":"The CEO","linkTo":"businessMan"},
+        {"label":"Foreign Leader","linkTo":"foreignLeader"}]
         }
+
     ],
     "links": [""]
 }
