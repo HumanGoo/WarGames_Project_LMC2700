@@ -1,12 +1,13 @@
 class Dialogue {
+  static currentBranchIndex = 0;
+  
   constructor(file,name = null) {
     this.id = name;
     this.json = file;
     this.parentCanvas = null;
 
-    this.currentBranchIndex = 0
-      this.dial = this.json['dialogue'][this.currentBranchIndex]['text'];
-    this.canBranch = this.json['dialogue'][this.currentBranchIndex]['branching'];
+      this.dial = this.json['dialogue'][Dialogue.currentBranchIndex]['text'];
+    this.canBranch = this.json['dialogue'][Dialogue.currentBranchIndex]['branching'];
     if (this.canBranch == undefined) {
       this.canBranch = false;
     }
@@ -18,7 +19,7 @@ class Dialogue {
 
     this.delay = false;
 
-    this.linkToNext = {}
+    this.linkToNext = {};
 }
 
 display() {
@@ -44,7 +45,7 @@ display() {
     }
   }
   if (this.paths == undefined && this.canBranch) {
-    this.paths = this.json['dialogue'][this.currentBranchIndex]['links'];
+    this.paths = this.json['dialogue'][Dialogue.currentBranchIndex]['links'];
     //console.log(this.paths);
     dialogueChoices = this.paths;
   }
@@ -77,31 +78,51 @@ branchDialoguePaths(index) {
   //if so, index 0 is the file name we path to
   //index 1 is the index we set it to be.
   if(typeof index === 'object') {
-    console.log("sending you to: " + index);
-    let newDest = this.searchFor(index[0]);
-    console.log(newDest);
-    currentDialogue = newDest;
-    this.canDisplay = false;
-    this.parentCanvas.inDialogue = false;
-    this.parentCanvas.someoneIsCalling = true;
-    this.currentBranchIndex = index[1];
+    if (index[0] == "endState") {
+      pushedButton = boolean(index[1]);
+      sceneNeedsChanging = true;
+    } else {
+      console.log("sending you to: " + index);
+      let newDest = this.searchFor(index[0]);
+      console.log(newDest);
+      currentDialogue = newDest;
+      this.canDisplay = false;
+      this.parentCanvas.inDialogue = false;
+      this.parentCanvas.someoneIsCalling = true;
+      Dialogue.currentBranchIndex = index[1];
+      // console.log(Dialogue.currentBranchIndex);
+    }
   } else {
-    this.currentBranchIndex = index;
+    Dialogue.currentBranchIndex = index;
+    this.resetDial();
   }
-  this.dial = this.json['dialogue'][this.currentBranchIndex]['text'];
-    this.canBranch = this.json['dialogue'][this.currentBranchIndex]['branching'];
+  /*this.dial = this.json['dialogue'][Dialogue.currentBranchIndex]['text'];
+    this.canBranch = this.json['dialogue'][Dialogue.currentBranchIndex]['branching'];
     if (this.canBranch == undefined) {
       this.canBranch = false;
     }
     this.name = this.json['id'];
-    this.curLine = 1;
+    this.curLine = 0;
+    this.canClose = false
+    this.canDisplay = true;
+    this.closingTimer = 0;
+  dialStart = millis();
+  this.paths = undefined;*/
+}
+
+resetDial() {
+  this.dial = this.json['dialogue'][Dialogue.currentBranchIndex]['text'];
+    this.canBranch = this.json['dialogue'][Dialogue.currentBranchIndex]['branching'];
+    if (this.canBranch == undefined) {
+      this.canBranch = false;
+    }
+    this.name = this.json['id'];
+    this.curLine = 0;
     this.canClose = false
     this.canDisplay = true;
     this.closingTimer = 0;
   dialStart = millis();
   this.paths = undefined;
-
-  
 }
 
 setNewLinks(linkToList) {
@@ -145,10 +166,10 @@ class DialogueChoice {
       DialogueChoice.position.set(DialogueChoice.origin.x,DialogueChoice.origin.y);
       Dialogue.num = 0;
     }
-    this.button = createButton(htmlButton);
-    this.linkTo = link;
     //console.log(this.linkTo);
     
+    this.button = createButton(htmlButton);
+    this.linkTo = link;
 
     this.button.position(DialogueChoice.position.x, DialogueChoice.position.y);
     DialogueChoice.position.add(80, 0);

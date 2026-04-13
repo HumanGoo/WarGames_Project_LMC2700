@@ -8,6 +8,8 @@ function playState(p) {
     //load other people images
   }
   p.setup = function() {
+    sceneNeedsChanging = false;
+    
     currentDialogue = secretaryDial;
 
     canvas = p.createCanvas(computer.size.width, computer.size.height);
@@ -31,6 +33,12 @@ function playState(p) {
       if (p.newDialogue.canDisplay) {
         p.newDialogue.display();
       }
+    }
+    
+    if (sceneNeedsChanging) {
+      p.remove();
+      switchScene(endState);
+      sceneNeedsChanging = false;
     }
   }
 
@@ -100,8 +108,13 @@ function playState(p) {
   }
 
   p.makeNewDialogue = () => {
+    let curBranch = Dialogue.currentBranchIndex;
+    console.log(curBranch);
+    
     currentDialogue.setParentCanvas(p);
     p.newDialogue = currentDialogue;
+    // p.newDialogue.currentBranchingIndex = curBranch;
+    p.newDialogue.resetDial();
     console.log(p.newDialogue.dial);
     p.newDialogue.canDisplay = true;
   }

@@ -33,6 +33,7 @@ let pressDial;
 let congressDial;
 let ceoDial;
 let leaderDial;
+let pushedButton;
 
 function setup() {
   computer.location = new p5.Vector((windowWidth - computer.size.width)/2,
@@ -76,7 +77,12 @@ const redScreen = {
   ceoDial = new Dialogue(jsonList[3], "ceo");
   leaderDial = new Dialogue(jsonList[4], "lead");
 
-  secretaryDial.setNewLinks([pressDial,congressDial,ceoDial,leaderDial]);
+  secretaryDial.setNewLinks([pressDial]);
+  pressDial.setNewLinks([congressDial]);
+  congressDial.setNewLinks([ceoDial]);
+  ceoDial.setNewLinks([leaderDial]);
+  leaderDial.setNewLinks([secretaryDial]);
+  // congressDial.setNewLinks([pressDial,congressDial,ceoDial,leaderDial]);
 
-  console.log(secretaryDial.linkToList);
+  // console.log(secretaryDial.linkToList);
  }

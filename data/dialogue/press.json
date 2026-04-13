@@ -1,5 +1,5 @@
 {
-    "id": "press",
+    "id": "Press",
     "dialogue": [
         {
             "index": 0,
@@ -20,22 +20,11 @@
         {
             "index": 1,
             "id": "confirmed",
-            "text":["Good, good! This is your Secretary of\nState. I'm receiving you loud and\nclear, sir.",
-        "Tensions with the opposing nation\nremain elevated.",
-        "However, our intelligence confirms no\nimminent military action at this time.",
-        "You have a window to act, and how you\nproceed will shape what comes next.",
-        "From the bunker, you currently have\nfour secure channels available to you,\nsir.",
-        "You may speak with the Press to\naddress the American people directly.",
-        "You may reach out to a Congressman\nto coordinate legislative support.",
-        "A wealthy private sector ally has also\nrequested talks regarding economic\nmeasures and the conflict.",
-        "Finally, a direct line to the opposing\nnation's leader has been established\nand is standing by.",
-        "Who would you like me to connect to\nyou first?"
+            "text":["placeholder text",
+        "proceed to speak with the congressman"
         ],
             "branching": true,
-            "links":[{"label":"Press","linkTo":"press"},
-        {"label":"Congress","linkTo":"congressMan"},
-        {"label":"The CEO","linkTo":"businessMan"},
-        {"label":"Foreign Leader","linkTo":"foreignLeader"}]
+            "links":[{"label":"Proceed","linkTo":["cong",0]}]
         }
 
     ],
