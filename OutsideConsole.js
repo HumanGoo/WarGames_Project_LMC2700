@@ -15,7 +15,13 @@ function outsideConsole(c) {
       dialogueChoicesInitialized = true;
       c.choices = [];
       dialogueChoices.forEach(elem => {
-        c.choices.push(new DialogueChoice(elem.label, elem.linkTo));
+        if (Array.isArray(elem.linkTo)) {
+          if (allDials.includes(elem.linkTo[0])) {
+            c.choices.push(new DialogueChoice(elem.label, elem.linkTo));
+          }
+        } else {
+          c.choices.push(new DialogueChoice(elem.label, elem.linkTo));
+        }
       }
       );
     }
