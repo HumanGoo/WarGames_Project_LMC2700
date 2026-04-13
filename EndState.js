@@ -14,8 +14,9 @@ function endState(e) {
     
     e.imageMode(CENTER);
     e.ellipseMode(RADIUS);
+    e.noFill();
     
-    e.resetButton = new Button(`RESET`, -175, 25, 100, 40, e);
+    e.resetButton = new Button(`RESET`, -50, 70, 100, 40, e);
     e.resetButton.setSize(1.75);
     e.resetButton.setDisplacement(1.5, 9);
     
@@ -53,15 +54,18 @@ function endState(e) {
   e.draw = function() {
     e.background(0);
     e.stroke(0, 255, 0);
+    setAlignment(true);
+    // e.strokeWeight(300);
     
     e.applyMatrix(2.5, 0, 0, 2.5, e.width/2, e.height/2);
-    setAlignment(true);
     write(e.topTextStr, -5, -25, e);
     
     e.resetMatrix();
     e.translate(e.width/2, e.height/2);
     write(e.descTextStr, -30, 40, e);
     write(e.descTextStr2, -40, 90, e);
+    
+    e.resetMatrix();
     
     e.resetButton.show();
   }

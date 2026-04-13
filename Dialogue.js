@@ -85,6 +85,15 @@ branchDialoguePaths(index) {
       console.log("sending you to: " + index);
       let newDest = this.searchFor(index[0]);
       console.log(newDest);
+      if (index[0] != "sec") {
+        allDials.splice(allDials.indexOf(index[0]), 1);
+      }
+      if (allDials.length == 0) {
+        newDest.setNewLinks([secretaryDial]);
+      } else {
+        newDest.setNewLinks([pressDial, congressDial, ceoDial, leaderDial]);
+      }
+      console.log(allDials);
       currentDialogue = newDest;
       this.canDisplay = false;
       this.parentCanvas.inDialogue = false;
@@ -129,7 +138,16 @@ setNewLinks(linkToList) {
   if (!linkToList instanceof(Array)) {
     throw new Error("Illegal Argument");
   }
-  this.linkToList = linkToList;
+  
+  let actualLinkToList = [];
+  
+  for (let i = 0; i < linkToList.length; i++) {
+    if (allDials.includes(linkToList[i].id)) {
+      actualLinkToList.push(linkToList[i]);
+    }
+  }
+  
+  this.linkToList = actualLinkToList;
   console.log(this.id + " links established");
 }
 

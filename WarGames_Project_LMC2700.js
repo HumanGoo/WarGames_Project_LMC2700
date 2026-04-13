@@ -33,6 +33,8 @@ let pressDial;
 let congressDial;
 let ceoDial;
 let leaderDial;
+
+let allDials = ["cong", "press", "ceo", "lead"];
 let pushedButton;
 
 function setup() {
@@ -77,11 +79,11 @@ const redScreen = {
   ceoDial = new Dialogue(jsonList[3], "ceo");
   leaderDial = new Dialogue(jsonList[4], "lead");
 
-  secretaryDial.setNewLinks([pressDial]);
-  pressDial.setNewLinks([congressDial]);
-  congressDial.setNewLinks([ceoDial]);
-  ceoDial.setNewLinks([leaderDial]);
-  leaderDial.setNewLinks([secretaryDial]);
+  secretaryDial.setNewLinks([pressDial, congressDial, ceoDial, leaderDial]);
+  // pressDial.setNewLinks([pressDial, congressDial, ceoDial, leaderDial]);
+  // congressDial.setNewLinks([pressDial, congressDial, ceoDial, leaderDial]);
+  // ceoDial.setNewLinks([pressDial, congressDial, ceoDial, leaderDial]);
+  // leaderDial.setNewLinks([secretaryDial, pressDial, congressDial, ceoDial, leaderDial]);
   // congressDial.setNewLinks([pressDial,congressDial,ceoDial,leaderDial]);
 
   // console.log(secretaryDial.linkToList);
