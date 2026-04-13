@@ -13,8 +13,10 @@
             ],
             "branching":true,
             "links":[
-                {"label":"Everything is fine",
-                "linkTo":1}
+                {"label":"I am in a bunker",
+                "linkTo":1},
+                {"label": "That is classified",
+                "linkTo":2}
             ]
         },
         {
