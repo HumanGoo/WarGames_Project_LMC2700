@@ -1,6 +1,7 @@
 {
-    "id": "press",
-    "dialogue": [{
+    "id": "Press",
+    "dialogue": [
+        {
             "index": 0,
             "id": "start",
             "text": ["Hello? Hello? is this thing on?\nAre we live? Okay...",
