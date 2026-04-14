@@ -3,26 +3,23 @@
     "dialogue": [
         {
             "index": 0,
-            "id": "test",
-            "text": ["this is a test dialogue!",
-            "Yippee"
+            "id": "start",
+            "text": ["test"
             ],
             "branching":true,
             "links":[
-                {"label":"Yippee!",
-                "linkTo":0},
-                {"label":"I hate joy.",
+                {"label":"Affirmative",
                 "linkTo":1}
             ]
         },
         {
             "index": 1,
-            "id": "testNextBranch",
-            "text":["this is the next branch. You can make multiple branches"],
+            "id": "confirmed",
+            "text":["testing the non-branchinh\nlinear design"
+        ],
             "branching": false,
-            "links":[]
+            "links":[0]
         }
-
     ],
     "links": [""]
 }

@@ -1,45 +1,76 @@
 {
     "id": "press",
-    "dialogue": [
-        {
+    "dialogue": [{
             "index": 0,
             "id": "start",
             "text": ["Hello? Hello? is this thing on?\nAre we live? Okay...",
-            "Good morning, people of America and\nthe wonderful listeners of NSBNC!", 
-            "I'm Jeronica Wilkins, reporting live,\nwith what is the most consequential\ninterview of our time.", 
-            "With me, inside of a computer screen,\nis the President of our wonderful\ncountry",
-            "Mr. President, I'll be blunt.\nThe people want answers.","Rumors are flying every which way,\ntheorizing about your whereabouts.",
-            "So, lets put those conspiracies to\nrest. Where exactly are you right\nnow?"
+                "Good morning, people of America and\nthe wonderful listeners of NSBNC!",
+                "I'm Jeronica Wilkins, reporting live,\nwith what is the most consequential\ninterview of our time.",
+                "With me, inside of a computer screen,\nis the President of our wonderful\ncountry",
+                "Mr. President, I'll be blunt.\nThe people want answers.", "Rumors are flying every which way,\ntheorizing about your whereabouts.",
+                "So, lets put those conspiracies to\nrest. Where exactly are you right\nnow?"
             ],
-            "branching":true,
-            "links":[
-                {"label":"I am in a bunker",
-                "linkTo":1},
-                {"label": "That is classified",
-                "linkTo":2}
+            "branching": true,
+            "links": [{
+                    "label": "I am safe. That is all.",
+                    "linkTo": 1
+                },
+                {
+                    "label": "That is classified",
+                    "linkTo": 2
+                },
+                {
+                    "label": "I am stuck in a bunker.",
+                    "linkTo": 3
+                }
+
             ]
         },
         {
             "index": 1,
-            "id": "confirmed",
-            "text":["Good, good! This is your Secretary of\nState. I'm receiving you loud and\nclear, sir.",
-        "Tensions with the opposing nation\nremain elevated.",
-        "However, our intelligence confirms no\nimminent military action at this time.",
-        "You have a window to act, and how you\nproceed will shape what comes next.",
-        "From the bunker, you currently have\nfour secure channels available to you,\nsir.",
-        "You may speak with the Press to\naddress the American people directly.",
-        "You may reach out to a Congressman\nto coordinate legislative support.",
-        "A wealthy private sector ally has also\nrequested talks regarding economic\nmeasures and the conflict.",
-        "Finally, a direct line to the opposing\nnation's leader has been established\nand is standing by.",
-        "Who would you like me to connect to\nyou first?"
-        ],
+            "id": "safe",
+            "text": [
+                "You are safe. How reassuring.",
+                "Forgive me, Mr. President, but\n'I am safe' doesn't exactly\nstop the presses.",
+                "Half this country hasn't slept\nin three days. The other half\nis stockpiling canned goods.",
+                "Saying you're safe tells us\nwhere you are — but not what\nyou're doing there.",
+                "So let me ask it another way,\nsince we're being simple tonight.",
+                "Are the rumors true, sir?\nIs the United States on the\nbrink of military conflict?"
+            ],
             "branching": true,
-            "links":[{"label":"Press","linkTo":"press"},
-        {"label":"Congress","linkTo":"congressMan"},
-        {"label":"The CEO","linkTo":"businessMan"},
-        {"label":"Foreign Leader","linkTo":"foreignLeader"}]
+            "links": [
+                { "label": "We are exploring all options.", "linkTo": 4 },
+                { "label": "No conflict is imminent.", "linkTo": 5 },
+                { "label": "I won't comment on that.", "linkTo": 6 }
+            ]
+        },
+        {
+            "index": 2,
+            "id": "cannot_disclose",
+            "text": [
+                "Can't disclose your location.\nNaturally. I expected as much.",
+                "*leans into the microphone*",
+                "Though I must say, Mr. President,\nthe very fact that your location\nis a secret speaks volumes.",
+                "In my twenty-two years behind\nthis microphone, I have never\nhad to interview a ghost.",
+                "The people filling up this\nstation's switchboard — they\ndon't need coordinates, sir.",
+                "They need to know their Commander\nin Chief is in command.\nAre you, Mr. President?",
+                "Are you in command of this\nsituation — whatever this\nsituation actually is?"
+            ],
+            "branching": true,
+            "links": [{
+                    "label": "Completely and absolutely.",
+                    "linkTo": 7
+                },
+                {
+                    "label": "We are closely monitoring the situation.",
+                    "linkTo": 8
+                },
+                {
+                    "label": "I have full confidence in my team.",
+                    "linkTo": 9
+                }
+            ]
         }
-
     ],
     "links": [""]
 }
