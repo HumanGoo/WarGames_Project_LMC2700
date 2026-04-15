@@ -73,7 +73,7 @@
             "branching": true,
             "links": [
                 { "label": "Yes", "linkTo": 21 },
-                { "label": "No! I was just joking, haha", "linkTo": 17 }
+                { "label": "No! I was just joking, haha", "linkTo": 12 }
             ]
         },
         {
