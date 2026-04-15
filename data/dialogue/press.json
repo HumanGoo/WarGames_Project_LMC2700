@@ -1,14 +1,15 @@
 {
     "id": "Press",
-    "dialogue": [
-        {
+    "dialogue": [{
             "index": 0,
             "id": "start",
-            "text": ["Hello? Hello? is this thing on?\nAre we live? Okay...",
+            "text": [
+                "Hello? Hello? is this thing on?\nAre we live? Okay...",
                 "Good morning, people of America and\nthe wonderful listeners of NSBNC!",
                 "I'm Jeronica Wilkins, reporting live,\nwith what is the most consequential\ninterview of our time.",
                 "With me, inside of a computer screen,\nis the President of our wonderful\ncountry",
-                "Mr. President, I'll be blunt.\nThe people want answers.", "Rumors are flying every which way,\ntheorizing about your whereabouts.",
+                "Mr. President, I'll be blunt.\nThe people want answers.",
+                "Rumors are flying every which way,\ntheorizing about your whereabouts.",
                 "So, lets put those conspiracies to\nrest. Where exactly are you right\nnow?"
             ],
             "branching": true,
@@ -24,7 +25,6 @@
                     "label": "I am stuck in a bunker.",
                     "linkTo": 3
                 }
-
             ]
         },
         {
@@ -41,8 +41,7 @@
             "branching": true,
             "links": [
                 { "label": "We are exploring all options.", "linkTo": 4 },
-                { "label": "No conflict is imminent.", "linkTo": 5 },
-                { "label": "I won't comment on that.", "linkTo": 6 }
+                { "label": "No conflict is imminent.", "linkTo": 5 }
             ]
         },
         {
@@ -55,23 +54,291 @@
                 "In my twenty-two years behind\nthis microphone, I have never\nhad to interview a ghost.",
                 "The people filling up this\nstation's switchboard — they\ndon't need coordinates, sir.",
                 "They need to know their Commander\nin Chief is in command.\nAre you, Mr. President?",
-                "Are you in command of this\nsituation — whatever this\nsituation actually is?"
+                "And are the rumors true, that we are going to war?"
+            ],
+            "branching": true,
+            "links": [
+                { "label": "No comment", "linkTo": 6 },
+                { "label": "No conflict is imminent.", "linkTo": 5 }
+            ]
+        },
+        {
+            "index": 3,
+            "id": "in a bunker",
+            "text": [
+                "Excuse me?",
+                "I believe I misheard you, but did you say, that you are in a bunker?",
+                "So, then, we ARE in a tenuous situation, Mr. President?"
+            ],
+            "branching": true,
+            "links": [
+                { "label": "Yes", "linkTo": 21 },
+                { "label": "No! I was just joking, haha", "linkTo": 17 }
+            ]
+        },
+        {
+            "index": 4,
+            "id": "all_options",
+            "text": [
+                "'Exploring all options.'",
+                "...",
+                "That phrase, Mr. President,\nhas been used to start more\nwars than I care to remember.",
+                "Our viewers are smart people.\nThey know that 'all options'\nincludes the ones no one says out loud.",
+                "Is military force among those\noptions you're exploring, sir?\nA yes or no will do just fine."
             ],
             "branching": true,
             "links": [{
-                    "label": "Completely and absolutely.",
+                    "label": "I won't take anything off the table.",
                     "linkTo": 7
                 },
                 {
-                    "label": "We are closely monitoring the situation.",
-                    "linkTo": 8
+                    "label": "Force is a last resort.",
+                    "linkTo": 14
+                }
+            ]
+        },
+        {
+            "index": 5,
+            "id": "no_conflict",
+            "text": [
+                "No conflict is imminent.",
+                "*scribbles notes furiously*",
+                "Now THAT is something, Mr.\nPresident. Our listeners will\nwant to hear more on that.",
+                "Because just this morning,\nthree of my sources inside\nthe Pentagon told me otherwise.",
+                "One of them used the word\n'inevitable.' Another used\na word I cannot repeat on air.",
+                "So where exactly is the\ndisconnect, sir? Between what\nyou're telling me and what",
+                "your own military advisors\nappear to be telling anyone\nwho will listen?"
+            ],
+            "branching": true,
+            "links": [{
+                    "label": "Your sources are mistaken.",
+                    "linkTo": 10
                 },
                 {
-                    "label": "I have full confidence in my team.",
+                    "label": "I cannot speak to leaks.",
                     "linkTo": 9
                 }
             ]
-        }
+        },
+        {
+            "index": 6,
+            "id": "no_comment",
+            "text": [
+                "I see.",
+                "Mr. President, I have interviewed\nfive sitting presidents. I know\nwhat a 'no comment' sounds like.",
+                "And I know what it means.",
+                "It means yes. We are in a major conflict.",
+                "So let me give you an opportunity\nto clarify for the American people\nbefore this broadcast ends.",
+                "Because they are going to hear\nthat silence. And they are going\nto draw their own conclusions.",
+                "Is there anything at all you'd\nlike to say to a nation that is\nvery, very afraid right now?"
+            ],
+            "branching": true,
+            "links": [{
+                    "label": "America is strong. We will endure.",
+                    "linkTo": 19
+                },
+                {
+                    "label": "Trust the process. Trust your government.",
+                    "linkTo": 19
+                }
+            ]
+        },
+        {
+            "index": 7,
+            "id": "off_da_table",
+            "text": ["Nothing off the table!",
+                "Ladies and gentlemen, you heard\nthat directly from the President\nof the United States.",
+                "Nothing. Off. The table.",
+                "Mr. President, does 'nothing off the table'\ninclude a first strike? "
+            ],
+            "branching": true,
+            "links": [{ "label": "No comment", "linkTo": 6 },
+                { "label": "Force is a last resort.", "linkTo": 8 }
+            ]
+        },
+        {
+            "index": 8,
+            "id": "force_resort",
+            "text": ["That is something the country\ncan hold onto tonight, Mr.\nPresident. Truly.",
+                "But 'last resort' implies there\nare steps before it. First,\nsecond, third resort.",
+                "Walk us through them, sir.\nWhat are your plans when in talks with Russia?"
+            ],
+            "branching": true,
+            "links": [{ "label": "Negotiation", "linkTo": 20 },
+                { "label": "That is classified", "linkTo": 18 }
+            ]
+        },
+        {
+            "index": 9,
+            "id": "connot_speak_leak",
+            "text": ["Of course not. And yet, sir,\nthe leaks speak rather loudly\non their own.",
+                "I digress. Regardless of who or who is telling the truth,",
+                "The American people to be ensured that they will be safe, not matter what happens",
+                "In regards to Russia, where would you place our relations to them?",
+                "The people are tired of being scared, Mr. President. They want some good news.",
+                "According to my informant, whom you refuse to acknowledge, you plan on talking to",
+                "Russia's leader Katerina Romanov. Is this true?"
+            ],
+            "branching": true,
+            "links": [{ "label": "yees", "linkTo": 20 },
+                { "label": "nah", "linkTo": 13 }
+            ]
+        },
+        {
+            "index": 10,
+            "id": "thine_mistake",
+            "text": ["Regardless of who or who is telling the truth,",
+                "I believe that this provides an even bigger concern",
+                "Because somebody in that building\nis saying one thing to the press\nand something very different to you.",
+                "Doesn't that concern you,\nMr. President? That your own\nhouse may not be in order?"
+            ],
+            "branching": true,
+            "links": [{ "label": "I couldn't care less about some useless leak.", "linkTo": 15 },
+                { "label": "I trust my people", "linkTo": 14 }
+            ]
+        },
+        {
+            "index": 11,
+            "id": "Yes, in bunker",
+            "text": ["Oh!How...to the point.",
+                "Well, then.",
+                "As you have just confirmed our involvement in this world 's ongoing chaos",
+                "Is militar force going to being included this, sir? will you be sending innocent young lives to fight for this country?],"
+            ],
+            "branching": true,
+            "links": [{ "label": "I won't take anything off the table.", "linkTo": 7 },
+                { "label": "Force is a last resort.", "linkTo": 8 }
+            ]
+        },
+        {
+            "index": 12,
+            "id": "no_prank",
+            "text": ["Sir, as funny as you think you are, right now is not the time for jokes.",
+                "Let me ask you again. Where exactly are you right\nnow?"
+            ],
+            "branching": true,
+            "links": [{ "label": "I jest, I'm in a bunker", "linkTo": 11 },
+                { "label": "...", "linkTo": 17 }
+            ]
+        },
+        {
+            "index": 13,
+            "id": "no_talk",
+            "text": ["I see",
+                "Well, Mr. President, it seems you have...",
+                "...answered, in a way, all of my questions!",
+                "Is there anything you wish to share to the American people, if at all?",
+                "The people need your reassurance"
+            ],
+            "branching": true,
+            "links": [{ "label": "America is strong. We will endure.", "linkTo": 19 },
+                { "label": "Trust the process. Trust your government.", "linkTo": 19 }
+            ]
+        },
+        {
+            "index": 14,
+            "id": "trust_my_peeps",
+            "text": ["Full confidence in your team, is that correct?",
+                "Mr. President, the American\npeople didn't elect your team to provide information to them.",
+                "that's what they elected you for",
+                "With all due respect, sir, what's more important is that people trust you.",
+                "If there something that you are purposely hiding from us,",
+                "I think the country deserves\nto know that too."
+            ],
+            "branching": true,
+            "links": [{ "label": "I'm trustworthy!", "linkTo": 16 },
+                { "label": "This interview is over", "linkTo": 18 }
+            ]
+        },
+        {
+            "index": 15,
+            "id": "dont_care_lmfao",
+            "text": ["...",
+                "Wow",
+                "How ... inspiring! I'm speachless, sir!",
+                "Moving on, rumors have been circulating",
+                "of you having future talks with Russia's leader Katerina Romanov, is this true?"
+            ],
+            "branching": true,
+            "links": [{ "label": "No, there are no talks.", "linkTo": 13 },
+                { "label": "This interview is over", "linkTo": 18 }
+            ]
+        },
+        {
+            "index": 16,
+            "id": "trustworthy",
+            "text": ["And that, Mr. President, is something I hope is true.",
+                "Well, it seems like we are out of time! Is there anything else you would like to say,",
+                "especially for those watching at home?"
+            ],
+            "branching": true,
+            "links": [{ "label": "I love you all!", "linkTo": 19 },
+                { "label": "Trust the process. Trust your government.", "linkTo": 19 }
+            ]
+        },
+        {
+            "index": 17,
+            "id": "silence",
+            "text": ["Hello?",
+                "Did we cut out? Did the terminal cut out?",
+                "Mr. President, I'm not sure if you heard properly, what is your status?"
+            ],
+            "branching": true,
+            "links": [{ "label": "I'm doing alright", "linkTo": 1 },
+                { "label": "I cannot disclose that information", "linkTo": 2 }
+            ]
+        },
+        {
+            "index": 18,
+            "id": "bad end",
+            "text": [
+                "All Right Folks.THat 's the all we have today for our interview.",
+                "Thank you so much, Mr.President ",
+                "for speaking on these delicate matters.",
+                "This is Jeronica Williams, reporting live.",
+                "Stay safe out there, folks."
+            ],
+            "branching": false,
+            "links": []
+        },
+        {
+            "index": 19,
+            "id": "neutral end",
+            "text": [
+                "All Right Folks!THat 's the all we have today for our interview. ",
+                "Thank you so much, Mr.President ",
+                "for spending your precioius to speak on these matters.",
+                "This is Jeronica Williams, reporting live, and signing out."
+            ],
+            "branching": false,
+            "links": []
+        },
+        {
+            "index": 20,
+            "id": "good end",
+            "text": [
+                "Thats great to hear!",
+                "Ladies and gentlemen — we are\nat the table. The President\nhas confirmed it.",
+                "That is the best possible news\nthis broadcast could deliver\ntonight. Bar none.",
+                "Keep talking, Mr. President.\nWhatever it takes — keep talking.",
+                "Jeronica Wilkins, NSBNC.\nGoodnight."
+            ],
+            "branching": false,
+            "links": []
+        },
+        {
+            "index": 21,
+            "id": "we are in conflict",
+            "text": [
+                "Oh dear,",
+                "Moving on to my next question,",
+                "What, as of now, are our plans to resolve this conflict. is peace possible?"
+            ],
+            "branching": true,
+            "links": [{ "label": "We are exploring all options.", "linkTo": 4 },
+                { "label": "Nothing is off the table", "linkTo": 7 }
+            ]
+        },
     ],
     "links": [""]
 }
