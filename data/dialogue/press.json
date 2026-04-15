@@ -52,7 +52,7 @@
                 "*leans into the microphone*",
                 "Though I must say, Mr. President,\nthe very fact that your location\nis a secret speaks volumes.",
                 "In my twenty-two years behind\nthis microphone, I have never\nhad to interview a ghost.",
-                "The people filling up this\nstation's switchboard — they\ndon't need coordinates, sir.",
+                "The people filling up this\nstation's switchboard, they\ndon't need coordinates, sir.",
                 "They need to know their Commander\nin Chief is in command.\nAre you, Mr. President?",
                 "And are the rumors true, that we are going to war?"
             ],
@@ -299,7 +299,7 @@
                 "Stay safe out there, folks."
             ],
             "branching": false,
-            "links": []
+            "links": [{ "label": "Disconnect", "linkTo": ["Secretary", 2] }]
         },
         {
             "index": 19,
