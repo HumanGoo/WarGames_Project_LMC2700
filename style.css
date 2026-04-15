@@ -1,4 +1,49 @@
 #p5_loading {
-display:
-  none;
+    display: none;
+}
+
+@font-face {
+    font-family: 'quartzFont';
+    src: url('/data/Segment14.otf');
+}
+
+.dialogue-button {
+    background-color: blue;
+    color: Lime;
+    font-size: 20px;
+    border: 2px solid red;
+    font-family: quartzFont;
+}
+
+.dialogue-button:hover .flicker-text {
+    animation: flicker 1.5s infinite steps(1);
+    transition: none;
+}
+
+.dialogue-button:hover {
+    cursor: pointer;
+}
+
+@keyframes flicker {
+    0% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0.5;
+    }
+    40% {
+        opacity: 0.25;
+    }
+    50% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 0.5;
+    }
+    90% {
+        opacity: 0.25;
+    }
+    100% {
+        opacity: 1;
+    }
 }

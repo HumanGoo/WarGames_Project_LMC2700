@@ -300,7 +300,7 @@
                 "Stay safe out there, folks."
             ],
             "branching": false,
-            "links": []
+            "links": [{ "label": "Disconnect", "linkTo": ["Secretary", 2] }]
         },
         {
             "index": 19,
