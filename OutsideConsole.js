@@ -16,7 +16,7 @@ function outsideConsole(c) {
       c.choices = [];
       dialogueChoices.forEach(elem => {
         if (Array.isArray(elem.linkTo)) {
-          if (allDials.includes(elem.linkTo[0])) {
+          if (allDials.includes(elem.linkTo[0]) || elem.linkTo[0] == "endState") {
             c.choices.push(new DialogueChoice(elem.label, elem.linkTo));
           }
         } else {
@@ -39,7 +39,7 @@ function outsideConsole(c) {
   c.mousePressed = function() {
     c.mouseLoc = new p5.Vector(c.mouseX, c.mouseY);
     c.strokeWeight(10);
-    c.buttonR = new p5.Vector(c.windowWidth/2, (c.windowHeight + 450)/2 + 40);
+    c.buttonR = new p5.Vector(c.windowWidth/2, (c.windowHeight + 450)/2 + 70);
 
     if (c.mouseLoc.sub(c.buttonR).mag() < 60) {
       console.log("hello")
@@ -67,16 +67,15 @@ function outsideConsole(c) {
     //button
 
     if(!DialogueChoice.positionInitialized) {
-      DialogueChoice.position = new p5.Vector(c.width/2 - 200, (c.height + 450)/2 - 35);
-      DialogueChoice.origin = new p5.Vector(c.width/2 - 200, (c.height + 450)/2 - 35);
-      DialogueChoice.positionInitialized = true;
+      DialogueChoice.position = new p5.Vector(c.width/2 - 200, (c.height + 450)/2 - 15);
+      DialogueChoice.origin = new p5.Vector(c.width/2 - 200, (c.height + 450)/2 - 15);
     }
     c.strokeWeight(5);
     c.fill(140);
-    c.ellipse(c.width/2, (c.height + 450)/2 + 55, 150, 120);
+    c.ellipse(c.width/2, (c.height + 450)/2 + 85, 150, 120);
     c.fill(255, 0, 0);
-    c.ellipse(c.width/2, (c.height + 450)/2 + 50, 125, 100);
-    c.ellipse(c.width/2, (c.height + 450)/2 + 40, 125, 100);
+    c.ellipse(c.width/2, (c.height + 450)/2 + 80, 125, 100);
+    c.ellipse(c.width/2, (c.height + 450)/2 + 70, 125, 100);
   }
 }
 

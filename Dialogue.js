@@ -16,6 +16,8 @@ class Dialogue {
     this.canClose = false
     this.canDisplay = true;
     this.closingTimer = 0;
+    this.picPath = "data/" + this.json['pic'];
+    this.pic = loadImage(this.picPath);
 
     this.delay = false;
 
@@ -85,10 +87,9 @@ branchDialoguePaths(index) {
       console.log("sending you to: " + index);
       let newDest = this.searchFor(index[0]);
       console.log(newDest);
-      if (index[0] != "sec") {
-        allDials.splice(allDials.indexOf(index[0]), 1);
-      }
+      allDials.splice(allDials.indexOf(index[0]), 1);
       if (allDials.length == 0) {
+        allDials.push("sec");
         newDest.setNewLinks([secretaryDial]);
       } else {
         newDest.setNewLinks([pressDial, congressDial, ceoDial, leaderDial]);
@@ -190,7 +191,7 @@ class DialogueChoice {
     this.linkTo = link;
 
     this.button.position(DialogueChoice.position.x, DialogueChoice.position.y);
-    DialogueChoice.position.add(80, 0);
+    DialogueChoice.position.add(this.button.width + 25, 0);
     DialogueChoice.num++;
     this.button.mousePressed(this.whenClicked);
   }

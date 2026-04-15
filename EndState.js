@@ -69,4 +69,19 @@ function endState(e) {
     
     e.resetButton.show();
   }
+  
+  e.mousePressed = function() {
+    e.resetButton.checkClick();
+  }
+  
+  e.mouseReleased = function() {
+    if (e.resetButton.isClicking()) {
+      sceneNeedsChanging = true;
+      allDials = ["cong", "press", "ceo", "lead"];
+      Dialogue.currentBranchIndex = 0;
+      initializeDialogues();
+      e.remove();
+      switchScene(mainMenu);
+    }
+  }
 }
