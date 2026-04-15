@@ -1,5 +1,6 @@
 {
     "id": "Congressman",
+    "pic": "guytemplate.png",
     "dialogue": [
         {
             "index": 0,

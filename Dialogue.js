@@ -16,6 +16,8 @@ class Dialogue {
         this.canClose = false
         this.canDisplay = true;
         this.closingTimer = 0;
+        this.picPath = "data/" + this.json['pic'];
+        this.pic = loadImage(this.picPath);
 
         this.delay = false;
 
@@ -67,11 +69,38 @@ class Dialogue {
         this.delay = false;
     }
 
-    isInsideBox() {
-        let mouseVector = new p5.Vector(this.parentCanvas.mouseX, this.parentCanvas.mouseY);
-        point = this.cornerPoint;
-        return mouseVector.x > point.x && mouseVector.x < point.x + this.size.width &&
-            mouseVector.y > point.y && mouseVector.y < point.y + this.size.height;
+isInsideBox() {
+  let mouseVector = new p5.Vector(this.parentCanvas.mouseX, this.parentCanvas.mouseY);
+  point = this.cornerPoint;
+  return mouseVector.x > point.x && mouseVector.x < point.x + this.size.width
+    && mouseVector.y > point.y && mouseVector.y < point.y + this.size.height;
+}
+branchDialoguePaths(index) {
+  //check if array
+  //if so, index 0 is the file name we path to
+  //index 1 is the index we set it to be.
+  if(typeof index === 'object') {
+    if (index[0] == "endState") {
+      pushedButton = boolean(index[1]);
+      sceneNeedsChanging = true;
+    } else {
+      console.log("sending you to: " + index);
+      let newDest = this.searchFor(index[0]);
+      console.log(newDest);
+      allDials.splice(allDials.indexOf(index[0]), 1);
+      if (allDials.length == 0) {
+        allDials.push("sec");
+        newDest.setNewLinks([secretaryDial]);
+      } else {
+        newDest.setNewLinks([pressDial, congressDial, ceoDial, leaderDial]);
+      }
+      console.log(allDials);
+      currentDialogue = newDest;
+      this.canDisplay = false;
+      this.parentCanvas.inDialogue = false;
+      this.parentCanvas.someoneIsCalling = true;
+      Dialogue.currentBranchIndex = index[1];
+      // console.log(Dialogue.currentBranchIndex);
     }
     branchDialoguePaths(index) {
         //check if array
@@ -191,7 +220,7 @@ class DialogueChoice {
             this.button.class('dialogue-button');
             this.button.position(DialogueChoice.position.x, DialogueChoice.position.y);
 
-            DialogueChoice.position.add(80, 0);
+            DialogueChoice.position.add(this.button.width + 25, 0);
             DialogueChoice.num++;
             this.button.mousePressed(this.whenClicked);
         }
@@ -201,4 +230,20 @@ class DialogueChoice {
         currentDialogue.branchDialoguePaths(this.linkTo);
         DialogueChoice.hasBeenPicked = true;
     }
+    //console.log(this.linkTo);
+    
+    this.button = createButton(htmlButton);
+    this.linkTo = link;
+
+    this.button.position(DialogueChoice.position.x, DialogueChoice.position.y);
+    DialogueChoice.position.add(this.button.width + 25, 0);
+    DialogueChoice.num++;
+    this.button.mousePressed(this.whenClicked);
+  }
+  //this solution was figured out by AI. I didn't know that arrow functions tie the this keyword to the instance.
+  //I could have also used .bind(), but I decided not to
+  whenClicked = () => {
+    currentDialogue.branchDialoguePaths(this.linkTo);
+    DialogueChoice.hasBeenPicked = true;
+  }
 }
