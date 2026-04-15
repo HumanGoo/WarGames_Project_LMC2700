@@ -338,7 +338,7 @@
             "links": [{ "label": "We are exploring all options.", "linkTo": 4 },
                 { "label": "Nothing is off the table", "linkTo": 7 }
             ]
-        },
+        }
     ],
     "links": [""]
 }
