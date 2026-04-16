@@ -16,6 +16,8 @@ class Dialogue {
         this.canClose = false
         this.canDisplay = true;
         this.closingTimer = 0;
+        this.picPath = "data/" + this.json['pic'];
+        this.pic = loadImage(this.picPath);
 
         this.delay = false;
 
@@ -68,57 +70,45 @@ class Dialogue {
     }
 
     isInsideBox() {
-        let mouseVector = new p5.Vector(this.parentCanvas.mouseX, this.parentCanvas.mouseY);
-        point = this.cornerPoint;
-        return mouseVector.x > point.x && mouseVector.x < point.x + this.size.width &&
-            mouseVector.y > point.y && mouseVector.y < point.y + this.size.height;
+      let mouseVector = new p5.Vector(this.parentCanvas.mouseX, this.parentCanvas.mouseY);
+      point = this.cornerPoint;
+      return mouseVector.x > point.x && mouseVector.x < point.x + this.size.width
+        && mouseVector.y > point.y && mouseVector.y < point.y + this.size.height;
     }
+    
     branchDialoguePaths(index) {
-        //check if array
-        //if so, index 0 is the file name we path to
-        //index 1 is the index we set it to be.
-        if (typeof index === 'object') {
-            if (index[0] == "endState") {
-                pushedButton = boolean(index[1]);
-                sceneNeedsChanging = true;
-            } else {
-                console.log("sending you to: " + index);
-                let newDest = this.searchFor(index[0]);
-                //console.log(newDest);
-                if (index[0] != "sec") {
-                    allDials.splice(allDials.indexOf(index[0]), 1);
-                }
-                if (allDials.length == 0) {
-                    newDest.setNewLinks([secretaryDial]);
-                } else {
-                    newDest.setNewLinks([pressDial, congressDial, ceoDial, leaderDial]);
-                }
-                //console.log(allDials);
-                currentDialogue = newDest;
-                this.canDisplay = false;
-                this.parentCanvas.inDialogue = false;
-                this.parentCanvas.someoneIsCalling = true;
-                Dialogue.currentBranchIndex = index[1];
-                // console.log(Dialogue.currentBranchIndex);
-            }
+      //check if array
+      //if so, index 0 is the file name we path to
+      //index 1 is the index we set it to be.
+      if(typeof index === 'object') {
+        if (index[0] == "endState") {
+          pushedButton = boolean(index[1]);
+          sceneNeedsChanging = true;
         } else {
-            Dialogue.currentBranchIndex = index;
-            this.resetDial();
-        }
-        /*this.dial = this.json['dialogue'][Dialogue.currentBranchIndex]['text'];
-          this.canBranch = this.json['dialogue'][Dialogue.currentBranchIndex]['branching'];
-          if (this.canBranch == undefined) {
-            this.canBranch = false;
+          console.log("sending you to: " + index);
+          let newDest = this.searchFor(index[0]);
+          console.log(newDest);
+          allDials.splice(allDials.indexOf(index[0]), 1);
+          if (allDials.length == 0) {
+            allDials.push("sec");
+            newDest.setNewLinks([secretaryDial]);
+          } else {
+            newDest.setNewLinks([pressDial, congressDial, ceoDial, leaderDial]);
           }
-          this.name = this.json['id'];
-          this.curLine = 0;
-          this.canClose = false
-          this.canDisplay = true;
-          this.closingTimer = 0;
-        dialStart = millis();
-        this.paths = undefined;*/
+          console.log(allDials);
+          currentDialogue = newDest;
+          this.canDisplay = false;
+          this.parentCanvas.inDialogue = false;
+          this.parentCanvas.someoneIsCalling = true;
+          Dialogue.currentBranchIndex = index[1];
+          // console.log(Dialogue.currentBranchIndex);
+        }
+      } else {
+        Dialogue.currentBranchIndex = index;
+        this.resetDial();
+      }
     }
-
+    
     resetDial() {
         this.dial = this.json['dialogue'][Dialogue.currentBranchIndex]['text'];
         this.canBranch = this.json['dialogue'][Dialogue.currentBranchIndex]['branching'];
@@ -133,24 +123,24 @@ class Dialogue {
         dialStart = millis();
         this.paths = undefined;
     }
-
+    
     setNewLinks(linkToList) {
         if (!linkToList instanceof(Array)) {
             throw new Error("Illegal Argument");
         }
-
+    
         let actualLinkToList = [];
-
+    
         for (let i = 0; i < linkToList.length; i++) {
             if (allDials.includes(linkToList[i].id)) {
                 actualLinkToList.push(linkToList[i]);
             }
         }
-
+    
         this.linkToList = actualLinkToList;
         console.log(this.id + " links established");
     }
-
+    
     setParentCanvas(newParent) {
         //console.log(newParent);
         if (newParent == null) {
@@ -161,12 +151,12 @@ class Dialogue {
         this.cornerPoint = new p5.Vector(50, this.parentCanvas.height - 175);
         this.size = { width: this.parentCanvas.width - 100, height: 150 };
     }
-
+    
     searchFor(givenName) {
         if (this.linkToList == undefined) {
             throw new Error("no lists to iterate over")
         }
-
+    
         return this.linkToList.find((elem) => elem.id == givenName);
     }
 
@@ -202,7 +192,7 @@ class DialogueChoice {
 
             this.wrapper.position(DialogueChoice.position.x, DialogueChoice.position.y);
 
-            DialogueChoice.position.add(80, 0);
+            DialogueChoice.position.add(this.button.width + 25, 0);
             DialogueChoice.num++;
             this.button.mousePressed(this.whenClicked);
         }

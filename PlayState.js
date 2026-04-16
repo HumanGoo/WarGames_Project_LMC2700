@@ -4,7 +4,7 @@ function playState(p) {
   p.mousePos = new p5.Vector(0, 0);
   p.preload = function() {
     p.phone = p.loadImage('data/phone.png');
-    p.guy = p.loadImage('data/guytemplate.png');
+    // p.guy = p.loadImage('data/guytemplate.png');
     //load other people images
   }
   p.setup = function() {
@@ -29,7 +29,7 @@ function playState(p) {
       //console.log("ring");
       p.incomingCall();
     } else {
-        p.displayCaller(p.guy);
+        p.displayCaller(p.newDialogue.pic);
       if (p.newDialogue.canDisplay) {
         p.newDialogue.display();
       }

@@ -1,5 +1,6 @@
 {
     "id": "Press",
+    "pic": "press.png",
     "dialogue": [{
             "index": 0,
             "id": "start",
@@ -34,7 +35,7 @@
                 "You are safe. How reassuring.",
                 "Forgive me, Mr. President, but\n'I am safe' doesn't exactly\nstop the presses.",
                 "Half this country hasn't slept\nin three days. The other half\nis stockpiling canned goods.",
-                "Saying you're safe tells us\nwhere you are — but not what\nyou're doing there.",
+                "Saying you're safe tells us\nwhere you are, but not what\nyou're doing there.",
                 "So let me ask it another way,\nsince we're being simple tonight.",
                 "Are the rumors true, sir?\nIs the United States on the\nbrink of military conflict?"
             ],
@@ -67,8 +68,8 @@
             "id": "in a bunker",
             "text": [
                 "Excuse me?",
-                "I believe I misheard you, but did you say, that you are in a bunker?",
-                "So, then, we ARE in a tenuous situation, Mr. President?"
+                "I believe I misheard you, but did\nyou say, that you are in a bunker?",
+                "So, then, we ARE in a tenuous\nsituation, Mr. President?"
             ],
             "branching": true,
             "links": [
@@ -81,7 +82,6 @@
             "id": "all_options",
             "text": [
                 "'Exploring all options.'",
-                "...",
                 "That phrase, Mr. President,\nhas been used to start more\nwars than I care to remember.",
                 "Our viewers are smart people.\nThey know that 'all options'\nincludes the ones no one says out loud.",
                 "Is military force among those\noptions you're exploring, sir?\nA yes or no will do just fine."
@@ -127,7 +127,7 @@
                 "I see.",
                 "Mr. President, I have interviewed\nfive sitting presidents. I know\nwhat a 'no comment' sounds like.",
                 "And I know what it means.",
-                "It means yes. We are in a major conflict.",
+                "It means yes. We are in a major\nconflict.",
                 "So let me give you an opportunity\nto clarify for the American people\nbefore this broadcast ends.",
                 "Because they are going to hear\nthat silence. And they are going\nto draw their own conclusions.",
                 "Is there anything at all you'd\nlike to say to a nation that is\nvery, very afraid right now?"
@@ -149,7 +149,7 @@
             "text": ["Nothing off the table!",
                 "Ladies and gentlemen, you heard\nthat directly from the President\nof the United States.",
                 "Nothing. Off. The table.",
-                "Mr. President, does 'nothing off the table'\ninclude a first strike? "
+                "Mr. President, does 'nothing off the\ntable' include a first strike?"
             ],
             "branching": true,
             "links": [{ "label": "No comment", "linkTo": 6 },
@@ -200,10 +200,11 @@
         {
             "index": 11,
             "id": "Yes, in bunker",
-            "text": ["Oh!How...to the point.",
+            "text": ["Oh! How...to the point.",
                 "Well, then.",
-                "As you have just confirmed our involvement in this world 's ongoing chaos",
-                "Is militar force going to being included this, sir? will you be sending innocent young lives to fight for this country?],"
+                "As you have just confirmed our\ninvolvement in this world's ongoing\nchaos",
+                "Is military force going to be\nincluded in this, sir?",
+                "Will you be sending innocent young\nlives to fight for this country?"
             ],
             "branching": true,
             "links": [{ "label": "I won't take anything off the table.", "linkTo": 7 },
@@ -213,8 +214,8 @@
         {
             "index": 12,
             "id": "no_prank",
-            "text": ["Sir, as funny as you think you are, right now is not the time for jokes.",
-                "Let me ask you again. Where exactly are you right\nnow?"
+            "text": ["Sir, as funny as you think you are,\nright now is not the time for jokes.",
+                "Let me ask you again. Where exactly\nare you right now?"
             ],
             "branching": true,
             "links": [{ "label": "I jest, I'm in a bunker", "linkTo": 11 },
@@ -240,7 +241,7 @@
             "id": "trust_my_peeps",
             "text": ["Full confidence in your team, is that correct?",
                 "Mr. President, the American\npeople didn't elect your team to provide information to them.",
-                "that's what they elected you for",
+                "That's what they elected you for",
                 "With all due respect, sir, what's more important is that people trust you.",
                 "If there something that you are purposely hiding from us,",
                 "I think the country deserves\nto know that too."
@@ -292,8 +293,8 @@
             "index": 18,
             "id": "bad end",
             "text": [
-                "All Right Folks.THat 's the all we have today for our interview.",
-                "Thank you so much, Mr.President ",
+                "All Right Folks. That's all we have today for our interview.",
+                "Thank you so much, Mr.President",
                 "for speaking on these delicate matters.",
                 "This is Jeronica Williams, reporting live.",
                 "Stay safe out there, folks."
@@ -305,10 +306,10 @@
             "index": 19,
             "id": "neutral end",
             "text": [
-                "All Right Folks!THat 's the all we have today for our interview. ",
-                "Thank you so much, Mr.President ",
-                "for spending your precioius to speak on these matters.",
-                "This is Jeronica Williams, reporting live, and signing out."
+                "All Right Folks! That's all we\nhave today for our interview.",
+                "Thank you so much, Mr.President,",
+                "for spending your precious time to\nspeak on these matters.",
+                "This is Jeronica Williams, reporting\nlive, and signing out."
             ],
             "branching": false,
             "links": []
@@ -317,10 +318,10 @@
             "index": 20,
             "id": "good end",
             "text": [
-                "Thats great to hear!",
-                "Ladies and gentlemen — we are\nat the table. The President\nhas confirmed it.",
+                "That's great to hear!",
+                "Ladies and gentlemen, we are\nat the table. The President\nhas confirmed it.",
                 "That is the best possible news\nthis broadcast could deliver\ntonight. Bar none.",
-                "Keep talking, Mr. President.\nWhatever it takes — keep talking.",
+                "Keep talking, Mr. President.\nWhatever it takes, keep talking.",
                 "Jeronica Wilkins, NSBNC.\nGoodnight."
             ],
             "branching": false,

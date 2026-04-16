@@ -34,6 +34,8 @@ function mainMenu(m) {
     m.options = new Button(`OPTIONS`, -175, 75, 118, 32, m);
     m.options.setSize(1.75);
     m.options.setDisplacement(0.5, 9);
+    
+    loadOverlay();
   }
 
   m.draw = function() {
