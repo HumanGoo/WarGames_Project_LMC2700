@@ -171,7 +171,6 @@ class Dialogue {
     }
 
 }
-const cls = "maroon-bg white-text";
 class DialogueChoice {
     static position = new p5.Vector(600, 230); //doesnt' matter. OutsideConsole.js reconfigures this position
     static positionInitialized = false;
@@ -188,8 +187,20 @@ class DialogueChoice {
 
             this.button = createButton(`<span class="flicker-text">${htmlButton}</span>`);
             this.linkTo = link;
-            this.button.class('dialogue-button');
-            this.button.position(DialogueChoice.position.x, DialogueChoice.position.y);
+
+            this.button.addClass('dialogue-button');
+
+            this.wrapper = createElement('div');
+            this.wrapper.addClass('dialogue-button-parent');
+
+            this.wrapper.elt.appendChild(this.button.elt);
+
+            this.button.elt.addEventListener('animationend', () => {
+                this.button.addClass('second-anim-class');
+                this.wrapper.addClass('init-reveal');
+            });
+
+            this.wrapper.position(DialogueChoice.position.x, DialogueChoice.position.y);
 
             DialogueChoice.position.add(80, 0);
             DialogueChoice.num++;
