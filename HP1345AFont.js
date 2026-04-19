@@ -226,6 +226,44 @@ function preLoadFont() {
   );
 }
 
+function funkyTextWrap(str) {
+  // max line = 36 chars
+  
+  let spaceIndices = [];
+  let curLine = 0;
+  let startCharIndex = 0;
+  let returnStr = str;
+  
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] == " ") {
+      spaceIndices.push(i);
+    }
+  }
+  
+  for (let i = 0; i < spaceIndices.length; i++) {
+    let curSpace = spaceIndices[i];
+    
+    if (i != spaceIndices.length - 1) {
+      let nextSpace = spaceIndices[i + 1];
+      
+      if (nextSpace >= startCharIndex + 35) {
+        returnStr = returnStr.substring(0, curSpace) + "\n" + returnStr.substring(curSpace + 1);
+        startCharIndex = curSpace + 1;
+      }
+    } else {
+      let lastSpace = spaceIndices[i - 1];
+      let alreadyUsedChars = curSpace - startCharIndex;
+      
+      if (alreadyUsedChars + ((str.length - 1) - curSpace) > 35) {
+        returnStr = returnStr.substring(0, curSpace) + "\n" + returnStr.substring(curSpace + 1);
+        startCharIndex = curSpace + 1;
+      }
+    }
+  }
+  console.log(returnStr);
+  return returnStr;
+}
+
 //WRITING FUNCTIONS ____ ORIGINAL
 function write(str, x, y, e) {
   hpLineFont.drawString(str, x, y, e);
@@ -233,6 +271,8 @@ function write(str, x, y, e) {
 //rate is in seconds... i e the amount of letters that are written per second.
 // This means that it should work regardless of the frame rate.
 function writeStream(str, x, y, rate, e) {
+  str = funkyTextWrap(str);
+  
   let len = str.length;
   let time = (millis() - dialStart)/1000;
   let charPerSec = time * rate;
