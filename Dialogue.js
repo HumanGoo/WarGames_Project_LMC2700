@@ -72,8 +72,8 @@ class Dialogue {
     isInsideBox() {
       let mouseVector = new p5.Vector(this.parentCanvas.mouseX, this.parentCanvas.mouseY);
       point = this.cornerPoint;
-      return mouseVector.x > point.x && mouseVector.x < point.x + this.size.width
-        && mouseVector.y > point.y && mouseVector.y < point.y + this.size.height;
+      return mouseVector.x < this.parentCanvas.width && mouseVector.x > 0
+        && mouseVector.y > 0 && mouseVector.y < this.parentCanvas.height;
     }
     
     branchDialoguePaths(index) {
