@@ -2,6 +2,7 @@ let dialogueChoices;
 let nuclearMeltDown = false;
 let givenDialogueChoices = false;
 let dialogueChoicesInitialized = false;
+let choiceWidth = 0;
 function outsideConsole(c) {
   c.setup = function() {
     c.imageMode(CENTER);
@@ -9,21 +10,21 @@ function outsideConsole(c) {
     c.cnv = c.createCanvas(windowWidth, windowHeight);
     c.cnv.position(0, 0);
   }
+  
   c.draw = function() {
-    c.showBackground();
     if (givenDialogueChoices && !dialogueChoicesInitialized) {
       dialogueChoicesInitialized = true;
       c.choices = [];
       dialogueChoices.forEach(elem => {
         if (Array.isArray(elem.linkTo)) {
-          if (allDials.includes(elem.linkTo[0]) || elem.linkTo[0] == "endState") {
+            if (allDials.includes(elem.linkTo[0]) || elem.linkTo[0] == "endState") {
+              c.choices.push(new DialogueChoice(elem.label, elem.linkTo));
+            }
+          } else {
             c.choices.push(new DialogueChoice(elem.label, elem.linkTo));
           }
-        } else {
-          c.choices.push(new DialogueChoice(elem.label, elem.linkTo));
-        }
-      }
-      );
+      });
+      DialogueChoice.positionInitialized = false;
     }
     if (DialogueChoice.hasBeenPicked) {
       c.choices.forEach(elem => {
@@ -33,7 +34,9 @@ function outsideConsole(c) {
       c.choices.length = 0;
       dialogueChoicesInitialized = false;
       givenDialogueChoices = false;
+      choiceWidth = 0;
     }
+    c.showBackground();
   }
 
   c.mousePressed = function() {
@@ -66,16 +69,18 @@ function outsideConsole(c) {
     c.endShape();
     //button
 
-    if(!DialogueChoice.positionInitialized) {
-      DialogueChoice.position = new p5.Vector(c.width/2 - 200, (c.height + 450)/2 - 15);
-      DialogueChoice.origin = new p5.Vector(c.width/2 - 200, (c.height + 450)/2 - 15);
-    }
     c.strokeWeight(5);
     c.fill(140);
     c.ellipse(c.width/2, (c.height + 450)/2 + 85, 150, 120);
     c.fill(255, 0, 0);
     c.ellipse(c.width/2, (c.height + 450)/2 + 80, 125, 100);
     c.ellipse(c.width/2, (c.height + 450)/2 + 70, 125, 100);
+    
+    if(!DialogueChoice.positionInitialized) {
+      DialogueChoice.origin = new p5.Vector(c.width/2 - 325, (c.height + 450)/2 - 15);
+      DialogueChoice.position.set(DialogueChoice.origin.x, DialogueChoice.origin.y);
+      DialogueChoice.positionInitialized = true;
+    }
   }
 }
 
