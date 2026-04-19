@@ -17,7 +17,7 @@ function outsideConsole(c) {
       c.choices = [];
       dialogueChoices.forEach(elem => {
         if (Array.isArray(elem.linkTo)) {
-            if (allDials.includes(elem.linkTo[0]) || elem.linkTo[0] == "endState") {
+            if (allDials.includes(elem.linkTo[0]) || elem.linkTo[0] == "endState" || elem.linkTo[0] == "sec") {
               c.choices.push(new DialogueChoice(elem.label, elem.linkTo));
             }
           } else {
