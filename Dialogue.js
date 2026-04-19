@@ -88,19 +88,26 @@ class Dialogue {
           console.log("sending you to: " + index);
           let newDest = this.searchFor(index[0]);
           console.log(newDest);
-          allDials.splice(allDials.indexOf(index[0]), 1);
+          if (allDials.includes(index[0])) {
+            allDials.splice(allDials.indexOf(index[0]), 1);
+          }
           if (allDials.length == 0) {
             allDials.push("sec");
             newDest.setNewLinks([secretaryDial]);
           } else {
-            newDest.setNewLinks([pressDial, congressDial, ceoDial, leaderDial]);
+            newDest.setNewLinks([secretaryDial, pressDial, congressDial, ceoDial, leaderDial]);
           }
-          console.log(allDials);
           currentDialogue = newDest;
           this.canDisplay = false;
           this.parentCanvas.inDialogue = false;
           this.parentCanvas.someoneIsCalling = true;
-          Dialogue.currentBranchIndex = index[1];
+          
+          if (newDest.id == "sec" && allDials[0] == "sec") {
+            Dialogue.currentBranchIndex = 2;
+          }
+          else {
+            Dialogue.currentBranchIndex = index[1];
+          }
           // console.log(Dialogue.currentBranchIndex);
         }
       } else {
@@ -132,7 +139,7 @@ class Dialogue {
         let actualLinkToList = [];
     
         for (let i = 0; i < linkToList.length; i++) {
-            if (allDials.includes(linkToList[i].id)) {
+            if (allDials.includes(linkToList[i].id) || linkToList[i].id == "sec") {
                 actualLinkToList.push(linkToList[i]);
             }
         }
@@ -167,11 +174,13 @@ class DialogueChoice {
     static origin;
     static num = 0;
     static hasBeenPicked = false;
+    // static choiceWidth = 0;
     constructor(htmlButton, link) {
             if (DialogueChoice.hasBeenPicked) {
                 DialogueChoice.hasBeenPicked = false;
                 DialogueChoice.position.set(DialogueChoice.origin.x, DialogueChoice.origin.y);
-                Dialogue.num = 0;
+                DialogueChoice.num = 0;
+                DialogueChoice.choiceWidth = 0;
             }
             //start of vibe code
 
@@ -192,8 +201,10 @@ class DialogueChoice {
 
             this.wrapper.position(DialogueChoice.position.x, DialogueChoice.position.y);
 
-            DialogueChoice.position.add(this.button.width + 25, 0);
+            DialogueChoice.position.add(this.button.elt.offsetWidth + 25, 0);
             DialogueChoice.num++;
+            // DialogueChoice.choiceWidth += this.button.elt.offsetWidth + 25;
+            
             this.button.mousePressed(this.whenClicked);
         }
         //this solution was figured out by AI. I didn't know that arrow functions tie the this keyword to the instance.

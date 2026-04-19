@@ -17,7 +17,8 @@
 
 .dialogue-button {
     position: relative;
-    animation: reveal .5s ease-in-out;
+    max-width: 16ch;
+    animation: reveal .25s ease-in-out;
     display: block;
     background-color: black;
     color: Lime;
@@ -29,7 +30,7 @@
 }
 
 .dialogue-button:hover .flicker-text {
-    animation: flicker 1.5s infinite steps(1);
+    animation: flicker 1s infinite steps(1);
     transition: none;
 }
 
@@ -67,7 +68,7 @@
 }
 
 .dialogue-button.second-anim-class {
-    animation: second-anim 0.75s forwards;
+    animation: second-anim 0.5s forwards;
 }
 
 @keyframes second-anim {

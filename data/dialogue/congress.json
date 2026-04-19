@@ -5,15 +5,11 @@
         {
             "index": 0,
             "id": "start",
-            "text": ["placeholder text",
+            "text": ["aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
             "please proceed to speak with the\nmilitary ceo"
             ],
             "branching":true,
-            "links":[{"label":"Press","linkTo":["press",0]},
-        {"label":"Congress","linkTo":["cong",0]},
-        {"label":"The CEO","linkTo":["ceo",0]},
-        {"label":"Foreign Leader","linkTo":["lead",0]},
-        {"label":"Secretary","linkTo":["sec",2]}]
+            "links":[{"label":"Disconnect","linkTo":["sec",3]}]
         }
     ],
     "links": [""]
