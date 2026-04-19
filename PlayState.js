@@ -109,7 +109,7 @@ function playState(p) {
 
   p.makeNewDialogue = () => {
     let curBranch = Dialogue.currentBranchIndex;
-    console.log(curBranch);
+    // console.log(curBranch);
     
     currentDialogue.setParentCanvas(p);
     p.newDialogue = currentDialogue;

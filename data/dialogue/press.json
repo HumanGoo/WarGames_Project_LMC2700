@@ -299,8 +299,8 @@
                 "This is Jeronica Williams, reporting live.",
                 "Stay safe out there, folks."
             ],
-            "branching": false,
-            "links": [{ "label": "Disconnect", "linkTo": ["Secretary", 2] }]
+            "branching": true,
+            "links": [{ "label": "Disconnect", "linkTo": ["sec", 3] }]
         },
         {
             "index": 19,
@@ -311,8 +311,8 @@
                 "for spending your precious time to\nspeak on these matters.",
                 "This is Jeronica Williams, reporting\nlive, and signing out."
             ],
-            "branching": false,
-            "links": []
+            "branching": true,
+            "links": [{ "label": "Disconnect", "linkTo": ["sec", 3] }]
         },
         {
             "index": 20,
@@ -324,8 +324,8 @@
                 "Keep talking, Mr. President.\nWhatever it takes, keep talking.",
                 "Jeronica Wilkins, NSBNC.\nGoodnight."
             ],
-            "branching": false,
-            "links": []
+            "branching": true,
+            "links": [{ "label": "Disconnect", "linkTo": ["sec", 3] }]
         },
         {
             "index": 21,
