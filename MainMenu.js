@@ -21,7 +21,6 @@ function mainMenu(m) {
     m.gl = m.pg._renderer.GL;
 
     cnv = m.createCanvas(computer.size.width, computer.size.height);
-    console.log(computer.location);
     cnv.position(computer.location.x, computer.location.y);
     computer.location.set(cnv.position().x, cnv.position().y);
 

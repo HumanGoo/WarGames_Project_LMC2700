@@ -1,6 +1,7 @@
 let computer = {};
 let json;
-
+let WINDOWHEIGHT = 789;
+let WINDOWWIDTH = 1600;
 
 
 let jsonList = [];
@@ -38,8 +39,8 @@ let allDials = ["cong", "press", "ceo", "lead"];
 let pushedButton;
 
 function setup() {
-  computer.location = new p5.Vector((windowWidth - computer.size.width)/2,
-    (windowHeight - computer.size.height)/2 - 60);
+  computer.location = new p5.Vector((WINDOWWIDTH - computer.size.width)/2,
+    (WINDOWHEIGHT - computer.size.height)/2 - 60);
   stroke(0, 255, 0);
   loadWarGamesFont();
   outsideConsoleScene = new p5(outsideConsole);

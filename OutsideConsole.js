@@ -7,8 +7,9 @@ function outsideConsole(c) {
   c.setup = function() {
     c.imageMode(CENTER);
     c.ellipseMode(CENTER);
-    c.cnv = c.createCanvas(windowWidth, windowHeight);
+    c.cnv = c.createCanvas(WINDOWWIDTH, WINDOWHEIGHT);
     c.cnv.position(0, 0);
+    console.log(c.cnv.width + " and  " + c.cnv.height);
   }
   
   c.draw = function() {

@@ -7,7 +7,7 @@
 
 @font-face {
     font-family: 'quartzFont';
-    src: url('/data/Segment14.otf');
+    src: url('data/Segment14.otf');
 }
 
 .dialogue-button-parent {
