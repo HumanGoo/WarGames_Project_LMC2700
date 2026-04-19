@@ -173,7 +173,7 @@ class DialogueChoice {
                 DialogueChoice.position.set(DialogueChoice.origin.x, DialogueChoice.origin.y);
                 Dialogue.num = 0;
             }
-            //console.log(this.linkTo);
+            //start of vibe code
 
             this.button = createButton(`<span class="flicker-text">${htmlButton}</span>`);
             this.linkTo = link;
