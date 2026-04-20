@@ -61,6 +61,7 @@ class Dialogue {
     }
 
     nextLine() {
+        // console.log("to next line");
         if ((this.curLine + 1) < this.dial.length) {
             this.curLine++;
             dialStart = millis();
@@ -90,6 +91,13 @@ class Dialogue {
         if (index[0] == "endState") {
           pushedButton = boolean(index[1]);
           sceneNeedsChanging = true;
+        } else if (index == "checkLinks") {
+          if (allDials[0] == "sec") {
+            Dialogue.currentBranchIndex = 2;
+          } else {
+            Dialogue.currentBranchIndex = 5;
+          }
+          this.resetDial();
         } else {
           console.log("sending you to: " + index);
           let newDest = this.searchFor(index[0]);
@@ -114,7 +122,6 @@ class Dialogue {
           else {
             Dialogue.currentBranchIndex = index[1];
           }
-          // console.log(Dialogue.currentBranchIndex);
         }
       } else {
         Dialogue.currentBranchIndex = index;
