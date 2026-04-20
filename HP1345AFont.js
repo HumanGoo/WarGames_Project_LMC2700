@@ -260,7 +260,6 @@ function funkyTextWrap(str) {
       }
     }
   }
-  console.log(returnStr);
   return returnStr;
 }
 

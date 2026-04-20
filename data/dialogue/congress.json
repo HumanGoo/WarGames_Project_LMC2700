@@ -1,16 +1,100 @@
 {
-    "id": "Congressman",
-    "pic": "guytemplate.png",
-    "dialogue": [
-        {
-            "index": 0,
-            "id": "start",
-            "text": ["aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-            "please proceed to speak with the\nmilitary ceo"
-            ],
-            "branching":true,
-            "links":[{"label":"Disconnect","linkTo":["sec",3]}]
-        }
-    ],
-    "links": [""]
+  "id": "Congressman",
+  "pic": "oldCongress.png",
+  "dialogue": [
+    {
+      "index": 0,
+      "id": "start",
+      "text": [
+        "Oh! Mr. President! I'm so glad that you reached out to me on such short notice.",
+        "I was worried this new fangled technology wouldn't work.",
+        "As you already know, time is of the essence, lest we risk nuclear war.",
+        "As such, Congress has appointed me, the youngest member,",
+        "to discuss with you our intentions and plan to remedy this disaster.",
+        "Let us strive for talks of peace!",
+        "Take it from me, young'un. Wars like these never have a solution. They just get deadlier.",
+        "So, we at Cognress urge you to discuss with Katerina Romanov, the current head of Russia.",
+        "First, collectively agree to disarm all nuclear warheads.",
+        "I'm sure Romanov will understand the need to do so if we are to achieve peace between us.",
+        "In addition, we believe that you should convince her to loosen her strict economic policies.",
+        "So, what do you say, don't you think this plan is sound?"
+      ],
+      "branching": true,
+      "links": [
+        { "label": "Yes", "linkTo": 1 },
+        { "label": "No", "linkTo": 2 }
+      ]
+    },
+    {
+      "index": 1,
+      "id": "say_yes",
+      "text": [
+        "That's great to hear from you!",
+        "If you fully agree to our proposal, I'll be happy to disconnect so you can talk to Romanov posthaste!"
+      ],
+      "branching": true,
+      "links": [
+        { "label": "Actually...", "linkTo": 3 },
+        { "label": "I agree", "linkTo": 4 }
+      ]
+    },
+    {
+      "index": 2,
+      "id": "say_no",
+      "text": [
+        "...Excuse me?",
+        "Oh dear, is something wrong with the plan?",
+        "I can go into more depth of our plan, if you want."
+      ],
+      "branching": true,
+      "links": [
+        { "label": "Go More in Depth", "linkTo": 5 },
+        { "label": "Your Plan Sucks", "linkTo": 6 }
+      ]
+    },
+    {
+      "index": 3,
+      "id": "actually...",
+      "text": ["Yes? Is something wrong, Mr. President?"],
+      "branching": true,
+      "links": [
+        { "label": "Explain Plan Again", "linkTo": 5 },
+        { "label": "Your Plan Sucks", "linkTo": 6 }
+      ]
+    },
+    {
+      "index": 4,
+      "id": "end_transmission",
+      "text": [
+        "Alright! Good luck with Romanov, sir.",
+        "Now, how do I turn this thing off...",
+        "...",
+        "...",
+        "Hello?"
+      ],
+      "branching": true,
+      "links": [{ "label": "Disconnect", "linkTo": ["sec", 5] }]
+    },
+    {
+      "index": 5,
+      "id": "explain_plan",
+      "text": [
+        "Of course, Mr. President!",
+        "So, in essence, we at Congress are urgin you negotiate peace with Romanov.",
+        "In these terms, we wish for you both to promise to cease the production...",
+        "of... darn it... what were they called again?",
+        "Oh yes, nuclear weapons!",
+        "On top of that, we want you to convice her to release control of her vassal states,",
+        "and to unfreeze the ecomonic embargos she has placed on our allies.",
+        "The point is: less weapons, more freedom, more America, everybody goes home happy.",
+        "Simple as that! Probably. Is that clearer, Mr. President?"
+      ],
+      "branching": true,
+      "links": [
+        { "label": "Sounds Great", "linkTo": 4 },
+        { "label": "This Plan Sucks", "linkTo": 6 }
+      ]
+    }
+  ],
+  "links": [""]
 }

@@ -1,3 +1,4 @@
+
 class Dialogue {
     static currentBranchIndex = 0;
 
@@ -37,6 +38,7 @@ class Dialogue {
             setAlignment(false);
             write(this.name, 75, e.height - 145, e);
             writeStream(this.dial[this.curLine], 85, e.height - 113, 25, e);
+            typingSFX.play();
             setAlignment(true);
         } else if (!this.canBranch) {
             //closes the window

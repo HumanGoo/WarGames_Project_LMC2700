@@ -86,6 +86,7 @@ function mainMenu(m) {
   }
 
   m.mousePressed = function() {
+    
     // Note that all numbers must be multiplied by 1.75 b/c the matrix for the rects was scaled up by x1.75 (besides width/2 and height/2 b/c they are the
     // origin of where the scaling took place!)
 

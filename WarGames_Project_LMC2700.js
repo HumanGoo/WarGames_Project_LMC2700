@@ -2,10 +2,11 @@ let computer = {};
 let json;
 let WINDOWHEIGHT = 789;
 let WINDOWWIDTH = 1600;
-
+let typingSFX;
 
 let jsonList = [];
 function preload() {
+  typingSFX = loadSound('data/dialogue/typingSFX.mp3');
   preLoadFont();
   computer.outline = loadImage('data/terminal.png');
   computer.board = loadImage('data/board.jpg');
@@ -13,8 +14,8 @@ function preload() {
   stringsList.forEach(elem => {
     let temp = loadJSON("data/dialogue/"+elem+".json");
     jsonList.push(temp)
-  
   });
+
 }
 
 let sceneNeedsChanging = false;
@@ -81,11 +82,9 @@ const redScreen = {
   leaderDial = new Dialogue(jsonList[4], "lead");
 
   secretaryDial.setNewLinks([pressDial, congressDial, ceoDial, leaderDial]);
-  // pressDial.setNewLinks([pressDial, congressDial, ceoDial, leaderDial]);
+  pressDial.setNewLinks([secretaryDial, congressDial, ceoDial, leaderDial]);
   // congressDial.setNewLinks([pressDial, congressDial, ceoDial, leaderDial]);
   // ceoDial.setNewLinks([pressDial, congressDial, ceoDial, leaderDial]);
   // leaderDial.setNewLinks([secretaryDial, pressDial, congressDial, ceoDial, leaderDial]);
   // congressDial.setNewLinks([pressDial,congressDial,ceoDial,leaderDial]);
-
-  // console.log(secretaryDial.linkToList);
  }
