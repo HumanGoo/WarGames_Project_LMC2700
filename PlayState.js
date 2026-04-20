@@ -101,11 +101,11 @@ function playState(p) {
   p.mousePressed = function() {
     p.mousePos.set(p.mouseX, p.mouseY);
     //happens once
-    if (p.checkCall() && p.someoneIsCalling && p.callExists) {
-      p.pickupPhone();
-    }
     if (!p.someoneIsCalling && !p.newDialogue.canClose && p.newDialogue.isInsideBox() && p.inDialogue && p.newDialogue.delay) {
       p.newDialogue.nextLine();
+    }
+    if (p.checkCall() && p.someoneIsCalling && p.callExists) {
+      p.pickupPhone();
     }
   }
 

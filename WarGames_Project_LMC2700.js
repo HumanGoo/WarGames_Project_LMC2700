@@ -62,11 +62,11 @@ function setup() {
 
 }
 
-function loadSounds() {
+async function loadSounds() {
   audioFiles = [];
   
   for (let i = 0; i < audioFileStrs.length; i++) {
-    let af = loadSound('data/sfx/' + audioFileStrs[i] + '.wav');
+    let af = await loadSound('data/sfx/' + audioFileStrs[i] + '.wav');
     audioFiles.push(af);
   }
 }
