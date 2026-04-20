@@ -38,10 +38,13 @@ class Dialogue {
             setAlignment(false);
             write(this.name, 75, e.height - 145, e);
             writeStream(this.dial[this.curLine], 85, e.height - 113, 25, e);
-            typingSFX.play();
+            if (!audioFiles[3].isPlaying() && !finishedLine) {
+              playSound('talk', true);
+            }
             setAlignment(true);
         } else if (!this.canBranch) {
             //closes the window
+            playSound("phoneHangUp", false);
             if (boxWidth > 0) {
                 e.rect(e.width / 2 - boxWidth / 2, e.height - 175, boxWidth, 150);
             } else {
@@ -69,6 +72,7 @@ class Dialogue {
             givenDialogueChoices = true;
         }
         this.delay = false;
+        finishedLine = false;
     }
 
     isInsideBox() {
@@ -131,6 +135,7 @@ class Dialogue {
         this.closingTimer = 0;
         dialStart = millis();
         this.paths = undefined;
+        finishedLine = false;
     }
     
     setNewLinks(linkToList) {
