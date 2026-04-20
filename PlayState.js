@@ -1,4 +1,5 @@
 function playState(p) {
+  p.startedRingSound = false;
   p.someoneIsCalling = true;
   p.inDialogue = false;
   p.mousePos = new p5.Vector(0, 0);
@@ -9,6 +10,7 @@ function playState(p) {
   }
   p.setup = function() {
     sceneNeedsChanging = false;
+    userStartAudio();
     
     currentDialogue = secretaryDial;
 
@@ -18,8 +20,6 @@ function playState(p) {
     p.imageMode(CENTER)
       p.image(p.phone, computer.size.width/2, computer.size.height/2);
     p.ellipseMode(RADIUS);
-
-    
 
     loadOverlay();
   }
@@ -73,14 +73,22 @@ function playState(p) {
     p.pop();
 
     p.resetMatrix();
+    
+    if (!audioFiles[2].isPlaying()) {
+      playSound("phoneRing", true);
+    }
   }
   p.pickupPhone = function() {
+      stopSound("phoneRing");
+      playSound("phonePickUp", false);
+    
       //console.log(currentDialogue);
       p.makeNewDialogue();
       p.someoneIsCalling = false;
       p.inDialogue = true;
       p.newDialogue.canDisplay = true;
       p.callExists = false;
+      p.startedRingSound = false;
       
       dialStart = millis();
   }
