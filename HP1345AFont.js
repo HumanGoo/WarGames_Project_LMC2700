@@ -251,7 +251,6 @@ function funkyTextWrap(str) {
         startCharIndex = curSpace + 1;
       }
     } else {
-      let lastSpace = spaceIndices[i - 1];
       let alreadyUsedChars = curSpace - startCharIndex;
       
       if (alreadyUsedChars + ((str.length - 1) - curSpace) > 35) {
@@ -260,7 +259,6 @@ function funkyTextWrap(str) {
       }
     }
   }
-  console.log(returnStr);
   return returnStr;
 }
 
@@ -285,6 +283,11 @@ function writeStream(str, x, y, rate, e) {
   }
   let subString = str.substring(0, charPerSec) + addend;
   write(subString, x, y, e);
+  
+  if (charPerSec >= len && audioFiles[3].isPlaying()) {
+    stopSound('talk');
+    finishedLine = true;
+  }
 }
 
 function charAlign(string, x) {
