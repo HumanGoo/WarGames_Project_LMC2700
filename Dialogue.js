@@ -87,17 +87,20 @@ class Dialogue {
       //check if array
       //if so, index 0 is the file name we path to
       //index 1 is the index we set it to be.
+      if (index == "checkLinks") {
+        console.log("here");
+        if (allDials[0] == "sec") {
+          Dialogue.currentBranchIndex = 2;
+        } else {
+          Dialogue.currentBranchIndex = 5;
+        }
+        this.resetDial();
+        return;
+      }
       if(typeof index === 'object') {
         if (index[0] == "endState") {
           pushedButton = boolean(index[1]);
           sceneNeedsChanging = true;
-        } else if (index == "checkLinks") {
-          if (allDials[0] == "sec") {
-            Dialogue.currentBranchIndex = 2;
-          } else {
-            Dialogue.currentBranchIndex = 5;
-          }
-          this.resetDial();
         } else {
           console.log("sending you to: " + index);
           let newDest = this.searchFor(index[0]);
