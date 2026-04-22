@@ -1,6 +1,6 @@
 {
     "id": "Foreign Leader",
-    "pic": "guytemplate.png",
+    "pic": "leader.png",
     "dialogue": [
         {
             "index": 0,

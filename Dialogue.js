@@ -192,7 +192,7 @@ class DialogueChoice {
     static num = 0;
     static hasBeenPicked = false;
     // static choiceWidth = 0;
-    constructor(htmlButton, link) {
+    constructor(htmlButton, link, notDialogue = true) {
             if (DialogueChoice.hasBeenPicked) {
                 DialogueChoice.hasBeenPicked = false;
                 DialogueChoice.position.set(DialogueChoice.origin.x, DialogueChoice.origin.y);
@@ -221,7 +221,7 @@ class DialogueChoice {
             DialogueChoice.position.add(this.button.elt.offsetWidth + 25, 0);
             DialogueChoice.num++;
             // DialogueChoice.choiceWidth += this.button.elt.offsetWidth + 25;
-            
+
             this.button.mousePressed(this.whenClicked);
         }
         //this solution was figured out by AI. I didn't know that arrow functions tie the this keyword to the instance.

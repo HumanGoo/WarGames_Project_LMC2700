@@ -296,7 +296,7 @@
                 "All Right Folks. That's all we have today for our interview.",
                 "Thank you so much, Mr.President",
                 "for speaking on these delicate matters.",
-                "This is Jeronica Williams, reporting live.",
+                "This is Jeronica Wilkins, reporting live.",
                 "Stay safe out there, folks."
             ],
             "branching": true,
@@ -309,7 +309,7 @@
                 "All Right Folks! That's all we have today for our interview.",
                 "Thank you so much, Mr.President,",
                 "for spending your precious time to speak on these matters.",
-                "This is Jeronica Williams, reporting live, and signing out."
+                "This is Jeronica Wilkins, reporting live, and signing out."
             ],
             "branching": true,
             "links": [{ "label": "Disconnect", "linkTo": ["sec", 3] }]

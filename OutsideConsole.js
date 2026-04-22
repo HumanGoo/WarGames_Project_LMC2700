@@ -10,6 +10,7 @@ function outsideConsole(c) {
     c.cnv = c.createCanvas(WINDOWWIDTH, WINDOWHEIGHT);
     c.cnv.position(0, 0);
     console.log(c.cnv.width + " and  " + c.cnv.height);
+    c.rectMode(CENTER);
   }
   
   c.draw = function() {
@@ -82,6 +83,19 @@ function outsideConsole(c) {
       DialogueChoice.position.set(DialogueChoice.origin.x, DialogueChoice.origin.y);
       DialogueChoice.positionInitialized = true;
     }
+
+    //button cover
+
+    c.fill(80,100);
+    /*
+    c.rect(c.width/2, (c.height + 445)/2 + 85, 180, 145);
+    c.rect(c.width/2, (c.height + 400)/2 + 85, 180, 145);
+    */
+    c.rect(c.width/2, (c.height + 305)/2 + 85, 180, 7.5);
+    c.rect(c.width/2, (c.height + 415)/2 + 85, 180, 120);
+    c.rect(c.width/2, (c.height + 555)/2 + 85, 180, 22.5);
+    c.fill(110)
+    c.ellipse(c.width/2 + 95, (c.height + 445)/2 + 85, 10, 145);
   }
 }
 
@@ -91,7 +105,7 @@ function overlay(o) {
   o.redOpacity = 0;
   o.redPeaked = true;
   o.setup = function() {
-    o.cnv = o.createCanvas(windowWidth, windowHeight);
+    o.cnv = o.createCanvas(WINDOWWIDTH, WINDOWHEIGHT);
     background(0, 0);
     o.cnv.position(0, 0);
     o.imageMode(CENTER);

@@ -73,10 +73,13 @@ function playState(p) {
     p.pop();
 
     p.resetMatrix();
-    
+try{
     if (!audioFiles[2].isPlaying()) {
       playSound("phoneRing", true);
     }
+  }
+  catch{}
+
   }
   p.pickupPhone = function() {
       stopSound("phoneRing");

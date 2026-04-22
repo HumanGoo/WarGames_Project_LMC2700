@@ -9,7 +9,9 @@ let jsonList = [];
 function preload() {
   // soundFormats('wav');
   for (let i = 0; i < audioFileStrs.length; i++) {
+
     let af = loadSound('data/sfx/' + audioFileStrs[i] + '.wav');
+
     audioFiles.push(af);
   }
   
