@@ -113,7 +113,7 @@ try{
   }
 
   p.keyPressed = function() {
-    if (p.inDialogue && keyCode === 13) {
+    if (p.inDialogue && (keyCode === 13 || keyCode === 32)) {
       p.newDialogue.nextLine();
     }
   }

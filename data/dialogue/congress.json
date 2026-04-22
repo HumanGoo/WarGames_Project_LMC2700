@@ -66,10 +66,11 @@
       "index": 4,
       "id": "end_transmission",
       "text": [
-        "Alright! Good luck with Romanov, sir.",
+        "Alright! Good luck out there, sir. The whole country is counting on you.",
+        "Well — the whole Congress is counting on you. The country doesn't know about any of this.",
+        "If anyone leaks this, that would spell trouble, haha! Ha.",
         "Now, how do I turn this thing off...",
-        "...",
-        "...",
+        "Is it,,, this button? No that's not it.",
         "Hello?"
       ],
       "branching": true,
@@ -80,10 +81,8 @@
       "id": "explain_plan",
       "text": [
         "Of course, Mr. President!",
-        "So, in essence, we at Congress are urgin you negotiate peace with Romanov.",
-        "In these terms, we wish for you both to promise to cease the production...",
-        "of... darn it... what were they called again?",
-        "Oh yes, nuclear weapons!",
+        "So, in essence, we at Congress are urging you negotiate peace with Romanov.",
+        "In these terms, we wish for you both to promise to cease the production of nuclear weapons.",
         "On top of that, we want you to convice her to release control of her vassal states,",
         "and to unfreeze the ecomonic embargos she has placed on our allies.",
         "The point is: less weapons, more freedom, more America, everybody goes home happy.",
@@ -95,11 +94,11 @@
         { "label": "This Plan Sucks", "linkTo": 6 }
       ]
     },
-        {
+    {
       "index": 6,
       "id": "plan_is_sheise",
       "text": [
-        "...",
+        "I see.",
         "Well. I won't say that doesn't sting a little.",
         "Could you be more specific about what needs work? I have a pen here somewhere.",
         "Actually, I have several pens. Haha! I can never find them, so I bought them in bulk",
@@ -110,6 +109,145 @@
       "links": [
         { "label": "Your terms are unrealistic.", "linkTo": 7 },
         { "label": "I have a better plan", "linkTo": 8 }
+      ]
+    },
+    {
+      "index": 7,
+      "id": "unrealistic",
+      "text": [
+        "Unrealistic! You think the disarmament terms are unrealistic.",
+        "Then, what would you propose, sir?"
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "I'll handle it in my own way",
+          "linkTo": 9
+        },
+        {
+          "label": "No need for talks. We'll strike first.",
+          "linkTo": 10
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "id": "better_plan",
+      "text": [
+        "A better plan! Well, don't keep me in suspense, Mr. President.",
+        "I've been in Congress for seventy-one years and I can count on one hand the number of better plans I've heard.",
+        "Go ahead, sir. The floor is yours."
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "Any plan BUT yours will work",
+          "linkTo": 9
+        },
+        {
+          "label": "We'll strike first.",
+          "linkTo": 10
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "id": "end_transmission_rude",
+      "text": [
+        "Oh! How... How dare you!",
+        "Congress has spent months creating that plan!",
+        "Do you know how much work our assistants had to do?!",
+        "I won't pretend I'm not a little frustrated with your mind games, Mr. President.",
+        "But... but you're the one with the, uh... the button. So.",
+        "I'll notify Congress at once, Mr. President.",
+        "But just remember, sir. Just because you have control over our missiles,",
+        "does NOT mean we at Congress will willingly wage a your you chose to start.",
+        "Goodbye, to you, sir."
+      ],
+      "branching": true,
+      "links": [{ "label": "Thanks for nothing", "linkTo": ["sec", 5] }]
+    },
+    {
+      "index": 10,
+      "id": "strike_first",
+      "text": [
+        "What?",
+        "You are joking, aren't you. You must be!",
+        "Mr. President, Congress did not send me down here to authorize a first strike.",
+        "We sent me here because we finally have world peace within reach.",
+        "I urge you — strongly, emphatically, on behalf of every member of Congress: do not strike first.",
+        "Please."
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "I'm not joking.",
+          "linkTo": 11
+        },
+        {
+          "label": "Relax. It'll be over before they can retaliate.",
+          "linkTo": 12
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "id": "not_joking",
+      "text": [
+        "You're... not joking.",
+        "Oh dear, oh dear.",
+        "Mr. President, I must formally and in the strongest possible terms object to this course of action.",
+        "On behalf of Congress, the American people, and, frankly, most of the planet.",
+        "Is there absolutely nothing I can say to change your mind?"
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "My decision is final.",
+          "linkTo": 12
+        },
+        {
+          "label": "Stand down. I'll negotiate.",
+          "linkTo": 13
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "id": "final_decision",
+      "text": [
+        "I've had a long career, Mr. President.",
+        "Seventy-one years. Seen a lot of things. Fought in a lot of wars.",
+        "Never thought it would end like this.",
+        "Congress will never agree to this.",
+        "And I promise you, we will never allow you to wage war as if you were a tyrant.",
+        "And when word of your plans reach the American public, by God I hope you get what's coming to you."
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "Disconnect.",
+          "linkTo": ["sec", 5]
+        }
+      ]
+    },
+        {
+      "index": 13,
+      "id": "joking",
+      "text": [
+        "Finally, you've come to stand with reason!",
+        "Alright. When you go into talks with Romanov, convince her of the following:",
+        "to cease the production of nuclear weapons.",
+        "to release control of her vassal states,",
+        "and to unfreeze the ecomonic embargos she has placed on our allies.",
+        "Good luck, Mr. President! Now, how do I turn this thing off?"
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "Disconnect",
+          "linkTo": ["sec", 5]
+        }
       ]
     }
   ],

@@ -39,7 +39,7 @@ class Dialogue {
             write(this.name, 75, e.height - 145, e);
             writeStream(this.dial[this.curLine], 85, e.height - 113, 25, e);
             if (!audioFiles[3].isPlaying() && !finishedLine) {
-              playSound('talk', true);
+                playSound('talk', true);
             }
             setAlignment(true);
         } else if (!this.canBranch) {
@@ -199,7 +199,7 @@ class DialogueChoice {
                 DialogueChoice.num = 0;
                 DialogueChoice.choiceWidth = 0;
             }
-            //start of vibe code
+            //start of vibe code => attaching css styling
 
             this.button = createButton(`<span class="flicker-text">${htmlButton}</span>`);
             this.linkTo = link;
@@ -220,7 +220,8 @@ class DialogueChoice {
 
             DialogueChoice.position.add(this.button.elt.offsetWidth + 25, 0);
             DialogueChoice.num++;
-            // DialogueChoice.choiceWidth += this.button.elt.offsetWidth + 25;
+            // end of vibe code
+
 
             this.button.mousePressed(this.whenClicked);
         }

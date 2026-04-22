@@ -84,18 +84,20 @@ function outsideConsole(c) {
       DialogueChoice.positionInitialized = true;
     }
 
+    /*
     //button cover
 
     c.fill(80,100);
-    /*
+    
     c.rect(c.width/2, (c.height + 445)/2 + 85, 180, 145);
     c.rect(c.width/2, (c.height + 400)/2 + 85, 180, 145);
-    */
+    
     c.rect(c.width/2, (c.height + 305)/2 + 85, 180, 7.5);
     c.rect(c.width/2, (c.height + 415)/2 + 85, 180, 120);
     c.rect(c.width/2, (c.height + 555)/2 + 85, 180, 22.5);
     c.fill(110)
     c.ellipse(c.width/2 + 95, (c.height + 445)/2 + 85, 10, 145);
+    */
   }
 }
 

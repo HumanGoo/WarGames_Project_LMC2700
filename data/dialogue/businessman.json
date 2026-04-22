@@ -1,16 +1,451 @@
 {
-    "id": "Businessman",
-    "pic": "ceo.png",
-    "dialogue": [
+  "id": "CEO",
+  "pic": "ceo.png",
+  "dialogue": [
+    {
+      "index": 0,
+      "id": "start",
+      "text": [
+        "Mr. President. Finally.",
+        "I've been trying to get on your calendar for three weeks. Three weeks.",
+        "Do you know how much can change in three weeks? Historically speaking?",
+        "A lot. The answer is a lot.",
+        "Look -- I'll be straight with you, because I think you're a straight-talk kind of person.",
+        "I run the largest private defense contractor in the Western hemisphere.",
+        "Thirty-two thousand employees. Seventeen active government contracts. Twelve patents pending.",
+        "And right now, I am looking at the geopolitical situation unfolding on my screens,",
+        "and I am seeing something most people are too afraid to say out loud.",
+        "An opportunity.",
+        "Not just for my company, Mr. President. But for America.",
+        "I'd like five minutes of your time. Just five. Can I get five minutes?"
+      ],
+      "branching": true,
+      "links": [
         {
-            "index": 0,
-            "id": "start",
-            "text": ["placeholder text",
-            "please proceed to speak with the\nforeign leader"
-            ],
-            "branching":true,
-            "links":[{"label":"Disconnect","linkTo":["sec",3]}]
+          "label": "You have five minutes",
+          "linkTo": 1
+        },
+        {
+          "label": "Get to the point",
+          "linkTo": 2
         }
-    ],
-    "links": [""]
+      ]
+    },
+    {
+      "index": 1,
+      "id": "five_minutes",
+      "text": [
+        "Perfect!",
+        "So. Here's the thing about peace, Mr. President.",
+        "Peace is -- and I say this with the utmost respect for the concept -- stagnation.",
+        "You look at every major leap in American technology, infrastructure, economic dominance --",
+        "every single one of them has roots in a conflict.",
+        "The computer? Defense project. GPS? Military. Half the medicine in your cabinet?",
+        "Conflict-accelerated research. I'm not making this up. This is documented history.",
+        "War is, at its core, the greatest innovation engine ever invented.",
+        "And right now, that engine is sitting on the launchpad.",
+        "All it needs is someone with the vision -- and the authority -- to press go.",
+        "That's you, Mr. President. That's only ever been you."
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "That's a dangerous argument",
+          "linkTo": 3
+        },
+        {
+          "label": "Keep talking",
+          "linkTo": 4
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "id": "get_to_point",
+      "text": [
+        "Straight to it. I respect that. Genuinely.",
+        "Bottom line: I believe this country is on the edge of something historic.",
+        "The question is whether we step forward deliberately -- or get pushed.",
+        "I'd rather we step. Wouldn't you?"
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "Explain yourself",
+          "linkTo": 1
+        },
+        {
+          "label": "I'm not interested in war",
+          "linkTo": 5
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "id": "dangerous_argument",
+      "text": [
+        "Dangerous. Yes. That's actually a great word for it.",
+        "Do you know what else is dangerous? Falling behind.",
+        "Russia isn't sitting on its hands right now, Mr. President.",
+        "They are building. Testing. Pushing boundaries that have been sitting still for thirty years.",
+        "The dangerous argument isn't the one I'm making.",
+        "The dangerous argument is the one that says: wait and see.",
+        "Because by the time you see -- it may be too late to do anything about it.",
+        "I've run the projections. My analysts have run the projections.",
+        "The window for a favorable engagement is not open indefinitely.",
+        "It is open right now."
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "What do you mean, favorable?",
+          "linkTo": 6
+        },
+        {
+          "label": "I won't be rushed into a war",
+          "linkTo": 7
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "id": "keep_talking",
+      "text": [
+        "Happy to.",
+        "Let's talk about what a decisive move looks like -- economically.",
+        "First eighteen months of active engagement: defense procurement goes up four hundred percent.",
+        "American manufacturing gets a jolt it hasn't seen since the forties.",
+        "Unemployment drops. Innovation spikes. Allies start picking sides -- and they pick us.",
+        "Because they always pick the side that looks like it's going to win.",
+        "And we would win, Mr. President. I have no doubt about that.",
+        "My hardware is in forty-three countries. I know exactly what the other side is working with.",
+        "We outclass them. Comprehensively.",
+        "The only question is whether we use that advantage -- or let it depreciate."
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "You're talking about profit, not patriotism",
+          "linkTo": 8
+        },
+        {
+          "label": "What exactly are you proposing?",
+          "linkTo": 9
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "id": "not_interested",
+      "text": [
+        "Not interested in war. I hear that a lot, actually.",
+        "You know who else wasn't interested in war?",
+        "Every president who ended up in one.",
+        "The thing about conflict, sir, is that your interest in it is largely irrelevant.",
+        "What matters is whether you're ready for it.",
+        "And right now -- are you ready? Is this country ready?",
+        "Because I can make it ready. That's not a sales pitch. That's a capability statement.",
+        "Let me show you what I mean."
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "Fine. Make your case",
+          "linkTo": 4
+        },
+        {
+          "label": "This conversation is over",
+          "linkTo": 10
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "id": "favorable",
+      "text": [
+        "We move first, we move fast, and we control the narrative.",
+        "Right now, their supply chains are stretched. Their eastern flank is undermanned.",
+        "Three of their satellite states are quietly, very quietly, looking for an exit.",
+        "My intelligence -- and yes, I have intelligence, I invest heavily in intelligence --",
+        "suggests that six months from now, that picture looks very different.",
+        "They shore up the flank. The satellite states fall back in line. The window closes.",
+        "Six months, Mr. President. That's the delta between a clean operation and a prolonged one.",
+        "I know which one I'd rather fund. And I think you know which one you'd rather run."
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "You're talking about a first strike",
+          "linkTo": 11
+        },
+        {
+          "label": "What do you need from me?",
+          "linkTo": 9
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "id": "not_rushed",
+      "text": [
+        "Nobody is rushing you, Mr. President.",
+        "I want to be very clear about that.",
+        "I am providing information. Context. A perspective that isn't filtered through",
+        "seventeen layers of bureaucracy and two congressional subcommittees.",
+        "You asked for straight talk. This is straight talk.",
+        "The timeline isn't mine. It's theirs.",
+        "I'm just the one with enough clearance -- unofficial clearance, but clearance nonetheless --",
+        "to tell you what that timeline actually looks like.",
+        "What you do with that is entirely your call."
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "What does the timeline look like?",
+          "linkTo": 6
+        },
+        {
+          "label": "I think you have an agenda here",
+          "linkTo": 8
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "id": "agenda",
+      "text": [
+        "Of course I have an agenda. I'm a busy man.",
+        "However, I think transparency is important, so let me be completely transparent.",
+        "My company profits in a wartime economy. Significantly. I won't pretend otherwise.",
+        "But here's what I'd push back on --",
+        "Every person in that room advising you has an agenda.",
+        "The difference is I'm the only one honest enough to tell you what mine is.",
+        "And my agenda happens to align perfectly with American strategic dominance.",
+        "So yes. I have an agenda. And it is, incidentally, very good for this country.",
+        "I don't see the conflict there. Do you?"
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "What exactly are you proposing?",
+          "linkTo": 9
+        },
+        {
+          "label": "This conversation is over",
+          "linkTo": 10
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "id": "proposing",
+      "text": [
+        "Simple. Three things.",
+        "One: you green-light an accelerated procurement cycle. My manufacturing is already staged.",
+        "We can have materiel in position within sixty days. Sixty.",
+        "Two: you authorize an expanded intelligence-sharing framework.",
+        "My satellite network covers gaps that yours currently does not. I've seen your coverage maps.",
+        "Three -- and this is the one that matters most --",
+        "you stop treating this conflict as something to be avoided",
+        "and start treating it as something to be won.",
+        "That mental shift, Mr. President -- that is worth more than any weapons system I can sell you.",
+        "It's the difference between a president who managed a crisis and one who ended it.",
+        "Which one do you want to be?"
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "I want to end it. Through diplomacy",
+          "linkTo": 12
+        },
+        {
+          "label": "Tell me more about the procurement",
+          "linkTo": 13
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "id": "conversation_over",
+      "text": [
+        "You know what? I respect that. A leader of your caliber needs lines to not cross.",
+        "I really do respect that, in a way.",
+        "I'll leave my contact details with your secretary.",
+        "Because I think -- and I say this with genuine admiration for your conviction --",
+        "I think the situation is going to change your mind before I have to.",
+        "And when it does, you'll want someone on the line who actually knows what to do.",
+        "Just one handshake deal, and world is all yours",
+        "My line is always open, Mr. President.",
+        "Always."
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "Disconnect",
+          "linkTo": ["sec", 5]
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "id": "first_strike",
+      "text": [
+        "First strike is such a loaded term.",
+        "Politically loaded, I mean. Strategically it's just... sequencing.",
+        "Who acts first. Who sets the conditions.",
+        "Every winning operation in military history began with someone deciding",
+        "that waiting for the other side to move was the less intelligent option.",
+        "I'm not telling you to start a war, Mr. President.",
+        "I'm telling you that if a war is coming -- and I believe it is --",
+        "the side that starts it on their terms wins it on their terms.",
+        "That's not ideology. That's physics."
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "What do you need from me?",
+          "linkTo": 9
+        },
+        {
+          "label": "I won't authorize a first strike",
+          "linkTo": 14
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "id": "diplomacy",
+      "text": [
+        "Diplomacy.",
+        "Okay. I can work with that framing, actually.",
+        "Because here's the thing about diplomacy -- it only works from a position of strength.",
+        "You go to that table with full procurement, full coverage, full readiness --",
+        "and suddenly Romanov is a lot more interested in talking.",
+        "You go to that table the way you are right now?",
+        "She'll smile, she'll shake your hand, and she'll go home and do exactly what she was going to do.",
+        "I'm not against diplomacy, Mr. President.",
+        "I'm against weak diplomacy.",
+        "Let me make yours strong."
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "Alright. Let's talk procurement",
+          "linkTo": 13
+        },
+        {
+          "label": "I don't need your help",
+          "linkTo": 10
+        }
+      ]
+    },
+    {
+      "index": 13,
+      "id": "procurement",
+      "text": [
+        "Now we're talking.",
+        "So. My current production pipeline has three platforms ready for fast-track delivery.",
+        "Aerial suppression systems -- next generation, nothing like what's in the field right now.",
+        "Rapid-response ground units. Modular. Deployable in seventy-two hours.",
+        "And the one I'm most excited about -- I won't get into details on an open line --",
+        "but let's just say it makes the other side's early warning systems significantly less reliable.",
+        "Total package, sixty-day deployment, full logistics support.",
+        "I'm prepared to offer the government a preferred rate.",
+        "Out of patriotism.",
+        "And because the volume is frankly extraordinary.",
+        "Do we have a deal, Mr. President?"
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "We have a deal",
+          "linkTo": 15
+        },
+        {
+          "label": "I need to think about it",
+          "linkTo": 16
+        }
+      ]
+    },
+    {
+      "index": 14,
+      "id": "no_first_strike",
+      "text": [
+        "I'm not trying to push you to do anything reckless. Truly.",
+        "But I would ask you to consider one thing before you close the door completely.",
+        "Authorization isn't the same as initiation.",
+        "All I'm asking for tonight is readiness.",
+        "Have the capability. Have the option. Keep the door cracked.",
+        "You don't have to walk through it.",
+        "But right now? That door is locked from the outside.",
+        "Let me give you the key.",
+        "That's all."
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "Tell me more about the procurement",
+          "linkTo": 13
+        },
+        {
+          "label": "This conversation is over",
+          "linkTo": 10
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "id": "deal",
+      "text": [
+        "Most Excellent.",
+        "Mr. President, you have just made an exceptionally intelligent decision.",
+        "I don't say that lightly. I've met a lot of presidents. Well -- two. But still.",
+        "My team will have the framework documents to your procurement office by morning.",
+        "Classified, obviously. Eyes-only. Very clean paper trail.",
+        "Well -- not too clean. You want it to look like it went through the normal process.",
+        "We're good at that.",
+        "It has been a genuine pleasure, sir.",
+        "America is going to look very different in six months.",
+        "Very different.",
+        "In a good way.",
+        "Probably."
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "Disconnect",
+          "linkTo": ["sec", 5]
+        }
+      ]
+    },
+    {
+      "index": 16,
+      "id": "think_about_it",
+      "text": [
+        "Need a moment? Take all the time you need.",
+        "I do want to mention -- and I'm not saying this to pressure you --",
+        "three of my other government contacts have reached out this week.",
+        "Other governments. Very interested in this same package.",
+        "You know, the powerful kind. The kind that openly opposes our great nation.",
+        "I've held them off because I believe in America first. I genuinely do.",
+        "But I can only hold them off for so long before I have a fiduciary obligation to respond.",
+        "You understand.",
+        "No pressure.",
+        "Truly.",
+        "I'll give you that moment to think, now."
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "Fine. We have a deal",
+          "linkTo": 15
+        },
+        {
+          "label": "This conversation is over",
+          "linkTo": 10
+        }
+      ]
+    }
+  ],
+  "links": [""]
 }
