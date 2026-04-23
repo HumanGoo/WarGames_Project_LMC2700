@@ -1,4 +1,6 @@
-
+let allDials = ["cong", "press", "ceo", "lead"];
+let playerAlignment = 0;
+let talkedToPress = false;
 class Dialogue {
     static currentBranchIndex = 0;
 
@@ -38,8 +40,11 @@ class Dialogue {
             setAlignment(false);
             write(this.name, 75, e.height - 145, e);
             writeStream(this.dial[this.curLine], 85, e.height - 113, 25, e);
-            if (!audioFiles[3].isPlaying() && !finishedLine) {
-                playSound('talk', true);
+            if (this.parentCanvas.focused && !audioFiles[3].isPlaying() && !finishedLine) {
+                playSound('talk', true, true);
+            }
+            if (audioFiles[3].isPlaying()) {
+                setSoundPitch('talk', true, this.json['pitch']);
             }
             setAlignment(true);
         } else if (!this.canBranch) {
@@ -61,6 +66,7 @@ class Dialogue {
     }
 
     nextLine() {
+        stopSound('talk');
         // console.log("to next line");
         if ((this.curLine + 1) < this.dial.length) {
             this.curLine++;
@@ -84,32 +90,48 @@ class Dialogue {
     }
     
     branchDialoguePaths(index) {
+        stopSound('talk');
       //check if array
       //if so, index 0 is the file name we path to
       //index 1 is the index we set it to be.
       if (index == "checkLinks") {
-        console.log("here");
         if (allDials[0] == "sec") {
-          Dialogue.currentBranchIndex = 2;
+          Dialogue.currentBranchIndex = 2; //endstate
         } else {
-          Dialogue.currentBranchIndex = 5;
+            //check alignment
+            //branching
+            if (playerAlignment == 0) {
+                if (talkedToPress) {
+                Dialogue.currentBranchIndex = 6;
+                } else {
+                Dialogue.currentBranchIndex = 5; //true neutral stance;
+                }
+            }
         }
         this.resetDial();
         return;
       }
-      if(typeof index === 'object') {
+      if(typeof index === 'object') { //array
+        let currentBranchId = this.json['dialogue'][Dialogue.currentBranchIndex]['id'];
+        console.log("ID: " + currentBranchId);
+
+        index[0] = index[0].trim();
         if (index[0] == "endState") {
           pushedButton = boolean(index[1]);
           sceneNeedsChanging = true;
-        } else {
+        } else { //index only
           console.log("sending you to: " + index);
           let newDest = this.searchFor(index[0]);
           console.log(newDest);
-          if (allDials.includes(index[0])) {
-            allDials.splice(allDials.indexOf(index[0]), 1);
+          if (allDials.includes(index[0])) { //checks if the person we talked to is in allDials
+            if (index[0] === "press") {
+                talkedToPress = true;
+            }
+            allDials.splice(allDials.indexOf(index[0]), 1); //removing
+
           }
-          if (allDials.length == 0) {
-            allDials.push("sec");
+          if (allDials.length == 0) { //if allDials is empty
+            allDials.push("sec"); //default to secretary
             newDest.setNewLinks([secretaryDial]);
           } else {
             newDest.setNewLinks([secretaryDial, pressDial, congressDial, ceoDial, leaderDial]);
@@ -177,6 +199,7 @@ class Dialogue {
     }
     
     searchFor(givenName) {
+        givenName = givenName.trim();
         if (this.linkToList == undefined) {
             throw new Error("no lists to iterate over")
         }

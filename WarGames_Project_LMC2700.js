@@ -2,28 +2,26 @@ let computer = {};
 let json;
 let WINDOWHEIGHT = 789;
 let WINDOWWIDTH = 1600;
-let audioFileStrs = ['phoneHangUp', 'phonePickUp', 'phoneRing', 'talk'];
+let audioFileStrs = ["phoneHangUp", "phonePickUp", "phoneRing", "talk"];
 let audioFiles = [];
 
 let jsonList = [];
 function preload() {
   // soundFormats('wav');
   for (let i = 0; i < audioFileStrs.length; i++) {
-
-    let af = loadSound('data/sfx/' + audioFileStrs[i] + '.wav');
+    let af = loadSound("data/sfx/" + audioFileStrs[i] + ".wav");
 
     audioFiles.push(af);
   }
-  
-  preLoadFont();
-  computer.outline = loadImage('data/terminal.png');
-  computer.board = loadImage('data/board.jpg');
-  let stringsList = ["secretary","congress","press","businessman","leader"];
-  stringsList.forEach(elem => {
-    let temp = loadJSON("data/dialogue/"+elem+".json");
-    jsonList.push(temp)
-  });
 
+  preLoadFont();
+  computer.outline = loadImage("data/terminal.png");
+  computer.board = loadImage("data/board.jpg");
+  let stringsList = ["secretary", "congress", "press", "businessman", "leader"];
+  stringsList.forEach((elem) => {
+    let temp = loadJSON("data/dialogue/" + elem + ".json");
+    jsonList.push(temp);
+  });
 }
 
 let sceneNeedsChanging = false;
@@ -34,9 +32,7 @@ let overlayScene;
 /** the current dialogue being shown on CurrentScreen*/
 let currentDialogue;
 
-computer.size = {width:
-750, height:
-450};
+computer.size = { width: 750, height: 450 };
 
 let secretaryDial;
 let pressDial;
@@ -44,16 +40,17 @@ let congressDial;
 let ceoDial;
 let leaderDial;
 
-let allDials = ["cong", "press", "ceo", "lead"];
 let pushedButton;
 
 let finishedLine = false;
 
 function setup() {
   getAudioContext().suspend();
-  
-  computer.location = new p5.Vector((WINDOWWIDTH - computer.size.width)/2,
-    (WINDOWHEIGHT - computer.size.height)/2 - 60);
+
+  computer.location = new p5.Vector(
+    (WINDOWWIDTH - computer.size.width) / 2,
+    (WINDOWHEIGHT - computer.size.height) / 2 - 70,
+  );
   stroke(0, 255, 0);
   loadWarGamesFont();
   outsideConsoleScene = new p5(outsideConsole);
@@ -61,39 +58,65 @@ function setup() {
   loadOverlay();
 
   initializeDialogues();
-
 }
 
 async function loadSounds() {
   audioFiles = [];
-  
+
   for (let i = 0; i < audioFileStrs.length; i++) {
-    let af = await loadSound('data/sfx/' + audioFileStrs[i] + '.wav');
+    let af = await loadSound("data/sfx/" + audioFileStrs[i] + ".wav");
     audioFiles.push(af);
   }
 }
 
-function playSound(sound,loop=false) {
+function playSound(sound, loop = false, variance = false) {
   if (!audioFileStrs.includes(sound)) {
     throw new ReferenceError("Sound not found");
   }
-  
+
   let index = audioFileStrs.indexOf(sound);
-  
+  //sound.setVolume(.8);
+
   if (loop) {
     audioFiles[index].loop();
   } else {
     audioFiles[index].play();
   }
 }
+function setSoundPitch(sound, random = false, pitch = null) {
+  let index = audioFileStrs.indexOf(sound);
+  let currentPitch = pitch;
+  const talkRates = [-0.2, 0, 0, 0.1, 0.25, 0.3];
+  if (random) {
+    currentPitch += talkRates[Math.floor(Math.random() * talkRates.length)];
+  }
+  if (
+    audioFiles[index].isPlaying() &&
+    audioFiles[index].currentTime() >= audioFiles[index].duration() - 0.05
+  ) {
+    audioFiles[index].rate(currentPitch);
+  }
+}
+// Source - https://stackoverflow.com/a/36481059
+// Posted by Maxwell Collard, modified by community. See post 'Timeline' for change history
+// Retrieved 2026-04-22, License - CC BY-SA 4.0
+
+// Standard Normal variate using Box-Muller transform.
+function gaussianRandom(mean = 0, stdev = 1) {
+  const u = 1 - Math.random(); // Converting [0,1) to (0,1]
+  const v = Math.random();
+  const z = Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+  // Transform to the desired mean and standard deviation:
+  return z * stdev + mean;
+}
 
 function stopSound(sound) {
   if (!audioFileStrs.includes(sound)) {
     throw new ReferenceError("Sound not found");
   }
-  
+
   let index = audioFileStrs.indexOf(sound);
-  
+
   audioFiles[index].stop();
 }
 
@@ -120,7 +143,7 @@ const redScreen = {
  p5.prototype.redScreenBlaringA = redScreen.blare;
  */
 
- function initializeDialogues() {
+function initializeDialogues() {
   secretaryDial = new Dialogue(jsonList[0], "sec");
   congressDial = new Dialogue(jsonList[1], "cong");
   pressDial = new Dialogue(jsonList[2], "press");
@@ -135,8 +158,8 @@ const redScreen = {
   // congressDial.setNewLinks([pressDial,congressDial,ceoDial,leaderDial]);
 
   // console.log(secretaryDial.linkToList);
- }
- 
+}
+
 function mousePressed() {
   getAudioContext().resume();
 }

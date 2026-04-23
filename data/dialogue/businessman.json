@@ -1,6 +1,7 @@
 {
   "id": "CEO",
   "pic": "ceo.png",
+  "pitch": 1.1,
   "dialogue": [
     {
       "index": 0,
@@ -38,7 +39,7 @@
         "Perfect!",
         "So. Here's the thing about peace, Mr. President.",
         "Peace is -- and I say this with the utmost respect for the concept -- stagnation.",
-        "You look at every major leap in American technology, infrastructure, economic dominance --",
+        "You look at every major leap in American technology, infrastructure, economic dominance",
         "every single one of them has roots in a conflict.",
         "The computer? Defense project. GPS? Military. Half the medicine in your cabinet?",
         "Conflict-accelerated research. I'm not making this up. This is documented history.",
@@ -89,7 +90,7 @@
         "Russia isn't sitting on its hands right now, Mr. President.",
         "They are building. Testing. Pushing boundaries that have been sitting still for thirty years.",
         "The dangerous argument isn't the one I'm making.",
-        "The dangerous argument is the one that says: wait and see.",
+        "The dangerous argument is the one that says: 'wait and see'.",
         "Because by the time you see -- it may be too late to do anything about it.",
         "I've run the projections. My analysts have run the projections.",
         "The window for a favorable engagement is not open indefinitely.",
@@ -125,11 +126,11 @@
       "branching": true,
       "links": [
         {
-          "label": "You're talking about profit, not patriotism",
+          "label": "Profit is not patriotism",
           "linkTo": 8
         },
         {
-          "label": "What exactly are you proposing?",
+          "label": "What are you proposing?",
           "linkTo": 9
         }
       ]
@@ -150,7 +151,7 @@
       "branching": true,
       "links": [
         {
-          "label": "Fine. Make your case",
+          "label": "Make your case",
           "linkTo": 4
         },
         {
@@ -175,11 +176,11 @@
       "branching": true,
       "links": [
         {
-          "label": "You're talking about a first strike",
+          "label": "A first strike?",
           "linkTo": 11
         },
         {
-          "label": "What do you need from me?",
+          "label": "What do you need?",
           "linkTo": 9
         }
       ]
@@ -201,11 +202,11 @@
       "branching": true,
       "links": [
         {
-          "label": "What does the timeline look like?",
+          "label": "What is the timeline?",
           "linkTo": 6
         },
         {
-          "label": "I think you have an agenda here",
+          "label": "You have an agenda",
           "linkTo": 8
         }
       ]
@@ -227,7 +228,7 @@
       "branching": true,
       "links": [
         {
-          "label": "What exactly are you proposing?",
+          "label": "What are you proposing?",
           "linkTo": 9
         },
         {
@@ -255,11 +256,11 @@
       "branching": true,
       "links": [
         {
-          "label": "I want to end it. Through diplomacy",
+          "label": "I'll win with diplomacy",
           "linkTo": 12
         },
         {
-          "label": "Tell me more about the procurement",
+          "label": "Procurement?",
           "linkTo": 13
         }
       ]
@@ -303,11 +304,11 @@
       "branching": true,
       "links": [
         {
-          "label": "What do you need from me?",
+          "label": "What do you need?",
           "linkTo": 9
         },
         {
-          "label": "I won't authorize a first strike",
+          "label": "I won't strike",
           "linkTo": 14
         }
       ]
@@ -330,11 +331,11 @@
       "branching": true,
       "links": [
         {
-          "label": "Alright. Let's talk procurement",
+          "label": "Let's talk procurement",
           "linkTo": 13
         },
         {
-          "label": "I don't need your help",
+          "label": "Don't need your help",
           "linkTo": 10
         }
       ]
@@ -362,7 +363,7 @@
           "linkTo": 15
         },
         {
-          "label": "I need to think about it",
+          "label": "I need to think",
           "linkTo": 16
         }
       ]
@@ -384,7 +385,7 @@
       "branching": true,
       "links": [
         {
-          "label": "Tell me more about the procurement",
+          "label": "Tell me about the procurement",
           "linkTo": 13
         },
         {
@@ -437,7 +438,7 @@
       "branching": true,
       "links": [
         {
-          "label": "Fine. We have a deal",
+          "label": "Deal",
           "linkTo": 15
         },
         {

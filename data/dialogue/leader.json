@@ -1,6 +1,7 @@
 {
     "id": "Foreign Leader",
     "pic": "leader.png",
+    "pitch": 1.2,
     "dialogue": [
         {
             "index": 0,

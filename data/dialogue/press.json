@@ -1,6 +1,7 @@
 {
     "id": "Press",
     "pic": "press.png",
+    "pitch": 1.25,
     "dialogue": [{
             "index": 0,
             "id": "start",
@@ -15,11 +16,11 @@
             ],
             "branching": true,
             "links": [{
-                    "label": "I am safe. That is all.",
+                    "label": "I am safe",
                     "linkTo": 1
                 },
                 {
-                    "label": "That is classified",
+                    "label": "Classified",
                     "linkTo": 2
                 },
                 {
@@ -104,10 +105,10 @@
                 "No conflict is imminent.",
                 "*scribbles notes furiously*",
                 "Now THAT is something, Mr. President. Our listeners will want to hear more on that.",
-                "Because just this morning, three of my sources inside the Pentagon told me otherwise.",
-                "One of them used the word 'inevitable.' Another used a word I cannot repeat on air.",
+                "Because just this morning, multiple sources within the Pentagon have told us otherwise.",
+                "Employees have come out and spoke of 'inevitible' conflict.",
                 "So where exactly is the disconnect, sir? Between what you're telling me and what",
-                "your own military advisors appear to be telling anyone who will listen?"
+                "your own government appears to be telling anyone who will listen?"
             ],
             "branching": true,
             "links": [{

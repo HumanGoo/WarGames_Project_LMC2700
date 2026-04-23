@@ -1,6 +1,7 @@
 {
   "id": "Congressman",
   "pic": "oldCongress.png",
+  "pitch": 0.8,
   "dialogue": [
     {
       "index": 0,
@@ -135,7 +136,7 @@
       "id": "better_plan",
       "text": [
         "A better plan! Well, don't keep me in suspense, Mr. President.",
-        "I've been in Congress for seventy-one years and I can count on one hand the number of better plans I've heard.",
+        "I've been in Congress for seventy-one years, and I've never seen a better plan than ours.",
         "Go ahead, sir. The floor is yours."
       ],
       "branching": true,
@@ -158,10 +159,9 @@
         "Congress has spent months creating that plan!",
         "Do you know how much work our assistants had to do?!",
         "I won't pretend I'm not a little frustrated with your mind games, Mr. President.",
-        "But... but you're the one with the, uh... the button. So.",
-        "I'll notify Congress at once, Mr. President.",
-        "But just remember, sir. Just because you have control over our missiles,",
-        "does NOT mean we at Congress will willingly wage a your you chose to start.",
+        "I'll notify Congress of your lack of cooperation, Mr. President.",
+        "Just because you have control over our missiles does not give you the right to boss us around.",
+        "We at Congress shall move to oppose any decision you choose to make. ",
         "Goodbye, to you, sir."
       ],
       "branching": true,
@@ -231,7 +231,7 @@
         }
       ]
     },
-        {
+    {
       "index": 13,
       "id": "joking",
       "text": [
@@ -247,6 +247,49 @@
         {
           "label": "Disconnect",
           "linkTo": ["sec", 5]
+        }
+      ]
+    },
+    {
+      "index": 14,
+      "id": "start_after_press_neutral",
+      "text": [
+        "Oh! Mr. President! I'm so glad that you reached out to me on such short notice.",
+        "Especially after such a stressful interview.",
+        "If I were up there, I would have been sweating bullets, haha!",
+        "While you were being interviewed, Congress has made a plan to resolve this conflict.",
+        "Would you like to hear it?"
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "Tell me",
+          "linkTo": 5
+        },
+        {
+          "label": "I already have a plan",
+          "linkTo": 15
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "id": "already have a plan",
+      "text": [
+        "Yes yes, it seemed like you had a plan, given your responses in the interview.",
+        "But I assure you, we have deliberated much on this plan of ours,",
+        "And it could improve your own plan to deal with Russia.",
+        "I insist, just let me tell about our plan."
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "Tell me",
+          "linkTo": 5
+        },
+        {
+          "label": "My plan is better",
+          "linkTo": 8
         }
       ]
     }

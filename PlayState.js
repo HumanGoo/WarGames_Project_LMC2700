@@ -126,7 +126,6 @@ try{
     p.newDialogue = currentDialogue;
     // p.newDialogue.currentBranchingIndex = curBranch;
     p.newDialogue.resetDial();
-    console.log(p.newDialogue.dial);
     p.newDialogue.canDisplay = true;
   }
 
