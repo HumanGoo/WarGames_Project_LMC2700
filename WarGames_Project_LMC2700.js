@@ -16,7 +16,6 @@ function preload() {
 
   preLoadFont();
   computer.outline = loadImage("data/terminal.png");
-  computer.board = loadImage("data/board.jpg");
   let stringsList = ["secretary", "congress", "press", "businessman", "leader"];
   stringsList.forEach((elem) => {
     let temp = loadJSON("data/dialogue/" + elem + ".json");
@@ -49,7 +48,7 @@ function setup() {
 
   computer.location = new p5.Vector(
     (WINDOWWIDTH - computer.size.width) / 2,
-    (WINDOWHEIGHT - computer.size.height) / 2 - 70,
+    30,
   );
   stroke(0, 255, 0);
   loadWarGamesFont();
