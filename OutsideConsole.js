@@ -29,7 +29,6 @@ function outsideConsole(c) {
   
   c.draw = function() {
     if (givenDialogueChoices && !dialogueChoicesInitialized) {
-      dialogueChoicesInitialized = true;
       c.choices = [];
       dialogueChoices.forEach(elem => {
         if (Array.isArray(elem.linkTo)) {
@@ -41,6 +40,7 @@ function outsideConsole(c) {
           }
       });
       DialogueChoice.positionInitialized = false;
+      dialogueChoicesInitialized = true;
     }
     if (DialogueChoice.hasBeenPicked) {
       c.choices.forEach(elem => {
@@ -91,6 +91,7 @@ function outsideConsole(c) {
     if (mouseX > butX && mouseX < butX + c.curButton.width && mouseY > butY && mouseY < butY + c.curButton.height) {
       return true;
     }
+    return false;
   }
 
   c.showBackground = function() {
@@ -134,9 +135,9 @@ function outsideConsole(c) {
     c.pop();
     
     if(!DialogueChoice.positionInitialized) {
-      DialogueChoice.origin = new p5.Vector(346.5, 513.4);
+      DialogueChoice.origin = new p5.Vector(351.3, 513.4);
       DialogueChoice.position.set(DialogueChoice.origin.x, DialogueChoice.origin.y);
-      DialogueChoice.positionInitialized = true;
+      // DialogueChoice.positionInitialized = true;
     }
 
     /*

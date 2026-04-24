@@ -220,7 +220,6 @@ class DialogueChoice {
                 DialogueChoice.hasBeenPicked = false;
                 DialogueChoice.position.set(DialogueChoice.origin.x, DialogueChoice.origin.y);
                 DialogueChoice.num = 0;
-                DialogueChoice.choiceWidth = 0;
             }
             //start of vibe code => attaching css styling
 
@@ -239,9 +238,9 @@ class DialogueChoice {
                 this.wrapper.addClass('init-reveal');
             });*/
 
-            this.wrapper.position(DialogueChoice.position.x, DialogueChoice.position.y);
+            this.wrapper.position(DialogueChoice.position.x, DialogueChoice.position.y + (83.45/2 - this.wrapper.elt.offsetHeight/2));
 
-            DialogueChoice.position.add(this.button.elt.offsetWidth + 50, 0);
+            DialogueChoice.position.add(this.wrapper.elt.offsetWidth + 50, 0);
             DialogueChoice.num++;
             // end of vibe code
 
