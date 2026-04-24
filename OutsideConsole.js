@@ -3,7 +3,21 @@ let nuclearMeltDown = false;
 let givenDialogueChoices = false;
 let dialogueChoicesInitialized = false;
 let choiceWidth = 0;
+let buttonPaths = ["Covered", "Uncovered", "Hovered", "Pressed"];
+let buttonCovered = true;
+
 function outsideConsole(c) {
+  c.preload = function() {
+    c.bg = loadImage("data/environment/background.png");
+    c.table = loadImage("data/environment/table.png");
+    c.buttons = [];
+    
+    for (let i = 0; i < buttonPaths.length; i++) {
+      c.buttons.push(loadImage("data/environment/button" + buttonPaths[i] + ".png"));
+    }
+    c.curButton = c.buttons[0];
+  }
+  
   c.setup = function() {
     c.imageMode(CENTER);
     c.ellipseMode(CENTER);
@@ -40,46 +54,87 @@ function outsideConsole(c) {
     }
     c.showBackground();
   }
+  
+  c.swapButton = function(button) {
+    if (c.buttons.includes(button)) {
+      c.curButton = c.buttons.indexOf(button);
+    }
+  }
 
   c.mousePressed = function() {
     c.mouseLoc = new p5.Vector(c.mouseX, c.mouseY);
     c.strokeWeight(10);
     c.buttonR = new p5.Vector(c.windowWidth/2, (c.windowHeight + 450)/2 + 70);
 
-    if (c.mouseLoc.sub(c.buttonR).mag() < 60) {
+    /*if (c.mouseLoc.sub(c.buttonR).mag() < 60) {
       console.log("hello")
         nuclearMeltDown = true;
+    }*/
+    
+    if (!buttonCovered && c.checkButtonHover()) {
+      nuclearMeltDown = true;
+      buttonCovered = true;
+      c.swapButton("Pressed");
+    }
+  }
+  
+  c.mouseReleased = function() {
+    if (c.curButton == c.buttons[3]) {
+      c.swapButton("Uncovered");
+    }
+  }
+  
+  c.checkButtonHover = function() {
+    let butX = 915.3 - c.curButton.width;
+    let butY = 769.4 - c.curButton.height
+    
+    if (mouseX > butX && mouseX < butX + c.curButton.width && mouseY > butY && mouseY < butY + c.curButton.height) {
+      return true;
     }
   }
 
   c.showBackground = function() {
-
+    
+    if (!buttonCovered && c.checkButtonHover()) {
+      c.swapButton("Hovered");
+    } else if (!buttonCovered) {
+      c.swapButton("Uncovered");
+    }
+    
     c.background(100);
-
-
     c.strokeWeight(5);
     c.stroke(0);
-
     c.fill(150);
+    
+    c.image(c.bg, WINDOWWIDTH/2, WINDOWHEIGHT/2);
+    c.image(c.table, WINDOWWIDTH/2, WINDOWHEIGHT/2);
+    
+    
     //table
-    c.beginShape();
+    
+    /*c.beginShape();
     c.vertex(computer.location.x, computer.location.y + computer.size.height);
     c.vertex(computer.location.x + computer.size.width, computer.location.y + computer.size.height);
     c.vertex(c.width, c.height);
     c.vertex(0, c.height);
     c.vertex(computer.location.x, computer.location.y + computer.size.height);
-    c.endShape();
+    c.endShape();*/
     //button
 
-    c.strokeWeight(5);
+    /*c.strokeWeight(5);
     c.fill(140);
     c.ellipse(c.width/2, (c.height + 450)/2 + 85, 150, 120);
     c.fill(255, 0, 0);
     c.ellipse(c.width/2, (c.height + 450)/2 + 80, 125, 100);
-    c.ellipse(c.width/2, (c.height + 450)/2 + 70, 125, 100);
+    c.ellipse(c.width/2, (c.height + 450)/2 + 70, 125, 100);*/
+    
+    c.push();
+    c.imageMode(CORNERS);
+    c.image(c.curButton, 915.3 - c.curButton.width, 769.4 - c.curButton.height, 915.3, 769.4);
+    c.pop();
     
     if(!DialogueChoice.positionInitialized) {
-      DialogueChoice.origin = new p5.Vector(c.width/2 - 325, (c.height + 450)/2 - 15);
+      DialogueChoice.origin = new p5.Vector(346.5, 513.4);
       DialogueChoice.position.set(DialogueChoice.origin.x, DialogueChoice.origin.y);
       DialogueChoice.positionInitialized = true;
     }

@@ -234,14 +234,14 @@ class DialogueChoice {
 
             this.wrapper.elt.appendChild(this.button.elt);
 
-            this.button.elt.addEventListener('animationend', () => {
+            /*this.button.elt.addEventListener('animationend', () => {
                 this.button.addClass('second-anim-class');
                 this.wrapper.addClass('init-reveal');
-            });
+            });*/
 
             this.wrapper.position(DialogueChoice.position.x, DialogueChoice.position.y);
 
-            DialogueChoice.position.add(this.button.elt.offsetWidth + 25, 0);
+            DialogueChoice.position.add(this.button.elt.offsetWidth + 50, 0);
             DialogueChoice.num++;
             // end of vibe code
 
