@@ -446,6 +446,36 @@
           "linkTo": 10
         }
       ]
+    },
+    {
+      "index": 17,
+      "id": "intro_after_press_neutral",
+      "text": [
+        "Mr. President. How nice of you to return my call.",
+        "I've been trying to get on your calendar for three weeks. Three weeks.",
+        "Do you know how much can change in three weeks? Historically speaking?",
+        "A lot. The answer is a lot.",
+        "Look -- I'll be straight with you, I was watching that interview you did with Wilkins earlier,",
+        "and I must say, I believe that I can change your mind on your stance on some topics.",
+        "You see, I run the largest private defense contractor this side of the world.",
+        "Thirty-two thousand employees. Seventeen active government contracts. Twelve patents pending.",
+        "And right now, I am looking at the geopolitical situation unfolding on my screens,",
+        "and I am seeing something most people are too afraid to say out loud.",
+        "An opportunity.",
+        "Not just for my company, Mr. President. But for America.",
+        "I'd like five minutes of your time. Just five. Can I get five minutes?"
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "You have five minutes",
+          "linkTo": 1
+        },
+        {
+          "label": "Get to the point",
+          "linkTo": 2
+        }
+      ]
     }
   ],
   "links": [""]

@@ -1,17 +1,598 @@
 {
-    "id": "Foreign Leader",
-    "pic": "leader.png",
-    "pitch": 1.2,
-    "dialogue": [
+  "id": "Foreign Leader",
+  "pic": "leader.png",
+  "pitch": 1.2,
+  "dialogue": [
+    {
+      "index": 0,
+      "id": "start",
+      "text": [
+        "I am here.",
+        "I admit, when your people contact me, I am not sure what to expect.",
+        "Invitation. To leave my motherland. To sit in remote room in Switzerland and wait in front of metal box.",
+        "Is not something I do often, Mr. President.",
+        "But here I am. In Switzerland. Waiting.",
+        "For you. Now, You have my attention.",
+        "I suggest you do not waste it."
+      ],
+      "branching": true,
+      "links": [
         {
-            "index": 0,
-            "id": "start",
-            "text": ["placeholder text",
-            "proceed to the end dialogue"
-            ],
-            "branching":true,
-            "links":[{"label":"Disconnect","linkTo":["sec",3]}]
+          "label": "Thank you for coming.",
+          "linkTo": 1
+        },
+        {
+          "label": "Let's get straight to business.",
+          "linkTo": 2
         }
-    ],
-    "links": [""]
+      ]
+    },
+    {
+      "index": 1,
+      "id": "thank_you",
+      "text": [
+        "Thank me.",
+        "Yes.",
+        "You are very welcome.",
+        "So gracious of you to thank me. Very polite.",
+        "America is always very polite, yes? On surface.",
+        "I find it is places underneath surface that are more interesting.",
+        "But no need to get into that.",
+        "You called this meeting, Mr. President.",
+        "I hope you are comfortable."
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "I want to discuss peace.",
+          "linkTo": 3
+        },
+        {
+          "label": "I want to discuss our differences.",
+          "linkTo": 4
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "id": "straight_to_business",
+      "text": [
+        "Business. Of course.",
+        "Americans are always in hurry. Always rushing.",
+        "To meetings. To conclusions.",
+        "Sometimes to places they cannot easily leave.",
+        "But yes. Business.",
+        "What is it you want from me, Mr. President?"
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "I want to discuss peace.",
+          "linkTo": 3
+        },
+        {
+          "label": "I want to discuss your aggression.",
+          "linkTo": 5
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "id": "peace",
+      "text": [
+        "Peace.",
+        "Interesting word.",
+        "You know, in Russia, we have many words for peace.",
+        "Peace and world are same thing to us.",
+        "I wonder, sometimes, if English has this problem. If peace and world feel different to you.",
+        "Perhaps that is why America finds one so easy to disrupt and other so easy to ignore.",
+        "You say you want peace. Tell me what this means to you, Mr. President."
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "A ceasefire and diplomatic talks.",
+          "linkTo": 6
+        },
+        {
+          "label": "Mutual disarmament.",
+          "linkTo": 7
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "id": "differences",
+      "text": [
+        "Ha. Смешной парень. Our differences.",
+        "This could take some time.",
+        "ideological ones? territorial ones?",
+        "Or perhaps more recent ones.",
+        "ones that involve very expensive weapons systems",
+        "sold by very expensive men in very expensive suits.",
+        "I read about your defense contractors, Mr. President.",
+        "Very interesting reading.",
+        "Very American."
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "What we do internally is our business.",
+          "linkTo": 8
+        },
+        {
+          "label": "I want to discuss a path forward.",
+          "linkTo": 3
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "id": "aggression",
+      "text": [
+        "My aggression.",
+        "I see.",
+        "You invite me to Switzerland, and first thing you say is: your aggression.",
+        "That is very bold opening, Mr. President.",
+        "I give you credit for this.",
+        "But I would ask you to consider something.",
+        "what word does America use for this?",
+        "Because from where I am sitting, it does not look like word defense."
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "Those are defensive measures.",
+          "linkTo": 9
+        },
+        {
+          "label": "I understand your concern.",
+          "linkTo": 10
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "id": "ceasefire",
+      "text": [
+        "ceasefire. And talks.",
+        "Talks like this one, yes?",
+        "With one person sitting in neutral country",
+        "and other person sitting in wherever it is you are sitting.",
+        "I am not complaining. I am simply observing.",
+        "ceasefire I can consider.",
+        "But ceasefire is not peace, Mr. President. It is pause.",
+        "History is full of pauses that become wars again.",
+        "If we are to do this, I want more than pause.",
+        "What are you prepared to offer Russia in return for real peace?"
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "A withdrawal of NATO forces from your borders.",
+          "linkTo": 11
+        },
+        {
+          "label": "Lifted economic sanctions.",
+          "linkTo": 12
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "id": "disarmament",
+      "text": [
+        "Mutual disarmament.",
+        "You are serious.",
+        "Mr. President, I do not know if this is brave or naive.",
+        "With Americans, it is sometimes hard to tell.",
+        "Russia does not disarm based on request.",
+        "Not from neighbor. Not from ally.",
+        "Certainly not from country that is, at this very moment,",
+        "producing new weapons systems at record pace.",
+        "I have seen contracts, Mr. President.",
+        "Your defense industry is very busy right now.",
+        "Very busy. Very profitable.",
+        "So you will forgive me if I find word disarmament little ironic."
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "Those contracts are defensive.",
+          "linkTo": 9
+        },
+        {
+          "label": "I can pause the contracts.",
+          "linkTo": 13
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "id": "internal_business",
+      "text": [
+        "Your business.",
+        "Yes.",
+        "This is very American thing to say.",
+        "What we do is our business. What you do is also our business, somehow.",
+        "who runs company that sells weapons to your government.",
+        "To other governments.",
+        "To anyone who can afford.",
+        "This man is consulted. He has access. He has influence.",
+        "And you tell me this is internal business.",
+        "that is not internal business.",
+        "That is character of nation."
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "That is not how my administration operates.",
+          "linkTo": 14
+        },
+        {
+          "label": "I want to discuss a path forward.",
+          "linkTo": 3
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "id": "defensive",
+      "text": [
+        "Defensive.",
+        "Every country says this, yes?",
+        "My weapons are defensive. My troops on your border are defensive.",
+        "My warships in your waters are defensive.",
+        "At some point, Mr. President, everything is defensive",
+        "and nobody is doing anything wrong",
+        "and yet somehow we are all still pointing at each other.",
+        "I am not interested in word.",
+        "I am interested in action."
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "I will withdraw forces from the region.",
+          "linkTo": 11
+        },
+        {
+          "label": "I will suspend new arms contracts.",
+          "linkTo": 13
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "id": "understand_concern",
+      "text": [
+        "You understand.",
+        "Good.",
+        "This is already more productive than I expect.",
+        "Most of time when I speak with Western leaders,",
+        "they nod and then do exactly what they were going to do anyway.",
+        "You understand my concern.",
+        "Then perhaps you also understand why Russia cannot simply take your word.",
+        "Understanding must come with something attached to it.",
+        "Something concrete.",
+        "What do you offer, Mr. President?"
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "A withdrawal of forces.",
+          "linkTo": 11
+        },
+        {
+          "label": "Lifted economic sanctions.",
+          "linkTo": 12
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "id": "withdraw_forces",
+      "text": [
+        "withdrawal.",
+        "You would pull back your forces.",
+        "From borders.",
+        "I am listening.",
+        "This is significant, if true.",
+        "If true.",
+        "I have heard promises before, Mr. President.",
+        "From this country and from others.",
+        "Promises are very light. They do not weigh much.",
+        "What makes this one different from others?"
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "I will put it in writing.",
+          "linkTo": 15
+        },
+        {
+          "label": "You have my word as President.",
+          "linkTo": 16
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "id": "sanctions",
+      "text": [
+        "Lifted sanctions.",
+        "Hmm.",
+        "You think this is what Russia wants most.",
+        "Money. Trade. Access to your markets.",
+        "Perhaps you are right. Perhaps this is practical.",
+        "But I want you to understand something, Mr. President.",
+        "Russia has survived your sanctions.",
+        "We have adapted. It was not comfortable, but we are still here.",
+        "You are still in your wherever you are.",
+        "And we are still standing.",
+        "But it is small one.",
+        "What else are you offering?"
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "A withdrawal of forces as well.",
+          "linkTo": 11
+        },
+        {
+          "label": "That is all I can offer today.",
+          "linkTo": 17
+        }
+      ]
+    },
+    {
+      "index": 13,
+      "id": "pause_contracts",
+      "text": [
+        "You will pause contracts.",
+        "men who hold those contracts will allow this?",
+        "They will simply agree?",
+        "Forgive me. I do not mean to be cynical.",
+        "In my experience, men who profit from war",
+        "do not become less interested in war simply because someone asks nicely.",
+        "to make this happen.",
+        "Then I am saying I am willing to talk about what comes next."
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "I have the authority. Let's talk.",
+          "linkTo": 6
+        },
+        {
+          "label": "It will take time, but I can do it.",
+          "linkTo": 17
+        }
+      ]
+    },
+    {
+      "index": 14,
+      "id": "not_how_it_works",
+      "text": [
+        "Not how your administration operates.",
+        "I see.",
+        "Then I apologize.",
+        "I must have misread procurement reports.",
+        "And lobbying disclosures.",
+        "And advisory committee memberships.",
+        "Perhaps my intelligence is wrong.",
+        "It is not wrong, Mr. President.",
+        "But I appreciate you saying this.",
+        "It tells me something.",
+        "I respect second more.",
+        "Which is it?"
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "I am fully aware of my administration.",
+          "linkTo": 18
+        },
+        {
+          "label": "Let's focus on what matters.",
+          "linkTo": 3
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "id": "in_writing",
+      "text": [
+        "In writing.",
+        "signed agreement.",
+        "From you.",
+        "Mr. President.",
+        "Do you know how long it has been since leader offered me something in writing",
+        "before I had to ask for it?",
+        "very long time.",
+        "I am cautiously willing to accept this.",
+        "Russia will respond in kind.",
+        "We will draw back from eastern positions.",
+        "We will cease naval exercises in contested zones.",
+        "And we will sign.",
+        "This is not end, Mr. President. Peace is never end.",
+        "But it is, perhaps, beginning.",
+        "Let us see if it holds."
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "Then we have an agreement.",
+          "linkTo": 19
+        }
+      ]
+    },
+    {
+      "index": 16,
+      "id": "your_word",
+      "text": [
+        "Your word.",
+        "As President.",
+        "Mr. President, I do not doubt that you mean this.",
+        "and I believe you are sincere.",
+        "But presidents change.",
+        "Administrations change.",
+        "I need something that outlasts you.",
+        "Something that future leaders on both sides must honor.",
+        "Can you give me that?"
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "I will put it in writing.",
+          "linkTo": 15
+        },
+        {
+          "label": "That is beyond what I can promise.",
+          "linkTo": 17
+        }
+      ]
+    },
+    {
+      "index": 17,
+      "id": "stalemate",
+      "text": [
+        "That is all.",
+        "I see.",
+        "Then we have not made very much progress today.",
+        "Progress is not always goal of first conversation.",
+        "Sometimes goal is simply to take measure of person.",
+        "To understand what they are willing to do and what they are not.",
+        "I have taken your measure, Mr. President.",
+        "And I will think about what I have found.",
+        "Russia is patient.",
+        "We have been patient for very long time.",
+        "We will be patient little longer.",
+        "Goodbye, Mr. President."
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "Then we are done here.",
+          "linkTo": ["sec", 5]
+        },
+        {
+          "label": "Then prepare for consequences.",
+          "linkTo": 21
+        }
+      ]
+    },
+    {
+      "index": 18,
+      "id": "fully_aware",
+      "text": [
+        "Fully aware.",
+        "Good.",
+        "Then you know what I know.",
+        "And you are here anyway, speaking of peace.",
+        "It means you have made choice.",
+        "Not easy choice. men around you do not want this.",
+        "profitable men especially.",
+        "But you are here.",
+        "And that means something.",
+        "So. I will ask you directly, Mr. President.",
+        "What do you want to happen when this call is over?"
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "I want a signed peace agreement.",
+          "linkTo": 15
+        },
+        {
+          "label": "I want a ceasefire, for now.",
+          "linkTo": 6
+        }
+      ]
+    },
+    {
+      "index": 19,
+      "id": "peace_agreement",
+      "text": [
+        "agreement.",
+        "After all of this.",
+        "I did not expect this when I board plane to Switzerland.",
+        "I expect more posturing. More circles.",
+        "That is usually how it goes.",
+        "You surprise me, Mr. President.",
+        "I do not say this to many people.",
+        "Russia will honor this agreement.",
+        "Not because we must.",
+        "Because we choose to.",
+        "There is difference, and it matters.",
+        "I hope America remembers that.",
+        "I hope you remember this conversation.",
+        "Wherever it is you are having it.",
+        "Good day, Mr. President.",
+        "It has been unexpectedly worthwhile."
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "Disconnect.",
+          "linkTo": ["sec", 5]
+        }
+      ]
+    },
+    {
+      "index": 20,
+      "id": "war",
+      "text": [
+        "Then I am sorry.",
+        "Not for Russia.",
+        "For everyone.",
+        "You think war is something that happens to other side.",
+        "America has always thought this.",
+        "Very large ocean. Very safe feeling.",
+        "they do not care about oceans.",
+        "They do not care about bunkers, either.",
+        "If this is path, then it is path.",
+        "Russia will not flinch.",
+        "that I came to Switzerland.",
+        "I sat in this room.",
+        "I waited.",
+        "And I was willing.",
+        "Goodbye, Mr. President.",
+        "I hope history is kind to both of us.",
+        "I do not think it will be."
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "Disconnect.",
+          "linkTo": ["sec", 5]
+        }
+      ]
+    },
+    {
+      "index": 21,
+      "id": "push_to_war",
+      "text": [
+        "You want war.",
+        "Say it plainly, Mr. President.",
+        "I am not diplomat. I do not need careful words.",
+        "If America has decided that conflict is outcome it wants,",
+        "then tell me.",
+        "And I will tell you what comes next.",
+        "From Russia.",
+        "Without ambiguity."
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "Yes. America will not back down.",
+          "linkTo": 20
+        },
+        {
+          "label": "No. I misspoke.",
+          "linkTo": 3
+        }
+      ]
+    }
+  ],
+  "links": [""]
 }
