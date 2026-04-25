@@ -233,14 +233,15 @@ class DialogueChoice {
 
             this.wrapper.elt.appendChild(this.button.elt);
 
-            /*this.button.elt.addEventListener('animationend', () => {
+            this.button.elt.addEventListener('animationend', () => {
                 this.button.addClass('second-anim-class');
                 this.wrapper.addClass('init-reveal');
-            });*/
+            });
 
-            this.wrapper.position(DialogueChoice.position.x, DialogueChoice.position.y + (83.45/2 - this.wrapper.elt.offsetHeight/2));
+            // i tried this.wrapper.elt.offsetWidth to get the width of each button but it didn't work :( so i had to use this other method instead
+            this.wrapper.position(DialogueChoice.position.x + 218/2 - this.button.elt.getBoundingClientRect().width/2, DialogueChoice.position.y + (83.45/2 - this.wrapper.elt.offsetHeight/2));
 
-            DialogueChoice.position.add(this.wrapper.elt.offsetWidth + 50, 0);
+            DialogueChoice.position.add(229.6, 0);
             DialogueChoice.num++;
             // end of vibe code
 
