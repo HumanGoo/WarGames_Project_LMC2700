@@ -18,7 +18,7 @@
 
 .dialogue-button {
     position: relative;
-    max-width: 16ch;
+    max-width: 15ch;
     animation: reveal .25s ease-in-out;
     display: block;
     background-color: black;
