@@ -10,6 +10,24 @@
     src: url('data/Segment14.otf');
 }
 
+.start-button {
+  position: relative;
+  max-width: 8ch;
+  display: block;
+  background-color: black;
+  color: Lime;
+  font-size: 36px;
+  border: 6px solid rgb(141, 149, 151);
+  font-family: quartzFont;
+  cursor: pointer;
+}
+
+.start-button-parent {
+  z-index: 1;
+  display: inline;
+  filter: drop-shadow(0px 6px 0px rgb(158, 168, 168));
+}
+
 .dialogue-button-parent {
     z-index: 1;
     display: inline;
@@ -18,7 +36,7 @@
 
 .dialogue-button {
     position: relative;
-    max-width: 16ch;
+    max-width: 15ch;
     animation: reveal .25s ease-in-out;
     display: block;
     background-color: black;
@@ -28,6 +46,11 @@
     font-family: quartzFont;
     cursor: pointer;
     clip-path: inset(0 0 40% 0);
+}
+
+.start-button:hover .flicker-text {
+  animation: flicker 1s infinite steps(1);
+  transition: none;
 }
 
 .dialogue-button:hover .flicker-text {

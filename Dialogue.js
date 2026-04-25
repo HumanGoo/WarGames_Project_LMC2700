@@ -117,12 +117,15 @@ class Dialogue {
         Dialogue.currentBranchIndex = 2; //endstate
       } else {
         //branching
+        //add back the last two when they're done
         if (playerAlignment == 0) {
             Dialogue.currentBranchIndex = talkedToPress ? 6 : 5;
         } else if (playerAlignment > 0) {
-            DialogueChoice.currentBranchIndex = talkedToPress ? 8 : 9;
+            // DialogueChoice.currentBranchIndex = talkedToPress ? 8 : 9;
+            Dialogue.currentBranchIndex = talkedToPress ? 6 : 5;
         } else if (playerAlignment < 0) {
-            DialogueChoice.currentBranchIndex = talkedToPress ? 10 : 11;
+            // DialogueChoice.currentBranchIndex = talkedToPress ? 10 : 11;
+            Dialogue.currentBranchIndex = talkedToPress ? 6 : 5;
         }
       }
       this.resetDial();
@@ -281,10 +284,43 @@ class DialogueChoice {
                 this.button.addClass('second-anim-class');
                 this.wrapper.addClass('init-reveal');
             });
-
-    this.wrapper.position(DialogueChoice.position.x, DialogueChoice.position.y);
-
-    DialogueChoice.position.add(this.button.elt.offsetWidth + 50, 0);
+            
+    let funSkew;
+    switch (DialogueChoice.num) {
+      case 1:
+        funSkew = (4.75 + 0)/2 - (1 - ((4.75 + 0)/2 * (this.button.elt.getBoundingClientRect().width/216.4)));
+        console.log('transform:skew(' + str(-funSkew) + 'deg);');
+        
+        this.wrapper.style('transform:skew(' + str(-funSkew) + 'deg);');
+        this.wrapper.position(DialogueChoice.position.x + 216.4/2 - this.button.elt.getBoundingClientRect().width/2, DialogueChoice.position.y + (83.45/2 - this.wrapper.elt.offsetHeight/2));
+        DialogueChoice.position.add(227.6, 0);
+        break;
+      case 2:
+        funSkew = (0 + -4.75)/2 - (1 - ((0 + -4.75)/2 * (this.button.elt.getBoundingClientRect().width/216.4)));
+        console.log('transform:skew(' + str(-funSkew) + 'deg);');
+        
+        this.wrapper.style('transform:skew(' + str(-funSkew) + 'deg);');
+        this.wrapper.position(DialogueChoice.position.x + 216.4/2 - this.button.elt.getBoundingClientRect().width/2, DialogueChoice.position.y + (83.45/2 - this.wrapper.elt.offsetHeight/2));
+        DialogueChoice.position.add(221.8, 0);
+        break;
+      case 3:
+        funSkew = (-5 + -9.5)/2 - (1 - ((-5 + -9.5)/2 * (this.button.elt.getBoundingClientRect().width/222.3)));
+        console.log('transform:skew(' + str(-funSkew) + 'deg);');
+        
+        this.wrapper.style('transform:skew(' + str(-funSkew) + 'deg);');
+        this.wrapper.position(DialogueChoice.position.x + 222.3/2 - this.button.elt.getBoundingClientRect().width/2, DialogueChoice.position.y + (83.45/2 - this.wrapper.elt.offsetHeight/2));
+        DialogueChoice.position.add(227.7, 0);
+        break;
+      default:
+        funSkew = (9.5 + 5)/2 - (1 - ((9.5 + 5)/2 * (this.button.elt.getBoundingClientRect().width/222.3)));
+        console.log('transform:skew(' + str(-funSkew) + 'deg);');
+        
+        this.wrapper.style('transform:skew(' + str(-funSkew) + 'deg);');
+        this.wrapper.position(DialogueChoice.position.x + 222.3/2 - this.button.elt.getBoundingClientRect().width/2, DialogueChoice.position.y + (83.45/2 - this.wrapper.elt.offsetHeight/2));
+        DialogueChoice.position.add(227.7, 0);
+        break;
+    }
+    
     DialogueChoice.num++;
     // end of vibe code
 

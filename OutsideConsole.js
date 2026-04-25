@@ -6,9 +6,10 @@ let choiceWidth = 0;
 let buttonPaths = ["Covered", "Uncovered", "Hovered", "Pressed"];
 let buttonCovered = true;
 let bigRedButton;
+let onTitle = true;
 
 function outsideConsole(c) {
-  c.preload = function () {
+  c.preload = function () { 
     c.bg = loadImage("data/environment/background.png");
     c.table = loadImage("data/environment/table.png");
     c.buttons = [];
@@ -26,6 +27,7 @@ function outsideConsole(c) {
       hovered: createImg(prefix + "Hovered.png", "button"),
       pressed: createImg(prefix + "Pressed.png", "button"),
     });
+    startButton = new StartButton();
   };
 
   c.setup = function () {
@@ -36,8 +38,14 @@ function outsideConsole(c) {
     console.log(c.cnv.width + " and  " + c.cnv.height);
     c.rectMode(CENTER);
   };
+  
+  c.drawMM = function() {
+    bigRedButton.show();
+    // startButton.show("START");
+    c.showBackground();
+  }
 
-  c.draw = function () {
+  c.drawDefault = function () {
     bigRedButton.show();
     if (givenDialogueChoices && !dialogueChoicesInitialized) {
       c.choices = [];
@@ -68,6 +76,14 @@ function outsideConsole(c) {
     }
     c.showBackground();
   };
+  
+  c.draw = function() {
+    if (onTitle) {
+      c.drawMM();
+    } else { 
+      c.drawDefault();
+    }
+  }
 
   c.mousePressed = function () {
     c.mouseLoc = new p5.Vector(c.mouseX, c.mouseY);
@@ -132,12 +148,12 @@ function outsideConsole(c) {
     */
 
     if (!DialogueChoice.positionInitialized) {
-      DialogueChoice.origin = new p5.Vector(346.5, 520);
+      DialogueChoice.origin = new p5.Vector(350.2, 519.3);
       DialogueChoice.position.set(
         DialogueChoice.origin.x,
         DialogueChoice.origin.y,
       );
-      // DialogueChoice.positionInitialized = true;
+      DialogueChoice.positionInitialized = true;
     }
   };
 }
@@ -225,5 +241,28 @@ class BigRedButton {
     }
     
     img.show();
+  }
+}
+
+class StartButton {
+  constructor() {
+    this.button = createButton(
+      `<span class="flicker-text">${"START"}</span>`,
+    );
+    this.button.addClass("start-button");
+    this.wrapper = createElement("div");
+    this.wrapper.addClass("start-button-parent");
+    this.wrapper.elt.appendChild(this.button.elt);
+    
+    let funSkew = (9.5 + 5)/2 - (1 - ((9.5 + 5)/2 * (this.button.elt.getBoundingClientRect().width/222.3)));
+    this.wrapper.style('transform:skew(' + str(-funSkew) + 'deg);');
+    
+    this.wrapper.position(350.2 + 222.3/2 - this.button.elt.getBoundingClientRect().width/2, 519.3 + 70/2 - this.wrapper.elt.offsetHeight/2);
+    
+    this.button.mouseReleased(this.whenClicked);
+  }
+  whenClicked = () => {
+    onTitle = false;
+    this.button.remove();
   }
 }
