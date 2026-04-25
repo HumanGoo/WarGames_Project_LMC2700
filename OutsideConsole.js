@@ -164,6 +164,9 @@ function overlay(o) {
   o.redPeaked = true;
   o.setup = function () {
     o.cnv = o.createCanvas(WINDOWWIDTH, WINDOWHEIGHT);
+    o.cnv.style('position', 'absolute');
+    o.cnv.style('z-index', 20);
+    o.cnv.style('pointer-events', 'none');
     background(0, 0);
     o.cnv.position(0, 0);
     o.imageMode(CENTER);
@@ -185,7 +188,7 @@ function overlay(o) {
   o.redScreenBlaring = function () {
     o.push();
     o.fill(255, 0, 0, o.redOpacity);
-    if (o.redPeaked && o.redOpacity < 200) {
+    if (o.redPeaked && o.redOpacity < 160) {
       o.redOpacity += 4;
     } else {
       o.redOpacity -= 2;
@@ -208,7 +211,12 @@ class BigRedButton {
       console.log(img);
       img.hide();
       img.addClass("BigRedButton");
+      img.mouseOver(this.hovering);
+      img.mouseOut(this.noLongerHovering);
+      // img.mousePressed(this.pressed);
+      img.mouseReleased(this.released);
     });
+    
     this.isPressed = false;
   }
 
@@ -228,7 +236,7 @@ class BigRedButton {
         img.position(915.3,769.4);
         break;
       case 'hovered':
-        img.position(924.3,777.4);
+        img.position(923.3,778.4);
         break;
       case 'uncovered':
         img.position(914.3,769.75);
@@ -241,6 +249,30 @@ class BigRedButton {
     }
     
     img.show();
+  }
+  
+  hovering() {
+    if (!buttonCovered) {
+      // this.states[this.currentState].hide();
+      // this.currentState = 'hovered';
+      bigRedButton.setState('hovered');
+    }
+  }
+  
+  noLongerHovering() {
+    if (!buttonCovered) {
+      // this.states[this.currentState].hide();
+      // this.currentState = 'uncovered';
+      bigRedButton.setState('uncovered');
+    }
+  }
+  
+  released() {
+    if (!buttonCovered) {
+      bigRedButton.setState('pressed');
+      buttonCovered = true;
+      nuclearMeltDown = true;
+    }
   }
 }
 

@@ -67,7 +67,7 @@ class Dialogue {
       }
     }
     if (this.paths == undefined && this.canBranch) {
-      this.paths = this.json["dialogue"][Dialogue.currentBranchIndex]["links"];
+      this.paths = this.json["dialogue"][this.getIndexInJSON()]["links"];
       //console.log(this.paths);
       dialogueChoices = this.paths;
     }
@@ -105,6 +105,14 @@ class Dialogue {
       mouseVector.y < this.parentCanvas.height
     );
   }
+  
+  getIndexInJSON() {
+    for (let i = 0; i < this.json["dialogue"].length; i++) {
+      if (this.json["dialogue"][i]["index"] == Dialogue.currentBranchIndex) {
+        return i;
+      }
+    }
+  }
 
   branchDialoguePaths(index) {
     //check if array
@@ -135,7 +143,7 @@ class Dialogue {
       //array
       // //check alignment
       let currentBranchId =
-        this.json["dialogue"][Dialogue.currentBranchIndex]["id"];
+        this.json["dialogue"][this.getIndexInJSON()]["id"];
       console.log("ID: " + currentBranchId);
       switch(currentBranchId) {
         case "bad end":
@@ -194,15 +202,20 @@ class Dialogue {
         }
       }
     } else {
+      if (this.json["dialogue"][this.getIndexInJSON()]["id"] == "confirmed_button_spiel") {
+        buttonCovered = false;
+        bigRedButton.setState('uncovered');
+      }
+      
       Dialogue.currentBranchIndex = index;
       this.resetDial();
     }
   }
 
   resetDial() {
-    this.dial = this.json["dialogue"][Dialogue.currentBranchIndex]["text"];
+    this.dial = this.json["dialogue"][this.getIndexInJSON()]["text"];
     this.canBranch =
-      this.json["dialogue"][Dialogue.currentBranchIndex]["branching"];
+      this.json["dialogue"][this.getIndexInJSON()]["branching"];
     if (this.canBranch == undefined) {
       this.canBranch = false;
     }
