@@ -24,7 +24,7 @@ function mainMenu(m) {
     cnv.position(computer.location.x, computer.location.y);
     computer.location.set(cnv.position().x, cnv.position().y);
 
-    //start button
+    /*//start button
     m.startButton = new Button(`START`, -175, 25, 118, 32, m);
     m.startButton.setSize(1.75);
     m.startButton.setDisplacement(1.5, 9);
@@ -32,7 +32,7 @@ function mainMenu(m) {
     //options button
     m.options = new Button(`OPTIONS`, -175, 75, 118, 32, m);
     m.options.setSize(1.75);
-    m.options.setDisplacement(0.5, 9);
+    m.options.setDisplacement(0.5, 9);*/
     
     loadOverlay();
   }
@@ -55,18 +55,18 @@ function mainMenu(m) {
     if (!m.offTitle) {
       m.line(m.width/2 + 140, 0, m.width/2 + 140, 50);
       m.line(m.width/2 + 140, m.height - 50, m.width/2 + 140, m.height);
-      m.applyMatrix(2, 0, 0, 2, m.width/2, m.height/2);
+      m.applyMatrix(3, 0, 0, 3, m.width/2, m.height/2);
       //when resizing the text, the only way I found that worked was resizing it with scale(); However, it displaces the text, so the next best thing to would be to
       //apply a matrix that sets your desired coordinates to the origin. Now when you resize it, it doesn't displace the text.
       //Use backticks when displaying multi-line strings
 
       setAlignment(true);
-      write(`The\nGold\nCode`, -76.5, -75, m);
+      write(`The\nGold\nCode`, -25, -25, m);
 
       m.resetMatrix();
 
-      m.startButton.show();
-      m.options.show();
+      // m.startButton.show();
+      // m.options.show();
 
       //m.resetMatrix();
       m.image(m.pg, m.width/2, m.height/2);
@@ -79,13 +79,13 @@ function mainMenu(m) {
 
       write(`<--`, 20, 40, m);
     }
-    if (m.optionsWindowNeeded) {
+    /*if (m.optionsWindowNeeded) {
       m.optionsWindow = new p5(options);
       m.optionsWindowNeeded = false;
-    }
+    }*/
   }
 
-  m.mousePressed = function() {
+  /*m.mousePressed = function() {
     
     // Note that all numbers must be multiplied by 1.75 b/c the matrix for the rects was scaled up by x1.75 (besides width/2 and height/2 b/c they are the
     // origin of where the scaling took place!)
@@ -99,10 +99,10 @@ function mainMenu(m) {
         m.offTitle = false;
       }
     }
-  }
+  }*/
 
   m.mouseReleased = function() {
-    if (m.options.isClicking()) {
+    /*if (m.options.isClicking()) {
       if (!m.optionsWindowExists) {
         m.optionsWindowNeeded = true;
         m.optionsWindowExists = true;
@@ -111,20 +111,20 @@ function mainMenu(m) {
       }
     }
     m.startButton.setState(false);
-    //m.options.setState(false);
+    //m.options.setState(false);*/
 
     //if clicking start
-    if (m.startButton.isClicking()) {
+    if (!onTitle) {
       sceneNeedsChanging = true;
       m.remove();
       switchScene(playState);
     }
   }
 
-  m.removeOptionsWindow = function() {
+  /*m.removeOptionsWindow = function() {
     m.optionsWindow.remove();
     m.optionsWindowExists = false;
     m.options.setState(false); //turn off
     console.log(m.options.clickedButton);
-  }
+  }*/
 }
