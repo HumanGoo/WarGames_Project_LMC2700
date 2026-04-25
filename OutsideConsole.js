@@ -5,85 +5,97 @@ let dialogueChoicesInitialized = false;
 let choiceWidth = 0;
 let buttonPaths = ["Covered", "Uncovered", "Hovered", "Pressed"];
 let buttonCovered = true;
+let bigRedButton;
 
 function outsideConsole(c) {
-  c.preload = function() {
+  c.preload = function () {
     c.bg = loadImage("data/environment/background.png");
     c.table = loadImage("data/environment/table.png");
     c.buttons = [];
-    
+
+    /*
     for (let i = 0; i < buttonPaths.length; i++) {
-      c.buttons.push(loadImage("data/environment/button" + buttonPaths[i] + ".png"));
+      c.buttons.push(createImg("data/environment/button" + buttonPaths[i] + ".png"));
     }
     c.curButton = c.buttons[0];
-  }
-  
-  c.setup = function() {
+    */
+    let prefix = "data/environment/button";
+    bigRedButton = new BigRedButton({
+      covered: createImg(prefix + "Covered.png", "button"),
+      uncovered: createImg(prefix + "Uncovered.png", "button"),
+      hovered: createImg(prefix + "Hovered.png", "button"),
+      pressed: createImg(prefix + "Pressed.png", "button"),
+    });
+  };
+
+  c.setup = function () {
     c.imageMode(CENTER);
     c.ellipseMode(CENTER);
     c.cnv = c.createCanvas(WINDOWWIDTH, WINDOWHEIGHT);
     c.cnv.position(0, 0);
     console.log(c.cnv.width + " and  " + c.cnv.height);
     c.rectMode(CENTER);
-  }
-  
-  c.draw = function() {
+  };
+
+  c.draw = function () {
+    bigRedButton.show();
     if (givenDialogueChoices && !dialogueChoicesInitialized) {
       c.choices = [];
-      dialogueChoices.forEach(elem => {
+      dialogueChoices.forEach((elem) => {
         if (Array.isArray(elem.linkTo)) {
-            if (allDials.includes(elem.linkTo[0]) || elem.linkTo[0] == "endState" || elem.linkTo[0] == "sec") {
-              c.choices.push(new DialogueChoice(elem.label, elem.linkTo));
-            }
-          } else {
+          if (
+            allDials.includes(elem.linkTo[0]) ||
+            elem.linkTo[0] == "endState" ||
+            elem.linkTo[0] == "sec"
+          ) {
             c.choices.push(new DialogueChoice(elem.label, elem.linkTo));
           }
+        } else {
+          c.choices.push(new DialogueChoice(elem.label, elem.linkTo));
+        }
       });
       DialogueChoice.positionInitialized = false;
       dialogueChoicesInitialized = true;
     }
     if (DialogueChoice.hasBeenPicked) {
-      c.choices.forEach(elem => {
-        elem.button.remove()
-      }
-      )
+      c.choices.forEach((elem) => {
+        elem.button.remove();
+      });
       c.choices.length = 0;
       dialogueChoicesInitialized = false;
       givenDialogueChoices = false;
       choiceWidth = 0;
     }
     c.showBackground();
-  }
-  
-  c.swapButton = function(button) {
-    if (c.buttons.includes(button)) {
-      c.curButton = c.buttons.indexOf(button);
-    }
-  }
+  };
 
-  c.mousePressed = function() {
+  c.mousePressed = function () {
     c.mouseLoc = new p5.Vector(c.mouseX, c.mouseY);
     c.strokeWeight(10);
-    c.buttonR = new p5.Vector(c.windowWidth/2, (c.windowHeight + 450)/2 + 70);
+    c.buttonR = new p5.Vector(
+      c.windowWidth / 2,
+      (c.windowHeight + 450) / 2 + 70,
+    );
 
-    /*if (c.mouseLoc.sub(c.buttonR).mag() < 60) {
-      console.log("hello")
-        nuclearMeltDown = true;
-    }*/
+    /*
     
     if (!buttonCovered && c.checkButtonHover()) {
       nuclearMeltDown = true;
       buttonCovered = true;
       c.swapButton("Pressed");
     }
-  }
+      */
+  };
   
   c.mouseReleased = function() {
+    /*
     if (c.curButton == c.buttons[3]) {
       c.swapButton("Uncovered");
     }
+      */
   }
-  
+    
+  /*
   c.checkButtonHover = function() {
     let butX = 915.3 - c.curButton.width;
     let butY = 769.4 - c.curButton.height
@@ -93,66 +105,72 @@ function outsideConsole(c) {
     }
     return false;
   }
-
-  c.showBackground = function() {
-    
+  */
+  c.showBackground = function () {
+    /*
     if (!buttonCovered && c.checkButtonHover()) {
       c.swapButton("Hovered");
     } else if (!buttonCovered) {
       c.swapButton("Uncovered");
     }
-    
+    */
     c.background(100);
     c.strokeWeight(5);
     c.stroke(0);
     c.fill(150);
-    
-    c.image(c.bg, WINDOWWIDTH/2, WINDOWHEIGHT/2);
-    c.image(c.table, WINDOWWIDTH/2, WINDOWHEIGHT/2);
-    
-    
-    //table
+
+    c.image(c.bg, WINDOWWIDTH / 2, WINDOWHEIGHT / 2);
+    c.image(c.table, WINDOWWIDTH / 2, WINDOWHEIGHT / 2);
+
+    //button
+    /*
     
     c.push();
     c.imageMode(CORNERS);
     c.image(c.curButton, 915.3 - c.curButton.width, 769.4 - c.curButton.height, 915.3, 769.4);
     c.pop();
-    
-    if(!DialogueChoice.positionInitialized) {
+    */
+
+    if (!DialogueChoice.positionInitialized) {
       DialogueChoice.origin = new p5.Vector(346.5, 520);
-      DialogueChoice.position.set(DialogueChoice.origin.x, DialogueChoice.origin.y);
+      DialogueChoice.position.set(
+        DialogueChoice.origin.x,
+        DialogueChoice.origin.y,
+      );
       // DialogueChoice.positionInitialized = true;
     }
-  }
+  };
 }
-
 
 //created overlay
 function overlay(o) {
   o.redOpacity = 0;
   o.redPeaked = true;
-  o.setup = function() {
+  o.setup = function () {
     o.cnv = o.createCanvas(WINDOWWIDTH, WINDOWHEIGHT);
     background(0, 0);
     o.cnv.position(0, 0);
     o.imageMode(CENTER);
     o.rectMode(CORNER);
-  }
+  };
   o.opacity = 0;
   o.peak = false;
-  o.draw = function() {
+  o.draw = function () {
     o.clear();
-    o.image(computer.outline, computer.location.x + computer.size.width/2,
-      computer.location.y + computer.size.height/2 +33);
+    o.image(
+      computer.outline,
+      computer.location.x + computer.size.width / 2,
+      computer.location.y + computer.size.height / 2 + 33,
+    );
     if (nuclearMeltDown) {
       o.redScreenBlaring();
     }
-  }
-  o.redScreenBlaring = function() {
+  };
+  o.redScreenBlaring = function () {
     o.push();
     o.fill(255, 0, 0, o.redOpacity);
     if (o.redPeaked && o.redOpacity < 200) {
-      o.redOpacity+=4;
+      o.redOpacity += 4;
     } else {
       o.redOpacity -= 2;
       o.redPeaked = false;
@@ -162,5 +180,50 @@ function overlay(o) {
     if (!o.redPeaked && o.redOpacity == 0) {
       o.redPeaked = true;
     }
+  };
+}
+
+class BigRedButton {
+  constructor(states) {
+    //param is mapping of createIMGs()
+    this.states = states;
+    this.currentState = Object.keys(states)[0]; // default to first state
+    Object.values(this.states).forEach((img) => {
+      console.log(img);
+      img.hide();
+      img.addClass("BigRedButton");
+    });
+    this.isPressed = false;
+  }
+
+  setState(stateName) {
+    if (this.currentState != stateName) {
+      // Hide current scene
+      this.states[this.currentState].hide();
+    }
+    this.currentState = stateName;
+  }
+
+  show(stateName) {
+    let img = this.states[this.currentState];
+    // Show current state
+    switch(this.currentState) {
+      case 'covered':
+        img.position(915.3,769.4);
+        break;
+      case 'hovered':
+        img.position(924.3,777.4);
+        break;
+      case 'uncovered':
+        img.position(914.3,769.75);
+        break;
+      case 'pressed':
+        img.position(914.8,769.75);
+        break;
+      default:
+        img.position(915.3,769.4);
+    }
+    
+    img.show();
   }
 }

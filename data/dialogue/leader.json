@@ -137,11 +137,11 @@
       "branching": true,
       "links": [
         {
-          "label": "Those are defensive measures.",
+          "label": "This is a defensive measure",
           "linkTo": 9
         },
         {
-          "label": "I understand your concern.",
+          "label": "I understand your concern",
           "linkTo": 10
         }
       ]
@@ -260,16 +260,10 @@
       "index": 10,
       "id": "understand_concern",
       "text": [
-        "You understand.",
-        "Good.",
-        "This is already more productive than I expect.",
-        "Most of time when I speak with Western leaders,",
-        "they nod and then do exactly what they were going to do anyway.",
-        "You understand my concern.",
         "Then perhaps you also understand why Russia cannot simply take your word.",
         "Understanding must come with something attached to it.",
         "Something concrete.",
-        "What do you offer, Mr. President?"
+        "What exactly are you offering, Mr. President?"
       ],
       "branching": true,
       "links": [
@@ -397,13 +391,6 @@
       "index": 15,
       "id": "in_writing",
       "text": [
-        "In writing.",
-        "signed agreement.",
-        "From you.",
-        "Mr. President.",
-        "Do you know how long it has been since leader offered me something in writing",
-        "before I had to ask for it?",
-        "very long time.",
         "I am cautiously willing to accept this.",
         "Russia will respond in kind.",
         "We will draw back from eastern positions.",
@@ -508,13 +495,9 @@
       "index": 19,
       "id": "peace_agreement",
       "text": [
-        "agreement.",
-        "After all of this.",
-        "I did not expect this when I board plane to Switzerland.",
-        "I expect more posturing. More circles.",
-        "That is usually how it goes.",
-        "You surprise me, Mr. President.",
-        "I do not say this to many people.",
+        "I did not expect this such an outcome from this meeting.",
+        "Usually outcome is a lot more, frustrating is the word, yes?",
+        "In any case, you surprise me, Mr. President. I do not say this to many people.",
         "Russia will honor this agreement.",
         "Not because we must.",
         "Because we choose to.",

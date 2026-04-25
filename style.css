@@ -11,6 +11,7 @@
 }
 
 .dialogue-button-parent {
+    z-index: 1;
     display: inline;
     filter: drop-shadow(0px -10px 0px rgb(158, 168, 168)) drop-shadow(-2.5px 0px 0px rgb(141, 149, 151)) drop-shadow(2.5px 0px 0px rgb(141, 149, 151));
 }
@@ -38,21 +39,27 @@
     0% {
         opacity: 1;
     }
+
     25% {
         opacity: 0.5;
     }
+
     40% {
         opacity: 0.25;
     }
+
     50% {
         opacity: 1;
     }
+
     75% {
         opacity: 0.5;
     }
+
     90% {
         opacity: 0.25;
     }
+
     100% {
         opacity: 1;
     }
@@ -62,6 +69,7 @@
     0% {
         clip-path: inset(0 100% 40% 0);
     }
+
     100% {
         clip-path: inset(0 0 40% 0);
     }
@@ -75,6 +83,7 @@
     0% {
         clip-path: inset(0 0 40% 0);
     }
+
     100% {
         clip-path: inset(0 0 0 0);
         transform: translate(0px, -10px);
@@ -91,7 +100,16 @@
         filter: drop-shadow(0px -10px 0px rgb(158, 168, 168)) drop-shadow(-2.5px 0px 0px rgb(141, 149, 151)) drop-shadow(2.5px 0px 0px rgb(141, 149, 151));
         ;
     }
+
     100% {
         filter: drop-shadow(0px 5.5px 0px rgb(158, 168, 168));
     }
+}
+
+.BigRedButton {
+    position: absolute;
+    left: 100%;
+    top: 100%;
+    transform: translate(-100%, -100%);
+    z-index: 10; 
 }
