@@ -15,7 +15,7 @@ function preload() {
   }
 
   preLoadFont();
-  computer.outline = loadImage("data/terminal.png");
+  computer.outline = loadImage("data/environment/terminal.png");
   let stringsList = ["secretary", "congress", "press", "businessman", "leader"];
   stringsList.forEach((elem) => {
     let temp = loadJSON("data/dialogue/" + elem + ".json");

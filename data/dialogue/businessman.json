@@ -64,9 +64,9 @@
       "index": 2,
       "id": "get_to_point",
       "text": [
-        "Straight to it. I respect that. Genuinely.",
+        "Alright! Straight to it. I respect that. Genuinely.",
         "Bottom line: I believe this country is on the edge of something historic.",
-        "The question is whether we step forward deliberately -- or get pushed.",
+        "The question is whether we step forward deliberately, or get pushed.",
         "I'd rather we step. Wouldn't you?"
       ],
       "branching": true,
@@ -453,8 +453,7 @@
       "text": [
         "Mr. President. How nice of you to return my call.",
         "I've been trying to get on your calendar for three weeks. Three weeks.",
-        "Do you know how much can change in three weeks? Historically speaking?",
-        "A lot. The answer is a lot.",
+        "Not just because I myself am a busy man, but it seems that you are too.",
         "Look -- I'll be straight with you, I was watching that interview you did with Wilkins earlier,",
         "and I must say, I believe that I can change your mind on your stance on some topics.",
         "You see, I run the largest private defense contractor this side of the world.",
@@ -469,11 +468,39 @@
       "links": [
         {
           "label": "You have five minutes",
-          "linkTo": 1
+          "linkTo": 18
         },
         {
           "label": "Get to the point",
           "linkTo": 2
+        }
+      ]
+    },
+    {
+      "index": 18,
+      "id": "five_minutes",
+      "text": [
+        "Perfect!",
+        "So. Here's the thing about peace, Mr. President.",
+        "Unlike what Wilkins and the rest of those plebians believe, peace is never the answer.",
+        "Look at every major leap in American technology, infrastructure, economic dominance",
+        "every single one of them exists because of conflict.",
+        "Peace will never invent the computer, the GPS, nor whatever's in you medicine cabinet.",
+        "Conflict-accelerated research. I'm not making this up. This is documented history.",
+        "War is, at its core, the greatest innovation engine ever invented.",
+        "And right now, that engine is sitting on the launchpad.",
+        "All it needs is someone with the vision -- and the authority -- to press go.",
+        "That's you, Mr. President. That's only ever been you."
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "That's a dangerous argument",
+          "linkTo": 3
+        },
+        {
+          "label": "Keep talking",
+          "linkTo": 4
         }
       ]
     }

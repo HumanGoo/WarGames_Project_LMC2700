@@ -9,20 +9,20 @@
       "text": [
         "I am here.",
         "I admit, when your people contact me, I am not sure what to expect.",
-        "Invitation. To leave my motherland. To sit in remote room in Switzerland and wait in front of metal box.",
+        "Invitation. To leave my motherland and sit in remote room and wait in front of metal box.",
         "Is not something I do often, Mr. President.",
-        "But here I am. In Switzerland. Waiting.",
+        "But here I am, waiting.",
         "For you. Now, You have my attention.",
         "I suggest you do not waste it."
       ],
       "branching": true,
       "links": [
         {
-          "label": "Thank you for coming.",
+          "label": "Thank you for coming",
           "linkTo": 1
         },
         {
-          "label": "Let's get straight to business.",
+          "label": "Straight to business",
           "linkTo": 2
         }
       ]
@@ -35,20 +35,20 @@
         "Yes.",
         "You are very welcome.",
         "So gracious of you to thank me. Very polite.",
-        "America is always very polite, yes? On surface.",
+        "America is always very polite, yes? On surface that is.",
         "I find it is places underneath surface that are more interesting.",
         "But no need to get into that.",
         "You called this meeting, Mr. President.",
-        "I hope you are comfortable."
+        "I hope you are comfortable wherever you are."
       ],
       "branching": true,
       "links": [
         {
-          "label": "I want to discuss peace.",
+          "label": "Discuss peace",
           "linkTo": 3
         },
         {
-          "label": "I want to discuss our differences.",
+          "label": "Discuss our differences",
           "linkTo": 4
         }
       ]
@@ -60,18 +60,17 @@
         "Business. Of course.",
         "Americans are always in hurry. Always rushing.",
         "To meetings. To conclusions.",
-        "Sometimes to places they cannot easily leave.",
         "But yes. Business.",
         "What is it you want from me, Mr. President?"
       ],
       "branching": true,
       "links": [
         {
-          "label": "I want to discuss peace.",
+          "label": "I want to discuss peace",
           "linkTo": 3
         },
         {
-          "label": "I want to discuss your aggression.",
+          "label": "I want to discuss your aggression",
           "linkTo": 5
         }
       ]
@@ -86,16 +85,16 @@
         "Peace and world are same thing to us.",
         "I wonder, sometimes, if English has this problem. If peace and world feel different to you.",
         "Perhaps that is why America finds one so easy to disrupt and other so easy to ignore.",
-        "You say you want peace. Tell me what this means to you, Mr. President."
+        "You say you want peace. Tell me what that means to you, Mr. President."
       ],
       "branching": true,
       "links": [
         {
-          "label": "A ceasefire and diplomatic talks.",
+          "label": "A ceasefire and diplomatic talks",
           "linkTo": 6
         },
         {
-          "label": "Mutual disarmament.",
+          "label": "Mutual disarmament",
           "linkTo": 7
         }
       ]
@@ -104,20 +103,18 @@
       "index": 4,
       "id": "differences",
       "text": [
-        "Ha. Смешной парень. Our differences.",
-        "This could take some time.",
+        "Ha. Our differences.",
+        "What you say is so very vague, Mr. President.",
         "ideological ones? territorial ones?",
         "Or perhaps more recent ones.",
-        "ones that involve very expensive weapons systems",
-        "sold by very expensive men in very expensive suits.",
-        "I read about your defense contractors, Mr. President.",
-        "Very interesting reading.",
-        "Very American."
+        "You mean to talk about wars you start in name of capitalism.",
+        "Of people you and your business associates kill for money?",
+        "Your American traditions is different from ours, I must say."
       ],
       "branching": true,
       "links": [
         {
-          "label": "What we do internally is our business.",
+          "label": "What we do internally is our business",
           "linkTo": 8
         },
         {
@@ -132,12 +129,10 @@
       "text": [
         "My aggression.",
         "I see.",
-        "You invite me to Switzerland, and first thing you say is: your aggression.",
+        "You invite me to talk, and first thing you want to talk about is my aggression.",
         "That is very bold opening, Mr. President.",
-        "I give you credit for this.",
-        "But I would ask you to consider something.",
-        "what word does America use for this?",
-        "Because from where I am sitting, it does not look like word defense."
+        "Your boldness only come from fact that I am not there in front of face, yes?",
+        "Is all this plan so you do not get scared? Or is it to get me away from motherland?"
       ],
       "branching": true,
       "links": [
@@ -542,20 +537,15 @@
       "index": 20,
       "id": "war",
       "text": [
-        "Then I am sorry.",
-        "Not for Russia.",
-        "For everyone.",
+        "Then I am sorry. Not for Russia. But for everyone.",
         "You think war is something that happens to other side.",
         "America has always thought this.",
         "Very large ocean. Very safe feeling.",
-        "they do not care about oceans.",
-        "They do not care about bunkers, either.",
-        "If this is path, then it is path.",
-        "Russia will not flinch.",
-        "that I came to Switzerland.",
-        "I sat in this room.",
-        "I waited.",
-        "And I was willing.",
+        "But my do not care about oceans.",
+        "And they do not care about bunkers, either.",
+        "If this is path, then it is path of mutual destruction.",
+        "Russia will not flinch. Will not yield, until it is only country left.",
+        "I come here, and sat, and wait, because I was willing to negotiate.",
         "Goodbye, Mr. President.",
         "I hope history is kind to both of us.",
         "I do not think it will be."

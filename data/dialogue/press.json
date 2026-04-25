@@ -326,7 +326,7 @@
                 "Jeronica Wilkins, NSBNC. Goodnight."
             ],
             "branching": true,
-            "links": [{ "label": "Disconnect", "linkTo": ["sec", 3] }]
+            "links": [{ "label": "Disconnect", "linkTo": ["sec", 7] }]
         },
         {
             "index": 21,

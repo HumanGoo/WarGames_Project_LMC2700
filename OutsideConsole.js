@@ -113,22 +113,6 @@ function outsideConsole(c) {
     
     //table
     
-    /*c.beginShape();
-    c.vertex(computer.location.x, computer.location.y + computer.size.height);
-    c.vertex(computer.location.x + computer.size.width, computer.location.y + computer.size.height);
-    c.vertex(c.width, c.height);
-    c.vertex(0, c.height);
-    c.vertex(computer.location.x, computer.location.y + computer.size.height);
-    c.endShape();*/
-    //button
-
-    /*c.strokeWeight(5);
-    c.fill(140);
-    c.ellipse(c.width/2, (c.height + 450)/2 + 85, 150, 120);
-    c.fill(255, 0, 0);
-    c.ellipse(c.width/2, (c.height + 450)/2 + 80, 125, 100);
-    c.ellipse(c.width/2, (c.height + 450)/2 + 70, 125, 100);*/
-    
     c.push();
     c.imageMode(CORNERS);
     c.image(c.curButton, 915.3 - c.curButton.width, 769.4 - c.curButton.height, 915.3, 769.4);
@@ -139,21 +123,6 @@ function outsideConsole(c) {
       DialogueChoice.position.set(DialogueChoice.origin.x, DialogueChoice.origin.y);
       // DialogueChoice.positionInitialized = true;
     }
-
-    /*
-    //button cover
-
-    c.fill(80,100);
-    
-    c.rect(c.width/2, (c.height + 445)/2 + 85, 180, 145);
-    c.rect(c.width/2, (c.height + 400)/2 + 85, 180, 145);
-    
-    c.rect(c.width/2, (c.height + 305)/2 + 85, 180, 7.5);
-    c.rect(c.width/2, (c.height + 415)/2 + 85, 180, 120);
-    c.rect(c.width/2, (c.height + 555)/2 + 85, 180, 22.5);
-    c.fill(110)
-    c.ellipse(c.width/2 + 95, (c.height + 445)/2 + 85, 10, 145);
-    */
   }
 }
 
