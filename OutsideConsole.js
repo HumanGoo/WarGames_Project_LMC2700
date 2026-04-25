@@ -132,7 +132,7 @@ function outsideConsole(c) {
     */
 
     if (!DialogueChoice.positionInitialized) {
-      DialogueChoice.origin = new p5.Vector(346.5, 520);
+      DialogueChoice.origin = new p5.Vector(350.2, 519.3);
       DialogueChoice.position.set(
         DialogueChoice.origin.x,
         DialogueChoice.origin.y,

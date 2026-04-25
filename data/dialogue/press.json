@@ -75,7 +75,7 @@
             "branching": true,
             "links": [
                 { "label": "Yes", "linkTo": 21 },
-                { "label": "No! I was just joking, haha", "linkTo": 12 }
+                { "label": "No I was just joking, haha", "linkTo": 12 }
             ]
         },
         {
@@ -194,7 +194,7 @@
                 "Doesn't that concern you, Mr. President? That your own house may not be in order?"
             ],
             "branching": true,
-            "links": [{ "label": "I couldn't care less about some useless leak.", "linkTo": 15 },
+            "links": [{ "label": "I don't care about some useless leak.", "linkTo": 15 },
                 { "label": "I trust my people", "linkTo": 14 }
             ]
         },
