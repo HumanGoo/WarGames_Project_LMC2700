@@ -4,8 +4,7 @@
   "pitch": 1.2,
   "dialogue": [
     {
-      "index": 0,
-      "id": "start",
+      "index": 0, "id": "start",
       "text": [
         "I am here.",
         "I admit, when your people contact me, I am not sure what to expect.",
@@ -16,6 +15,7 @@
         "I suggest you do not waste it."
       ],
       "branching": true,
+      "alignment": "neutral",
       "links": [
         {
           "label": "Thank you for coming",
@@ -28,8 +28,7 @@
       ]
     },
     {
-      "index": 1,
-      "id": "thank_you",
+      "index": 1, "id": "thank_you",
       "text": [
         "Thank me.",
         "Yes.",
@@ -42,6 +41,7 @@
         "I hope you are comfortable wherever you are."
       ],
       "branching": true,
+      "alignment": "neutral",
       "links": [
         {
           "label": "Discuss peace",
@@ -54,8 +54,7 @@
       ]
     },
     {
-      "index": 2,
-      "id": "straight_to_business",
+      "index": 2, "id": "straight_to_business",
       "text": [
         "Business. Of course.",
         "Americans are always in hurry. Always rushing.",
@@ -64,6 +63,7 @@
         "What is it you want from me, Mr. President?"
       ],
       "branching": true,
+      "alignment": "neutral",
       "links": [
         {
           "label": "I want to discuss peace",
@@ -76,8 +76,7 @@
       ]
     },
     {
-      "index": 3,
-      "id": "peace",
+      "index": 3, "id": "peace",
       "text": [
         "Peace.",
         "Interesting word.",
@@ -88,6 +87,7 @@
         "You say you want peace. Tell me what that means to you, Mr. President."
       ],
       "branching": true,
+      "alignment": "neutral",
       "links": [
         {
           "label": "A ceasefire and diplomatic talks",
@@ -100,8 +100,7 @@
       ]
     },
     {
-      "index": 4,
-      "id": "differences",
+      "index": 4, "id": "differences",
       "text": [
         "Ha. Our differences.",
         "What you say is so very vague, Mr. President.",
@@ -112,6 +111,7 @@
         "Your American traditions is different from ours, I must say."
       ],
       "branching": true,
+      "alignment": "neutral",
       "links": [
         {
           "label": "What we do internally is our business",
@@ -124,8 +124,7 @@
       ]
     },
     {
-      "index": 5,
-      "id": "aggression",
+      "index": 5, "id": "aggression",
       "text": [
         "My aggression.",
         "I see.",
@@ -135,6 +134,7 @@
         "Is all this plan so you do not get scared? Or is it to get me away from motherland?"
       ],
       "branching": true,
+      "alignment": "neutral",
       "links": [
         {
           "label": "This is a defensive measure",
@@ -147,8 +147,7 @@
       ]
     },
     {
-      "index": 6,
-      "id": "ceasefire",
+      "index": 6, "id": "ceasefire",
       "text": [
         "ceasefire. And talks.",
         "Talks like this one, yes?",
@@ -162,6 +161,7 @@
         "What are you prepared to offer Russia in return for real peace?"
       ],
       "branching": true,
+      "alignment": "neutral",
       "links": [
         {
           "label": "A withdrawal of NATO forces from your borders.",
@@ -174,8 +174,7 @@
       ]
     },
     {
-      "index": 7,
-      "id": "disarmament",
+      "index": 7, "id": "disarmament",
       "text": [
         "Mutual disarmament.",
         "You are serious.",
@@ -191,6 +190,7 @@
         "So you will forgive me if I find word disarmament little ironic."
       ],
       "branching": true,
+      "alignment": "neutral",
       "links": [
         {
           "label": "Those contracts are defensive.",
@@ -203,8 +203,7 @@
       ]
     },
     {
-      "index": 8,
-      "id": "internal_business",
+      "index": 8, "id": "internal_business",
       "text": [
         "Your business.",
         "Yes.",
@@ -219,6 +218,7 @@
         "That is character of nation."
       ],
       "branching": true,
+      "alignment": "neutral",
       "links": [
         {
           "label": "That is not how my administration operates.",
@@ -231,8 +231,7 @@
       ]
     },
     {
-      "index": 9,
-      "id": "defensive",
+      "index": 9, "id": "defensive",
       "text": [
         "Defensive.",
         "Every country says this, yes?",
@@ -245,6 +244,7 @@
         "I am interested in action."
       ],
       "branching": true,
+      "alignment": "neutral",
       "links": [
         {
           "label": "I will withdraw forces from the region.",
@@ -257,8 +257,7 @@
       ]
     },
     {
-      "index": 10,
-      "id": "understand_concern",
+      "index": 10, "id": "understand_concern",
       "text": [
         "Then perhaps you also understand why Russia cannot simply take your word.",
         "Understanding must come with something attached to it.",
@@ -266,6 +265,7 @@
         "What exactly are you offering, Mr. President?"
       ],
       "branching": true,
+      "alignment": "neutral",
       "links": [
         {
           "label": "A withdrawal of forces.",
@@ -278,8 +278,7 @@
       ]
     },
     {
-      "index": 11,
-      "id": "withdraw_forces",
+      "index": 11, "id": "withdraw_forces",
       "text": [
         "withdrawal.",
         "You would pull back your forces.",
@@ -293,6 +292,7 @@
         "What makes this one different from others?"
       ],
       "branching": true,
+      "alignment": "neutral",
       "links": [
         {
           "label": "I will put it in writing.",
@@ -305,8 +305,7 @@
       ]
     },
     {
-      "index": 12,
-      "id": "sanctions",
+      "index": 12, "id": "sanctions",
       "text": [
         "Lifted sanctions.",
         "Hmm.",
@@ -322,6 +321,7 @@
         "What else are you offering?"
       ],
       "branching": true,
+      "alignment": "neutral",
       "links": [
         {
           "label": "A withdrawal of forces as well.",
@@ -334,8 +334,7 @@
       ]
     },
     {
-      "index": 13,
-      "id": "pause_contracts",
+      "index": 13, "id": "pause_contracts",
       "text": [
         "You will pause contracts.",
         "men who hold those contracts will allow this?",
@@ -347,6 +346,7 @@
         "Then I am saying I am willing to talk about what comes next."
       ],
       "branching": true,
+      "alignment": "neutral",
       "links": [
         {
           "label": "I have the authority. Let's talk.",
@@ -359,8 +359,7 @@
       ]
     },
     {
-      "index": 14,
-      "id": "not_how_it_works",
+      "index": 14, "id": "not_how_it_works",
       "text": [
         "Not how your administration operates.",
         "I see.",
@@ -376,6 +375,7 @@
         "Which is it?"
       ],
       "branching": true,
+      "alignment": "neutral",
       "links": [
         {
           "label": "I am fully aware of my administration.",
@@ -388,8 +388,7 @@
       ]
     },
     {
-      "index": 15,
-      "id": "in_writing",
+      "index": 15, "id": "in_writing",
       "text": [
         "I am cautiously willing to accept this.",
         "Russia will respond in kind.",
@@ -401,16 +400,16 @@
         "Let us see if it holds."
       ],
       "branching": true,
+      "alignment": "neutral",
       "links": [
         {
           "label": "Then we have an agreement.",
-          "linkTo": 19
+          "linkTo": 17
         }
       ]
     },
     {
-      "index": 16,
-      "id": "your_word",
+      "index": 16, "id": "your_word",
       "text": [
         "Your word.",
         "As President.",
@@ -423,6 +422,7 @@
         "Can you give me that?"
       ],
       "branching": true,
+      "alignment": "neutral",
       "links": [
         {
           "label": "I will put it in writing.",
@@ -435,8 +435,7 @@
       ]
     },
     {
-      "index": 17,
-      "id": "stalemate",
+      "index": 17, "id": "stalemate",
       "text": [
         "That is all.",
         "I see.",
@@ -452,20 +451,16 @@
         "Goodbye, Mr. President."
       ],
       "branching": true,
+      "alignment": "neutral",
       "links": [
         {
           "label": "Then we are done here.",
           "linkTo": ["sec", 5]
-        },
-        {
-          "label": "Then prepare for consequences.",
-          "linkTo": 21
         }
       ]
     },
     {
-      "index": 18,
-      "id": "fully_aware",
+      "index": 18, "id": "fully_aware",
       "text": [
         "Fully aware.",
         "Good.",
@@ -480,6 +475,7 @@
         "What do you want to happen when this call is over?"
       ],
       "branching": true,
+      "alignment": "neutral",
       "links": [
         {
           "label": "I want a signed peace agreement.",
@@ -492,8 +488,7 @@
       ]
     },
     {
-      "index": 19,
-      "id": "peace_agreement",
+      "index": 19, "id": "peace_agreement",
       "text": [
         "I did not expect this such an outcome from this meeting.",
         "Usually outcome is a lot more, frustrating is the word, yes?",
@@ -509,6 +504,7 @@
         "It has been unexpectedly worthwhile."
       ],
       "branching": true,
+      "alignment": "shared",
       "links": [
         {
           "label": "Disconnect.",
@@ -517,8 +513,7 @@
       ]
     },
     {
-      "index": 20,
-      "id": "war",
+      "index": 20, "id": "war",
       "text": [
         "Then I am sorry. Not for Russia. But for everyone.",
         "You think war is something that happens to other side.",
@@ -534,6 +529,7 @@
         "I do not think it will be."
       ],
       "branching": true,
+      "alignment": "shared",
       "links": [
         {
           "label": "Disconnect.",
@@ -542,8 +538,7 @@
       ]
     },
     {
-      "index": 21,
-      "id": "push_to_war",
+      "index": 21, "id": "push_to_war",
       "text": [
         "You want war.",
         "Say it plainly, Mr. President.",
@@ -555,14 +550,566 @@
         "Without ambiguity."
       ],
       "branching": true,
+      "alignment": "neutral",
       "links": [
         {
           "label": "Yes. America will not back down.",
-          "linkTo": 20
+          "linkTo": 17
         },
         {
           "label": "No. I misspoke.",
           "linkTo": 3
+        }
+      ]
+    },
+    {
+      "index": 22, "id": "good_start",
+      "text": [
+        "I am here.",
+        "I admit, when your people contact me, I am not sure what to expect.",
+        "Invitation. To leave my motherland and sit in remote room and wait in front of metal box.",
+        "Is not something I do often, Mr. President.",
+        "But here I am, waiting.",
+        "For you. Now, You have my attention.",
+        "I suggest you do not waste it."
+      ],
+      "branching": true,
+      "alignment": "good",
+      "links": [
+        {
+          "label": "I am grateful you came. Truly.",
+          "linkTo": 23
+        },
+        {
+          "label": "I want to begin with an apology.",
+          "linkTo": 24
+        }
+      ]
+    },
+    {
+      "index": 23, "id": "good_grateful",
+      "text": [
+        "Grateful.",
+        "This is not word I expect to hear from American President.",
+        "Especially not one speaking from wherever it is you are speaking from.",
+        "I will say this, Mr. President.",
+        "Gratitude is small thing.",
+        "But it is start.",
+        "Most leaders I speak with do not begin with gratitude.",
+        "They begin with demands.",
+        "So. You have my ear. What is it you wish to say?"
+      ],
+      "branching": true,
+      "alignment": "good",
+      "links": [
+        {
+          "label": "I want full and lasting peace between our nations.",
+          "linkTo": 25
+        },
+        {
+          "label": "I want to begin with an apology.",
+          "linkTo": 24
+        }
+      ]
+    },
+    {
+      "index": 24, "id": "good_apology",
+      "text": [
+        "Apology.",
+        "From American President.",
+        "I want to be certain I am hearing correctly.",
+        "You are apologizing.",
+        "For what, exactly?",
+        "I ask not to be difficult.",
+        "I ask because apology without understanding of what is being apologized for",
+        "is not apology at all.",
+        "It is performance.",
+        "Tell me, Mr. President. What do you believe America has done wrong?"
+      ],
+      "branching": true,
+      "alignment": "good",
+      "links": [
+        {
+          "label": "For escalating tensions instead of seeking dialogue.",
+          "linkTo": 26
+        },
+        {
+          "label": "For the economic pressure we have placed on your people.",
+          "linkTo": 27
+        }
+      ]
+    },
+    {
+      "index": 25, "id": "good_full_peace",
+      "text": [
+        "Full and lasting peace.",
+        "Not ceasefire. Not pause.",
+        "Peace.",
+        "Mr. President, I have sat in many rooms with many powerful men.",
+        "None of them say this to me directly.",
+        "Not like that.",
+        "Most dress it up. They say stability. Or mutual understanding. Or normalization.",
+        "You say peace.",
+        "I find I respect this.",
+        "Very much.",
+        "Russia also wants peace, Mr. President.",
+        "We have always wanted peace.",
+        "What are you prepared to give to get it?"
+      ],
+      "branching": true,
+      "alignment": "good",
+      "links": [
+        {
+          "label": "Full NATO withdrawal from your border regions.",
+          "linkTo": 28
+        },
+        {
+          "label": "Sanctions lifted and trade reopened, unconditionally.",
+          "linkTo": 29
+        }
+      ]
+    },
+    {
+      "index": 26, "id": "good_apology_escalation",
+      "text": [
+        "Escalation.",
+        "Yes.",
+        "You acknowledge this.",
+        "I will be honest with you, Mr. President, because you have been honest with me.",
+        "Russia also has escalated.",
+        "I do not pretend otherwise.",
+        "But it is rare that other side admits it first.",
+        "This changes tone of conversation.",
+        "What would you like to do with that tone?"
+      ],
+      "branching": true,
+      "alignment": "good",
+      "links": [
+        {
+          "label": "I want full and lasting peace.",
+          "linkTo": 25
+        },
+        {
+          "label": "I want to propose mutual de-escalation.",
+          "linkTo": 30
+        }
+      ]
+    },
+    {
+      "index": 27, "id": "good_apology_sanctions",
+      "text": [
+        "Economic pressure.",
+        "On my people.",
+        "Yes.",
+        "You know, most of your predecessors do not think about people when they talk about sanctions.",
+        "They think about governments. About leverage.",
+        "You say my people.",
+        "This is small thing. But it is not nothing.",
+        "I will remember you said that.",
+        "What else are you willing to acknowledge, Mr. President?"
+      ],
+      "branching": true,
+      "alignment": "good",
+      "links": [
+        {
+          "label": "I want full and lasting peace.",
+          "linkTo": 25
+        },
+        {
+          "label": "I want to lift the sanctions immediately.",
+          "linkTo": 29
+        }
+      ]
+    },
+    {
+      "index": 28, "id": "good_nato_withdrawal",
+      "text": [
+        "Full withdrawal.",
+        "From border regions.",
+        "Mr. President.",
+        "Do you understand what you are offering?",
+        "Your own military will not like this.",
+        "Your allies will not like this.",
+        "There will be people who call this surrender.",
+        "And you are offering it anyway.",
+        "Russia will match this gesture.",
+        "Our forces will pull back from western positions.",
+        "We will reduce naval presence in contested waters.",
+        "Not because you demanded it.",
+        "Because you offered something first.",
+        "This is how trust begins, Mr. President.",
+        "Shall we make it official?"
+      ],
+      "branching": true,
+      "alignment": "good",
+      "links": [
+        {
+          "label": "Yes. Let us sign and end this.",
+          "linkTo": 19
+        }
+      ]
+    },
+    {
+      "index": 29, "id": "good_sanctions_lifted",
+      "text": [
+        "Sanctions lifted. Unconditionally.",
+        "No conditions.",
+        "Hmm.",
+        "I have negotiated for many years, Mr. President.",
+        "Everything always has condition.",
+        "Even generosity.",
+        "But you say unconditional.",
+        "If you mean this, then Russia is willing to take equal step.",
+        "We will release frozen assets belonging to your allied businesses.",
+        "We will reopen trade corridors that have been closed since 2014.",
+        "And I will personally recommend to my cabinet that we pursue full normalization.",
+        "But Mr. President, I must ask.",
+        "Can you deliver this? Truly?",
+        "Your own people, will they follow?"
+      ],
+      "branching": true,
+      "alignment": "good",
+      "links": [
+        {
+          "label": "I will make them follow. Sign with me.",
+          "linkTo": 19
+        },
+        {
+          "label": "It will take time, but I commit to it.",
+          "linkTo": 30
+        }
+      ]
+    },
+    {
+      "index": 30, "id": "good_mutual_deescalation",
+      "text": [
+        "Mutual de-escalation.",
+        "Step by step.",
+        "Yes.",
+        "This I can work with.",
+        "It is slower. Less dramatic.",
+        "No signing ceremony. No photograph.",
+        "But it is real.",
+        "Real things are built slowly.",
+        "Russia will take first step if you take first step.",
+        "Together, at same time.",
+        "Neither side waiting for other to blink.",
+        "We simply both... lower our hands.",
+        "Is this something you can commit to, Mr. President?"
+      ],
+      "branching": true,
+      "alignment": "good",
+      "links": [
+        {
+          "label": "I commit to it. Fully and without reservation.",
+          "linkTo": 19
+        },
+        {
+          "label": "I need more time to consult my advisors.",
+          "linkTo": 31
+        }
+      ]
+    },
+    {
+      "index": 31, "id": "good_needs_time",
+      "text": [
+        "More time.",
+        "To consult advisors.",
+        "Yes. Of course.",
+        "Mr. President, I will say something to you that I do not often say.",
+        "Take your time.",
+        "Russia is not going anywhere.",
+        "But understand that I came very long way to sit in this room.",
+        "I will not always be this willing.",
+        "Find your answer, Mr. President.",
+        "And then come back to table.",
+        "I will be here.",
+        "For now."
+      ],
+      "branching": true,
+      "alignment": "good",
+      "links": [
+        {
+          "label": "Then we have a foundation. Goodbye.",
+          "linkTo": 17
+        },
+        {
+          "label": "No. I have decided. Let us sign.",
+          "linkTo": 19
+        }
+      ]
+    },
+    {
+      "index": 32, "id": "evil_start",
+      "text": [
+        "I am here.",
+        "I admit, when your people contact me, I am not sure what to expect.",
+        "Invitation. To leave my motherland and sit in remote room and wait in front of metal box.",
+        "Is not something I do often, Mr. President.",
+        "But here I am, waiting.",
+        "For you. Now, You have my attention.",
+        "I suggest you do not waste it."
+      ],
+      "branching": true,
+      "alignment": "evil",
+      "links": [
+        {
+          "label": "You should be grateful I contacted you at all.",
+          "linkTo": 33
+        },
+        {
+          "label": "Russia's position is no longer tenable.",
+          "linkTo": 34
+        }
+      ]
+    },
+    {
+      "index": 33, "id": "evil_grateful",
+      "text": [
+        "Grateful.",
+        "I see.",
+        "Mr. President, I leave my country, cross continent, sit in Swiss room",
+        "and speak into old machine to man hiding in hole in ground.",
+        "And you tell me I should be grateful.",
+        "This is very interesting perspective.",
+        "Very American perspective.",
+        "Say what you came to say.",
+        "But choose words carefully.",
+        "I have very low tolerance for disrespect, Mr. President.",
+        "Especially from someone I cannot see."
+      ],
+      "branching": true,
+      "alignment": "evil",
+      "links": [
+        {
+          "label": "Russia will stand down or face consequences.",
+          "linkTo": 35
+        },
+        {
+          "label": "America is prepared to act unilaterally.",
+          "linkTo": 36
+        }
+      ]
+    },
+    {
+      "index": 34, "id": "evil_not_tenable",
+      "text": [
+        "Not tenable.",
+        "Russia's position.",
+        "Interesting that you decide this.",
+        "From wherever it is you are sitting.",
+        "Tell me, Mr. President.",
+        "What exactly is it that is not tenable?",
+        "That we exist? That we have borders? That we do not simply agree with everything you say?",
+        "I would like to understand what untenable looks like from inside American bunker."
+      ],
+      "branching": true,
+      "alignment": "evil",
+      "links": [
+        {
+          "label": "Your military provocations will not be tolerated.",
+          "linkTo": 35
+        },
+        {
+          "label": "You will withdraw your forces or we will make you.",
+          "linkTo": 37
+        }
+      ]
+    },
+    {
+      "index": 35, "id": "evil_consequences",
+      "text": [
+        "Consequences.",
+        "Yes.",
+        "America loves this word.",
+        "Consequences.",
+        "As if Russia has not already lived through consequences.",
+        "As if we do not know exactly what consequences look like.",
+        "Let me tell you something, Mr. President.",
+        "We have been threatened before.",
+        "By larger powers than yours.",
+        "We are still here.",
+        "So when you say consequences, you will forgive me if I do not flinch.",
+        "What exactly are you threatening?"
+      ],
+      "branching": true,
+      "alignment": "evil",
+      "links": [
+        {
+          "label": "Military action if you do not comply.",
+          "linkTo": 38
+        },
+        {
+          "label": "Economic isolation. Total and immediate.",
+          "linkTo": 39
+        }
+      ]
+    },
+    {
+      "index": 36, "id": "evil_unilateral",
+      "text": [
+        "Unilateral action.",
+        "So you did not come here to negotiate.",
+        "You came here to inform.",
+        "Very well.",
+        "I appreciate honesty, even when it is dressed up as diplomacy.",
+        "But understand this, Mr. President.",
+        "If America acts unilaterally,",
+        "Russia will respond.",
+        "Not with words.",
+        "Not with meetings in Switzerland.",
+        "You understand what I am saying."
+      ],
+      "branching": true,
+      "alignment": "evil",
+      "links": [
+        {
+          "label": "Then let Russia respond. We are ready.",
+          "linkTo": 40
+        },
+        {
+          "label": "I am giving you one last chance to negotiate.",
+          "linkTo": 35
+        }
+      ]
+    },
+    {
+      "index": 37, "id": "evil_make_you",
+      "text": [
+        "You will make us.",
+        "Make us.",
+        "You will make Russia withdraw its own forces from its own borders.",
+        "Mr. President.",
+        "I want you to hear yourself.",
+        "Do you understand what you are saying?",
+        "No one has made Russia do anything in three hundred years.",
+        "Not Napoleon. Not Hitler. Not NATO.",
+        "You are welcome to try.",
+        "We will be waiting."
+      ],
+      "branching": true,
+      "alignment": "evil",
+      "links": [
+        {
+          "label": "Then consider this a declaration of intent.",
+          "linkTo": 40
+        },
+        {
+          "label": "Last chance. Withdraw or face military action.",
+          "linkTo": 38
+        }
+      ]
+    },
+    {
+      "index": 38, "id": "evil_military_threat",
+      "text": [
+        "Military action.",
+        "There it is.",
+        "You know, there is something almost refreshing about this.",
+        "No more pretending.",
+        "No more diplomatic language.",
+        "Just one man in hiding, threatening another country with war.",
+        "Russia has prepared for this moment for long time, Mr. President.",
+        "Longer than this administration.",
+        "Longer than last one.",
+        "If you want war, you will get war.",
+        "But I want it on record that I sat in this room.",
+        "And I waited.",
+        "And it was America who chose this.",
+        "Not Russia.",
+        "Never Russia."
+      ],
+      "branching": true,
+      "alignment": "evil",
+      "links": [
+        {
+          "label": "America accepts responsibility. Begin.",
+          "linkTo": 20
+        },
+        {
+          "label": "I will give you 24 hours to comply.",
+          "linkTo": 41
+        }
+      ]
+    },
+    {
+      "index": 39, "id": "evil_economic_isolation",
+      "text": [
+        "Total economic isolation.",
+        "Hmm.",
+        "Mr. President.",
+        "We have already survived sanctions.",
+        "For years.",
+        "What you are describing is not new.",
+        "It is just more.",
+        "Russia has allies you are not accounting for.",
+        "Markets you do not control.",
+        "Trade routes that do not pass through your hemisphere.",
+        "So please.",
+        "Tell me how total this isolation will truly be.",
+        "And then we will see if numbers match your confidence."
+      ],
+      "branching": true,
+      "alignment": "evil",
+      "links": [
+        {
+          "label": "Then we have nothing further to discuss.",
+          "linkTo": 41
+        },
+        {
+          "label": "It will be total. Your economy will not survive.",
+          "linkTo": 38
+        }
+      ]
+    },
+    {
+      "index": 40, "id": "evil_ready_for_war",
+      "text": [
+        "Ready.",
+        "You say you are ready.",
+        "Mr. President.",
+        "No one is ready for what comes next.",
+        "Not you.",
+        "Not me.",
+        "Not people in your cities or mine.",
+        "I came here willing to talk.",
+        "You chose something else.",
+        "That choice belongs to you.",
+        "History will remember who made it.",
+        "Goodbye, Mr. President.",
+        "I hope your bunker is deep enough."
+      ],
+      "branching": true,
+      "alignment": "evil",
+      "links": [
+        {
+          "label": "Disconnect.",
+          "linkTo": 20
+        }
+      ]
+    },
+    {
+      "index": 41, "id": "evil_final_warning",
+      "text": [
+        "Final warning.",
+        "Twenty-four hours.",
+        "You know, Mr. President, I have received many ultimatums in my career.",
+        "From bigger countries.",
+        "From scarier men.",
+        "None of them ended well.",
+        "Not for them.",
+        "I will take your twenty-four hours.",
+        "And I will use them to make sure Russia is ready.",
+        "For whatever you decide.",
+        "Do not mistake my patience for weakness.",
+        "We are done for today."
+      ],
+      "branching": true,
+      "alignment": "evil",
+      "links": [
+        {
+          "label": "Disconnect.",
+          "linkTo": 17
         }
       ]
     }
