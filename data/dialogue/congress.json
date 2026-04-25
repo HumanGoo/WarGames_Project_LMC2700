@@ -292,6 +292,51 @@
           "linkTo": 8
         }
       ]
+    },
+        {
+      "index": 16,
+      "id": "intro yes press good",
+      "text": [
+        "Oh! Mr. President! I'm so glad that you reached out to me on such short notice.",
+        "Congress has delegated to contact you for a very important matter.",
+        "you see, we have come up with a plan to ease tensions with Russia.",
+        "In fact, after watching your interview with the press,",
+        "you'll find that you and Congress have very similar goals in mind."
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "Tell me",
+          "linkTo": 5
+        }
+      ]
+    },
+            {
+      "index": 17,
+      "id": "intro yes press bad",
+      "text": [
+        "Oh! Mr. President! I'm so glad that you reached out to me on such short notice.",
+        "Before we get into anything, I must tell you that your reputation precedes you.",
+        "There are some things about you that I find unsavory, more so now that I've seen your interview.",
+        "Nonetheless, I'm willing to put that all aside in the name of world peace.",
+        "How does that sound? A world where no one looks to the sky in fear,",
+        "and one where people can co-exist in harmony.",
+        "Congress hopes that you will see that being negative gets you nowhere.",
+        "That aside, we at Congress have a plan to remedy tensions in Russia.",
+        "It involves negotiating certain ... deals with the leader Romanov.",
+        "If that sounds interesting to you at all, just say the word."
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "I'm interested",
+          "linkTo": 5
+        },
+        {
+          "label": "I'd rather bomb Russia",
+          "linkTo": 10
+        }
+      ]
     }
   ],
   "links": [""]

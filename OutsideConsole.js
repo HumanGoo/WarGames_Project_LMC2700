@@ -208,7 +208,7 @@ class BigRedButton {
     this.states = states;
     this.currentState = Object.keys(states)[0]; // default to first state
     Object.values(this.states).forEach((img) => {
-      console.log(img);
+      //console.log(img);
       img.hide();
       img.addClass("BigRedButton");
       img.mouseOver(this.hovering);

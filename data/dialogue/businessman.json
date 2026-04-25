@@ -449,7 +449,7 @@
     },
     {
       "index": 17,
-      "id": "intro_after_press_neutral",
+      "id": "intro_after_press_neutral/good",
       "text": [
         "Mr. President. How nice of you to return my call.",
         "I've been trying to get on your calendar for three weeks. Three weeks.",
@@ -478,7 +478,7 @@
     },
     {
       "index": 18,
-      "id": "five_minutes",
+      "id": "five_minutes_after_neutral_intro",
       "text": [
         "Perfect!",
         "So. Here's the thing about peace, Mr. President.",
@@ -503,7 +503,35 @@
           "linkTo": 4
         }
       ]
+    },
+    {
+      "index": 19,
+      "id": "intro_after_press_bad",
+      "text": [
+        "Mr. President. How nice of you to return my call.",
+        "I've been trying to get on your calendar for three weeks. Three weeks.",
+        "Not just because I myself am a busy man, but it seems that you are too.",
+        "Look -- I'll be straight with you, I was watching that interview you did with Wilkins earlier,",
+        "and I must say, I believe that you and I are cut from the same cloth.",
+        "You see, I admire you and your reputation.",
+        "The way you handled that interview? Perfection",
+        "And now, in the midst of a major geopolitical situation,",
+        "I see an oppurtunity for both of us.",
+        "I'd like five minutes of your time. Just five. Can I get five minutes?"
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "Of course, my friend",
+          "linkTo": 1
+        },
+        {
+          "label": "Get to the point",
+          "linkTo": 2
+        }
+      ]
     }
+    
   ],
   "links": [""]
 }

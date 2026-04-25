@@ -3,7 +3,7 @@ let playerAlignment = 0;
 let talkedToPress = false;
 class Dialogue {
   static currentBranchIndex = 0;
-
+    static rudeToPress = 0; //0 => neutral end, 1 => good end, 2 => bad
   constructor(file, name = null) {
     this.id = name;
     this.json = file;
@@ -119,32 +119,32 @@ class Dialogue {
     //if so, index 0 is the file name we path to
     //index 1 is the index we set it to be.
 
-    if (index == "checkLinks") {
+    if (index == "checkLinks") { //secretary dialogue code
       //also array, or something
       if (allDials[0] == "sec") {
         Dialogue.currentBranchIndex = 2; //endstate
       } else {
-        //branching
-        //add back the last two when they're done
-        if (playerAlignment == 0) {
+        /*
+        this is where the branching paths based on your alignment and whether or not you talk to the press.
+        */
+        if (playerAlignment == 0) { //neutral
             Dialogue.currentBranchIndex = talkedToPress ? 6 : 5;
-        } else if (playerAlignment > 0) {
-            // DialogueChoice.currentBranchIndex = talkedToPress ? 8 : 9;
-            Dialogue.currentBranchIndex = talkedToPress ? 6 : 5;
-        } else if (playerAlignment < 0) {
+        } else if (playerAlignment > 0) { //good
+            Dialogue.currentBranchIndex = talkedToPress ? 9 : playerAlignment > 1 ? 8 : 5;
+        } else if (playerAlignment < 0) { //bad
+            console.log('hello you are bad')
             // DialogueChoice.currentBranchIndex = talkedToPress ? 10 : 11;
-            Dialogue.currentBranchIndex = talkedToPress ? 6 : 5;
+            Dialogue.currentBranchIndex = talkedToPress ? 11 : 10;
         }
       }
       this.resetDial();
       return;
     }
-    if (typeof index === "object") {
+    if (typeof index === "object") { //going into other json file
       //array
-      // //check alignment
+    //check alignment
       let currentBranchId =
-        this.json["dialogue"][this.getIndexInJSON()]["id"];
-      console.log("ID: " + currentBranchId);
+        this.json["dialogue"][Dialogue.currentBranchIndex]["id"];
       switch(currentBranchId) {
         case "bad end":
             playerAlignment--;
@@ -160,7 +160,7 @@ class Dialogue {
             playerAlignment++;
             break;
       }
-      console.log("alignment: " + playerAlignment)
+
       index[0] = index[0].trim();
       if (index[0] == "endState") {
         pushedButton = boolean(index[1]);
@@ -302,7 +302,7 @@ class DialogueChoice {
     switch (DialogueChoice.num) {
       case 1:
         funSkew = (4.75 + 0)/2 - (1 - ((4.75 + 0)/2 * (this.button.elt.getBoundingClientRect().width/216.4)));
-        console.log('transform:skew(' + str(-funSkew) + 'deg);');
+        //console.log('transform:skew(' + str(-funSkew) + 'deg);');
         
         this.wrapper.style('transform:skew(' + str(-funSkew) + 'deg);');
         this.wrapper.position(DialogueChoice.position.x + 216.4/2 - this.button.elt.getBoundingClientRect().width/2, DialogueChoice.position.y + (83.45/2 - this.wrapper.elt.offsetHeight/2));
@@ -326,7 +326,7 @@ class DialogueChoice {
         break;
       default:
         funSkew = (9.5 + 5)/2 - (1 - ((9.5 + 5)/2 * (this.button.elt.getBoundingClientRect().width/222.3)));
-        console.log('transform:skew(' + str(-funSkew) + 'deg);');
+        //console.log('transform:skew(' + str(-funSkew) + 'deg);');
         
         this.wrapper.style('transform:skew(' + str(-funSkew) + 'deg);');
         this.wrapper.position(DialogueChoice.position.x + 222.3/2 - this.button.elt.getBoundingClientRect().width/2, DialogueChoice.position.y + (83.45/2 - this.wrapper.elt.offsetHeight/2));
