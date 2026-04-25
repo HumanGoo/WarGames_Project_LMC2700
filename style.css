@@ -10,23 +10,23 @@
     src: url('data/Segment14.otf');
 }
 
-/*.dialogue-button-parent {
+.dialogue-button-parent {
     display: inline;
-    filter: drop-shadow(0px -10px 0px grey) drop-shadow(-2.5px 0px 0px rgb(110, 110, 110)) drop-shadow(2.5px 0px 0px rgb(110, 110, 110));
-}*/
+    filter: drop-shadow(0px -10px 0px rgb(158, 168, 168)) drop-shadow(-2.5px 0px 0px rgb(141, 149, 151)) drop-shadow(2.5px 0px 0px rgb(141, 149, 151));
+}
 
 .dialogue-button {
     position: relative;
     max-width: 16ch;
-    animation: second-anim .25s ease-in-out;
+    animation: reveal .25s ease-in-out;
     display: block;
     background-color: black;
     color: Lime;
-    font-size: 24px;
-    border: 2px solid Lime;
+    font-size: 20px;
+    border: 4px solid rgb(141, 149, 151);
     font-family: quartzFont;
     cursor: pointer;
-    clip-path: inset(0 0 0 0);
+    clip-path: inset(0 0 40% 0);
 }
 
 .dialogue-button:hover .flicker-text {
@@ -60,37 +60,38 @@
 
 @keyframes reveal {
     0% {
-        clip-path: inset(0 100% 100% 0);
+        clip-path: inset(0 100% 40% 0);
     }
     100% {
-        clip-path: inset(0 0 0 0);
+        clip-path: inset(0 0 40% 0);
     }
 }
 
-/*.dialogue-button.second-anim-class {
+.dialogue-button.second-anim-class {
     animation: second-anim 0.5s forwards;
-}*/
+}
 
 @keyframes second-anim {
     0% {
-        clip-path: inset(0 100% 0 0);
+        clip-path: inset(0 0 40% 0);
     }
     100% {
         clip-path: inset(0 0 0 0);
+        transform: translate(0px, -10px);
     }
 }
 
-/*.dialogue-button-parent.init-reveal {
+.dialogue-button-parent.init-reveal {
     animation: remove-shadow 0.5s forwards;
     /* delay matches reveal duration */
-}*/
+}
 
 @keyframes remove-shadow {
     0% {
-        filter: drop-shadow(0px -10px 0px grey) drop-shadow(-2.5px 0px 0px rgb(110, 110, 110)) drop-shadow(2.5px 0px 0px rgb(110, 110, 110));
+        filter: drop-shadow(0px -10px 0px rgb(158, 168, 168)) drop-shadow(-2.5px 0px 0px rgb(141, 149, 151)) drop-shadow(2.5px 0px 0px rgb(141, 149, 151));
         ;
     }
     100% {
-        filter: drop-shadow(0px 5.5px 0px rgb(170, 170, 170));
+        filter: drop-shadow(0px 5.5px 0px rgb(158, 168, 168));
     }
 }
