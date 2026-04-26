@@ -276,15 +276,15 @@ function writeStream(str, x, y, rate, e) {
   let charPerSec = time * rate;
   let frame = Math.round(time%1); //the exact moment the next character is added
   let addend;
-  if (frame==1 ||(charPerSec < len && charPerSec > 0)) {
+  if (frame==1 ||(charPerSec < len && charPerSec > 0 && !skippedLine)) {
     addend = "_";
   } else {
     addend = "";
   }
-  let subString = str.substring(0, charPerSec) + addend;
+  let subString = skippedLine ? str + addend : str.substring(0, charPerSec) + addend;
   write(subString, x, y, e);
   
-  if (charPerSec >= len && audioFiles[3].isPlaying()) {
+  if (charPerSec >= len && audioFiles[3].isPlaying() || skippedLine == true) {
     stopSound('talk');
     finishedLine = true;
   }

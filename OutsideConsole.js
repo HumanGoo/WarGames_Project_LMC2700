@@ -2,11 +2,12 @@ let dialogueChoices;
 let nuclearMeltDown = false;
 let givenDialogueChoices = false;
 let dialogueChoicesInitialized = false;
-let choiceWidth = 0;
 let buttonPaths = ["Covered", "Uncovered", "Hovered", "Pressed"];
 let buttonCovered = true;
 let bigRedButton;
+let startButton;
 let onTitle = true;
+let initializedTimer = false;
 
 function outsideConsole(c) {
   c.preload = function () { 
@@ -72,9 +73,32 @@ function outsideConsole(c) {
       c.choices.length = 0;
       dialogueChoicesInitialized = false;
       givenDialogueChoices = false;
-      choiceWidth = 0;
     }
     c.showBackground();
+    
+    if (pleaseChoose && !initializedTimer) {
+      c.timerEnd = millis() + 15000;
+      initializedTimer = true;
+    }
+    
+    if (pleaseChoose) {
+      c.push();
+      c.stroke(0);
+      c.fill(255);
+      c.strokeWeight(5);
+      c.arc(1350, 150, 200, 200, 3*HALF_PI, 3*HALF_PI + (TWO_PI * (c.timerEnd - millis())/15000), PIE);
+      c.pop();
+      
+      if (millis() > c.timerEnd) {
+        pleaseChoose = false;
+        sceneNeedsChanging = true;
+        if (nuclearMeltDown) {
+          pushedButton = true;
+        } else {
+          pushedButton = false;
+        }
+      }
+    }
   };
   
   c.draw = function() {
@@ -295,6 +319,6 @@ class StartButton {
   }
   whenClicked = () => {
     onTitle = false;
-    this.button.remove();
+    this.button.hide();
   }
 }

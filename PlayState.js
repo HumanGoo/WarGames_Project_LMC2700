@@ -1,3 +1,5 @@
+let skippedLine = false;
+
 function playState(p) {
   p.startedRingSound = false;
   p.someoneIsCalling = true;
@@ -7,6 +9,8 @@ function playState(p) {
     p.phone = p.loadImage('data/phone.png');
     // p.guy = p.loadImage('data/guytemplate.png');
     //load other people images
+  p.timerStart = 0;
+  p.timerEnd = 0;
   }
   p.setup = function() {
     sceneNeedsChanging = false;
@@ -56,10 +60,15 @@ function playState(p) {
 
     p.image(p.phone, 0, 0);
     p.pop();
+    
     p.opacity = 150;
 
-    if (p.checkCall()) {
+    if (p.someoneIsCalling && p.callExists && p.checkCall()) {
       p.opacity = 225;
+      // console.log("hovering over call");
+      p.cursor(HAND);
+    } else {
+      p.cursor(ARROW);
     }
 
     p.push();
@@ -98,23 +107,37 @@ try{
 
   p.checkCall = function() {
     p.buttonLoc = new p5.Vector(computer.size.width/2, computer.size.height/2);
-    return p.mousePos.sub(p.buttonLoc).mag() < 100;
+    p.mousePos = new p5.Vector(p.mouseX, p.mouseY);
+    // console.log(p5.Vector.sub(p.mousePos, p.buttonLoc));
+    return p5.Vector.sub(p.mousePos, p.buttonLoc).mag() < 100;
+    // return p.mousePos.sub(p.buttonLoc).mag() < 100;
   }
 
   p.mousePressed = function() {
     p.mousePos.set(p.mouseX, p.mouseY);
     //happens once
     if (!p.someoneIsCalling && !p.newDialogue.canClose && p.newDialogue.isInsideBox() && p.inDialogue && p.newDialogue.delay) {
-      p.newDialogue.nextLine();
+      if (!finishedLine) {
+        skippedLine = true;
+      } else {
+        p.newDialogue.nextLine();
+        skippedLine = false;
+      }
     }
     if (p.checkCall() && p.someoneIsCalling && p.callExists) {
       p.pickupPhone();
     }
+    p.cursor(ARROW);
   }
 
   p.keyPressed = function() {
     if (p.inDialogue && (keyCode === 13 || keyCode === 32)) {
-      p.newDialogue.nextLine();
+      if (!finishedLine) {
+        skippedLine = true;
+      } else {
+        p.newDialogue.nextLine();
+        skippedLine = false;
+      }
     }
   }
 
