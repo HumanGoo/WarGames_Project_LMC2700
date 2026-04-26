@@ -1,6 +1,7 @@
 function endState(e) {
   e.playerClicked = pushedButton;
-  e.botClicked = round(random());
+  e.chanceOfBotPress = 50 - playerAlignment*10;
+  e.botClicked = random(100) < e.chanceOfBotPress ? true : false;
   
   e.topTextStr = "";
   e.descTextStr = "";
@@ -79,6 +80,15 @@ function endState(e) {
       sceneNeedsChanging = true;
       allDials = ["cong", "press", "ceo", "lead"];
       Dialogue.currentBranchIndex = 0;
+      playerAlignment = 0;
+      talkedToPress = false;
+      nuclearMeltDown = false;
+      initializedTimer = false;
+      onTitle = true;
+      bigRedButton.setState("covered");
+      startButton.button.show();
+      dialogueChoicesInitialized = false;
+      givenDialogueChoices = false;
       initializeDialogues();
       e.remove();
       switchScene(mainMenu);

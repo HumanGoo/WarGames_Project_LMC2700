@@ -1,6 +1,8 @@
 let allDials = ["cong", "press", "ceo", "lead"];
 let playerAlignment = 0;
 let talkedToPress = false;
+let pleaseChoose = false;
+
 class Dialogue {
   static currentBranchIndex = 0;
     static rudeToPress = 0; //0 => neutral end, 1 => good end, 2 => bad
@@ -76,20 +78,28 @@ class Dialogue {
   }
 
   nextLine() {
+    let notAtEndDial = this.json["dialogue"][this.getIndexInJSON()]["id"] != "will_you_press_the_button";
+    
     stopSound("talk");
     // console.log("to next line");
     if (this.curLine + 1 < this.dial.length) {
       this.curLine++;
       dialStart = millis();
-    } else if (!this.canBranch) {
+      
+      if (this.curLine + 1 == this.dial.length && !notAtEndDial) {
+        pleaseChoose = true;
+      }
+    } else if (!this.canBranch && notAtEndDial) {
       this.canClose = true;
       this.closingTimer = millis();
     }
     if (this.curLine + 1 == this.dial.length && this.canBranch) {
       givenDialogueChoices = true;
     }
-    this.delay = false;
-    finishedLine = false;
+    if (notAtEndDial) {
+      this.delay = false;
+      finishedLine = false;
+    }
   }
 
   isInsideBox() {
@@ -144,7 +154,7 @@ class Dialogue {
       //array
     //check alignment
       let currentBranchId =
-        this.json["dialogue"][Dialogue.currentBranchIndex]["id"];
+        this.json["dialogue"][this.getIndexInJSON()]["id"];
       switch(currentBranchId) {
         case "bad end":
             playerAlignment--;
@@ -227,6 +237,7 @@ class Dialogue {
     dialStart = millis();
     this.paths = undefined;
     finishedLine = false;
+    skippedLine = false;
   }
 
   setNewLinks(linkToList) {
