@@ -153,7 +153,7 @@ class Dialogue {
         if (playerAlignment == 0) { //neutral
             Dialogue.currentBranchIndex = talkedToPress ? 6 : 5;
         } else if (playerAlignment > 0) { //good
-            Dialogue.currentBranchIndex = talkedToPress ? 9 : playerAlignment > 1 ? 8 : 5;
+            Dialogue.currentBranchIndex = talkedToPress ? 9 : (playerAlignment > 1 ? 8 : 5);
         } else if (playerAlignment < 0) { //bad
             console.log('hello you are bad')
             // DialogueChoice.currentBranchIndex = talkedToPress ? 10 : 11;
