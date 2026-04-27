@@ -20,8 +20,10 @@ function endState(e) {
     e.resetButton.setSize(1.75);
     e.resetButton.setDisplacement(1.5, 9);
     
-    console.log(Dialogue.currentBranchIndex);
-    switch (Dialogue.currentBranchIndex) {
+    if (!initializedEndTimer) { // checks for if you pressed the button early, if you do it's an automatic loss
+      e.botClicked = true;
+    } else {
+      switch (Dialogue.currentBranchIndex) {
       case 15:
         e.botClicked = false;
         break;
@@ -31,9 +33,6 @@ function endState(e) {
       default:
         e.botClicked = round(random());
     }
-    
-    if (!initializedEndTimer) { // checks for if you pressed the button early, if you do it's an automatic loss
-      e.botClicked = true;
     }
     
     e.getEnding();
