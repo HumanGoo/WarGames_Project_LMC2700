@@ -1,3 +1,5 @@
+let OPTIONSGENDER;
+let OPTIONSVOLUME;
 function options(o) {
   o.setup = function() {
     panel = o.createCanvas(400, 300);

@@ -343,6 +343,7 @@ class StartButton {
 
 class OptionsButton {
   constructor() {
+    this.windowInitialized = false;
     this.button = createButton(
       `<span class="flicker-text">${"OPTIONS"}</span>`,
     );
@@ -359,6 +360,11 @@ class OptionsButton {
     this.button.mouseReleased(this.whenClicked);
   }
   whenClicked = () => {
-    this.button.hide();
+    if (!this.windowInitialized) {
+    this.window = new p5(options);
+    this.windowInitialized = true;
+    } else {
+      this.window.remove();
+    }
   }
 }
