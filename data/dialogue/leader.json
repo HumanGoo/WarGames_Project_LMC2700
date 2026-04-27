@@ -742,11 +742,11 @@
 
       "links": [
         {
-          "label": "Surrender your power and military, Romanov",
+          "label": "Surrender, Romanov",
           "linkTo": 33
         },
         {
-          "label": "Russia's position is no longer tenable.",
+          "label": "Your position isn't tenable.",
           "linkTo": 42
         }
       ]
@@ -765,7 +765,7 @@
 
       "links": [
         {
-          "label": "I don't need to call anyone to nuke you",
+          "label": "I can just nuke you",
           "linkTo": 34
         }
       ]
@@ -801,7 +801,7 @@
 
       "links": [
         {
-          "label": "To see Russia's destruction with your own eyes",
+          "label": "To see Russia's destruction",
           "linkTo": 36
         }
       ]
@@ -820,7 +820,7 @@
 
       "links": [
         {
-          "label": "You disconnect, and your country is ash",
+          "label": "Your country is ash",
           "linkTo": 37
         }
       ]
@@ -908,7 +908,7 @@
       "index": 42,
       "id": "evil_not_tenable",
       "text": [
-        "How very interesting that you  decide Russia's position in the world.",
+        "How very interesting that you decide Russia's position in the world.",
         "Tell me, Mr. President.",
         "What exactly is it that is not tenable?",
         "That we exist? That we have borders? That we do not simply agree with everything you say?"

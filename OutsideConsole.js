@@ -212,14 +212,20 @@ function overlay(o) {
       if(!o.pushedit) {
         o.pushedit = true;
         //console.log("nukes")
-        currentDialogue.runDefCon1();
+        if (!initializedEndTimer) {
+          currentDialogue.runDefCon1();
+        }
       }
       o.redScreenBlaring();
     }
   };
   o.redScreenBlaring = function () {
-    if(!audioFiles[4].isPlaying()) {
-      playSound('alarm', true);
+    try {
+        if(!audioFiles[4].isPlaying()) {
+          playSound('alarm', true);
+        }
+    } catch (error) {
+      // oops!
     }
     o.push();
     o.fill(255, 0, 0, o.redOpacity);
@@ -331,7 +337,7 @@ class StartButton {
   whenClicked = () => {
     onTitle = false;
     this.button.hide();
-    optionsButton.button.hide();
+    // optionsButton.button.hide();
   }
 }
 
@@ -356,4 +362,3 @@ class OptionsButton {
     this.button.hide();
   }
 }
-

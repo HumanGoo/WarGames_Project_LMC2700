@@ -1,7 +1,6 @@
 function endState(e) {
   e.playerClicked = pushedButton;
-  e.chanceOfBotPress = 50 - playerAlignment*10; // lower chance to press button if you do good!
-  e.botClicked = random(100) < e.chanceOfBotPress ? true : false;
+  e.botClicked = null;
   
   e.topTextStr = "";
   e.descTextStr = "";
@@ -25,9 +24,22 @@ function endState(e) {
       e.botClicked = true;
     }
     
+    console.log(Dialogue.currentBranchIndex);
+    switch (Dialogue.currentBranchIndex) {
+      case 15:
+        e.botClicked = false;
+        break;
+      case 16:
+        e.botClicked = true;
+        break;
+      default:
+        e.botClicked = round(random());
+    }
+    
     e.getEnding();
     
     loadOverlay();
+    // console.log(nuclearMeltDown);
   }
   
   e.getEnding = function() {
