@@ -2,7 +2,7 @@ let computer = {};
 let json;
 let WINDOWHEIGHT = 789;
 let WINDOWWIDTH = 1600;
-let audioFileStrs = ["phoneHangUp", "phonePickUp", "phoneRing", "talk"];
+let audioFileStrs = ["phoneHangUp", "phonePickUp", "phoneRing", "talk", "alarm"];
 let audioFiles = [];
 
 let jsonList = [];

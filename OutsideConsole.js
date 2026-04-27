@@ -210,12 +210,15 @@ function overlay(o) {
     }
   };
   o.redScreenBlaring = function () {
+    if(!audioFiles[4].isPlaying()) {
+      playSound('alarm', true);
+    }
     o.push();
     o.fill(255, 0, 0, o.redOpacity);
-    if (o.redPeaked && o.redOpacity < 160) {
-      o.redOpacity += 4;
+    if (o.redPeaked && o.redOpacity < 50) {
+      o.redOpacity += 1;
     } else {
-      o.redOpacity -= 2;
+      o.redOpacity -= 1;
       o.redPeaked = false;
     }
     o.rect(0, 0, o.width, o.height);
