@@ -84,7 +84,7 @@ function outsideConsole(c) {
     if (pleaseChoose) {
       c.push();
       c.stroke(0);
-      c.fill(255);
+      c.fill(255 * (1 - (c.timerEnd - millis())/15000), 255 * ((c.timerEnd - millis())/15000), 0);
       c.strokeWeight(5);
       c.arc(1350, 150, 200, 200, 3*HALF_PI, 3*HALF_PI + (TWO_PI * (c.timerEnd - millis())/15000), PIE);
       c.pop();
