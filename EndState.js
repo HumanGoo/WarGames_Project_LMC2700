@@ -21,6 +21,10 @@ function endState(e) {
     e.resetButton.setSize(1.75);
     e.resetButton.setDisplacement(1.5, 9);
     
+    if (!initializedEndTimer) { // checks for if you pressed the button early, if you do it's an automatic loss
+      e.botClicked = true;
+    }
+    
     e.getEnding();
     
     loadOverlay();
@@ -36,7 +40,7 @@ function endState(e) {
     if (e.playerClicked) {
       if (e.botClicked) {
         e.descTextStr = `Mutually Assured Destruction`;
-        e.descTextStr2 = `The world has ended...`;
+        e.descTextStr2 = initializedEndTimer ? `The world has ended...` : `It isn\'t that easy!`;
       } else {
         e.descTextStr = `You defeated your enemy!`;
         e.descTextStr2 = `This is a good ending, right?`;
