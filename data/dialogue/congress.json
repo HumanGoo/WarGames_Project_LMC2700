@@ -294,7 +294,7 @@
         }
       ]
     },
-        {
+    {
       "index": 16,
       "id": "intro yes press good",
       "text": [
@@ -312,7 +312,7 @@
         }
       ]
     },
-            {
+    {
       "index": 17,
       "id": "intro yes press bad",
       "text": [
@@ -337,6 +337,19 @@
           "label": "I'd rather bomb Russia",
           "linkTo": 10
         }
+      ]
+    },
+    {
+      "index": 18,
+      "id": "bomb",
+      "text": [
+        "Dear lord, are those rockets in the air?",
+        "Mr. President, what did you do!?",
+        "Oh dear, oh dear oh dear."
+      ],
+      "branching": true,
+      "links": [
+"endState"
       ]
     }
   ],

@@ -72,7 +72,6 @@ class Dialogue {
         this.canDisplay = false;
         if(Dialogue.weAreDead && !this.deadYet) {
           this.deadYet = true;
-          let index = "endState";
           pushedButton = true;
           sceneNeedsChanging = true;
         }
@@ -293,7 +292,13 @@ class Dialogue {
   runDefCon1() {
     //console.log(this.json["dialogue"].length - 1);
     Dialogue.weAreDead = true;
+
+    //secretary specific dialogue
+    if (this.json["id"] == "Secretary") {
     this.branchDialoguePaths(this.json["dialogue"].length - 2);
+    } else {
+          this.branchDialoguePaths(this.json["dialogue"].length - 1);
+    }
   }
 }
 class DialogueChoice {

@@ -340,6 +340,19 @@
             "links": [{ "label": "We are exploring all options.", "linkTo": 4 },
                 { "label": "Nothing is off the table", "linkTo": 7 }
             ]
+        },
+                {
+            "index": 22,
+            "id": "bomb",
+            "text": [
+                "Oh my god, what is that?",
+                "Mr. President, Did you have anything to do with this?",
+                "An armada of missiles are blanketing the sky! Where the hell are they going?",
+                "Oh God, are we at war? Mr. President, Mr. President!"
+            ],
+            "branching": true,
+            "links": [{ "label": "Disconnect", "linkTo": ["endState", "true"] }
+            ]
         }
     ],
     "links": [""]

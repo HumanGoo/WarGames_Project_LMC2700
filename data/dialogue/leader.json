@@ -426,7 +426,7 @@
       "links": [
         {
           "label": "Disconnect",
-          "linkTo": ["sec", 5]
+          "linkTo": ["sec", 14]
         }
       ]
     },
@@ -1078,6 +1078,24 @@
         {
           "label": "It will be war.",
           "linkTo": 48
+        }
+      ]
+    },
+            {
+      "index": 51,
+      "id": "threats",
+      "text": [
+        "!!!",
+        "You bastard!",
+        "How long have you been waiting for this!?",
+        "I can not believe this. I will be responding with my own missiles.",
+        "This is war. Mr. President."
+      ],
+      "branching": true,
+      "links": [
+        {
+          "label": "It will be war.",
+          "linkTo": ["endState", "true"]
         }
       ]
     }

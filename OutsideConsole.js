@@ -249,7 +249,7 @@ class BigRedButton {
       // img.mousePressed(this.pressed);
       img.mouseReleased(this.released);
     });
-    
+    Object.values(states)[2].style('cursor: pointer');
     this.isPressed = false;
   }
 
