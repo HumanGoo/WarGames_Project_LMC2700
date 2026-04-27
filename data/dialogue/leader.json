@@ -916,11 +916,11 @@
       "branching": true,
       "links": [
         {
-          "label": "Your military provocations will not be tolerated.",
+          "label": "Your attacks won't be tolerated.",
           "linkTo": 43
         },
         {
-          "label": "You will withdraw your forces or we will make you.",
+          "label": "Withdraw your forces or we'll make you.",
           "linkTo": 44
         }
       ]
@@ -964,7 +964,7 @@
           "linkTo": 45
         },
         {
-          "label": "Last chance. Withdraw or face military action.",
+          "label": "Withdraw or face military action.",
           "linkTo": 50
         }
       ]
