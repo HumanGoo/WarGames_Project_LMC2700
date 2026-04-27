@@ -1,6 +1,6 @@
 function endState(e) {
   e.playerClicked = pushedButton;
-  e.chanceOfBotPress = 50 - playerAlignment*10;
+  e.chanceOfBotPress = 50 - playerAlignment*10; // lower chance to press button if you do good!
   e.botClicked = random(100) < e.chanceOfBotPress ? true : false;
   
   e.topTextStr = "";
