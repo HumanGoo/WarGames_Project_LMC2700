@@ -93,6 +93,7 @@ function endState(e) {
       startButton.button.show();
       dialogueChoicesInitialized = false;
       givenDialogueChoices = false;
+      Dialogue.weAreDead = false;
       initializeDialogues();
       e.remove();
       switchScene(mainMenu);

@@ -68,7 +68,7 @@ function outsideConsole(c) {
       DialogueChoice.positionInitialized = false;
       dialogueChoicesInitialized = true;
     }
-    if (DialogueChoice.hasBeenPicked) {
+    if (DialogueChoice.hasBeenPicked || Dialogue.weAreDead) {
       c.choices.forEach((elem) => {
         elem.button.remove();
       });

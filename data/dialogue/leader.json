@@ -1091,7 +1091,7 @@
         "I can not believe this. I will be responding with my own missiles.",
         "This is war. Mr. President."
       ],
-      "branching": true,
+      "branching": false,
       "links": [
         {
           "label": "It will be war.",
