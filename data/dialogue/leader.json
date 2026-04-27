@@ -157,11 +157,11 @@
 
       "links": [
         {
-          "label": "Withdrawal of American troops near Russia",
+          "label": "Withdrawal of American troops",
           "linkTo": 11
         },
         {
-          "label": "Lifted economic sanctions.",
+          "label": "Lifted economic sanctions",
           "linkTo": 12
         }
       ]
@@ -233,11 +233,11 @@
 
       "links": [
         {
-          "label": "I will withdraw forces from the region.",
+          "label": "Withdraw forces from the region.",
           "linkTo": 11
         },
         {
-          "label": "I will suspend new arms contracts.",
+          "label": "Suspend new arms contracts.",
           "linkTo": 13
         }
       ]

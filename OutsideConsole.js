@@ -89,7 +89,7 @@ function outsideConsole(c) {
       c.arc(1350, 150, 200, 200, 3*HALF_PI, 3*HALF_PI + (TWO_PI * (c.timerEnd - millis())/15000), PIE);
       c.pop();
       
-      if (millis() > c.timerEnd) {
+      if (millis() > c.timerEnd || nuclearMeltDown) {
         pleaseChoose = false;
         sceneNeedsChanging = true;
         if (nuclearMeltDown) {
