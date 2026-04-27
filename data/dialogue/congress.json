@@ -175,7 +175,8 @@
         "You are joking, aren't you. You must be!",
         "Mr. President, Congress did not send me down here to authorize a first strike.",
         "We sent me here because we finally have world peace within reach.",
-        "I urge you — strongly, emphatically, on behalf of every member of Congress: do not strike first.",
+        "I urge you strongly, emphatically, on behalf of every member of Congress...",
+        "Do not strike first.",
         "Please."
       ],
       "branching": true,
@@ -185,7 +186,7 @@
           "linkTo": 11
         },
         {
-          "label": "Relax. It'll be over before they can retaliate.",
+          "label": "Relax. It'll be over quick.",
           "linkTo": 12
         }
       ]

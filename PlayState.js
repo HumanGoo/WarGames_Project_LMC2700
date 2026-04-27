@@ -120,8 +120,10 @@ try{
       if (!finishedLine) {
         skippedLine = true;
       } else {
-        p.newDialogue.nextLine();
-        skippedLine = false;
+        if (!givenDialogueChoices) {
+          p.newDialogue.nextLine();
+          skippedLine = false;
+        }
       }
     }
     if (p.checkCall() && p.someoneIsCalling && p.callExists) {
@@ -135,8 +137,10 @@ try{
       if (!finishedLine) {
         skippedLine = true;
       } else {
-        p.newDialogue.nextLine();
-        skippedLine = false;
+        if (!givenDialogueChoices) {
+          p.newDialogue.nextLine();
+          skippedLine = false;
+        }
       }
     }
   }
