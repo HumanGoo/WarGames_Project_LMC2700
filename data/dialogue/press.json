@@ -350,8 +350,9 @@
                 "An armada of missiles are blanketing the sky! Where the hell are they going?",
                 "Oh God, are we at war? Mr. President, Mr. President!"
             ],
-            "branching": true,
-            "links": [{ "label": "Disconnect", "linkTo": ["endState", "true"] }
+            "branching": false,
+            "links": [
+                "endState"
             ]
         }
     ],

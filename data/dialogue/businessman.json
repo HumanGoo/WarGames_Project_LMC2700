@@ -540,9 +540,9 @@
         "Haha, I'm joking. Welp. My bill will be in the mail.",
         "My line is always open for more arms deals."
       ],
-      "branching": true,
+      "branching": false,
       "links": [
-        "endstate"
+        "endState"
       ]
     }
   ],
