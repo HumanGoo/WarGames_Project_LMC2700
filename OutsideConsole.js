@@ -6,6 +6,7 @@ let buttonPaths = ["Covered", "Uncovered", "Hovered", "Pressed"];
 let buttonCovered = true;
 let bigRedButton;
 let startButton;
+let optionsButton;
 let onTitle = true;
 let initializedEndTimer = false;
 
@@ -29,6 +30,7 @@ function outsideConsole(c) {
       pressed: createImg(prefix + "Pressed.png", "button"),
     });
     startButton = new StartButton();
+    optionsButton = new OptionsButton();
   };
 
   c.setup = function () {
@@ -331,3 +333,26 @@ class StartButton {
     this.button.hide();
   }
 }
+
+class OptionsButton {
+  constructor() {
+    this.button = createButton(
+      `<span class="flicker-text">${"OPTIONS"}</span>`,
+    );
+    this.button.addClass("start-button");
+    this.wrapper = createElement("div");
+    this.wrapper.addClass("start-button-parent");
+    this.wrapper.elt.appendChild(this.button.elt);
+    
+    let funSkew =  - (1 - ((9.5 + 5)/2 * (this.button.elt.getBoundingClientRect().width/222.3)));
+    this.wrapper.style('transform:skew(' + str(-funSkew) + 'deg);');
+    
+    this.wrapper.position(550.2 + 222.3/2 - this.button.elt.getBoundingClientRect().width/2, 519.3 + 70/2 - this.wrapper.elt.offsetHeight/2);
+    
+    this.button.mouseReleased(this.whenClicked);
+  }
+  whenClicked = () => {
+    this.button.hide();
+  }
+}
+

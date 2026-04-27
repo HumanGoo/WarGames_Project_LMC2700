@@ -621,7 +621,7 @@
       "links": [
         {
           "label": "Wait!",
-          "linkTo": ["sec", 5]
+          "linkTo": ["sec", 14]
         }
       ]
     },
@@ -722,7 +722,7 @@
       "links": [
         {
           "label": "Thank you, Romanov",
-          "linkTo": ["sec", 5]
+          "linkTo": ["sec", 15]
         }
       ]
     },
@@ -900,7 +900,7 @@
       "links": [
         {
           "label": "Stay afraid, Romanov",
-          "linkTo": ["sec", 5]
+          "linkTo": ["sec", 15]
         }
       ]
     },
@@ -1045,7 +1045,7 @@
       "links": [
         {
           "label": "I declare war",
-          "linkTo": ["sec", 5]
+          "linkTo": ["sec", 16]
         }
       ]
     },
