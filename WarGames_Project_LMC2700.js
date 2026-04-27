@@ -59,6 +59,9 @@ function setup() {
   initializeDialogues();
 }
 
+/*
+Used to reload sounds upon scene change, since all sounds are unloaded once a scene is removed.
+*/
 async function loadSounds() {
   audioFiles = [];
 

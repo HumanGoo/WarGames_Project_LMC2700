@@ -3,6 +3,9 @@ let playerAlignment = 0;
 let talkedToPress = false;
 let pleaseChoose = false;
 
+/*
+Everything needed for dialogue to work properly
+*/
 class Dialogue {
   static currentBranchIndex = 0;
     static rudeToPress = 0; //0 => neutral end, 1 => good end, 2 => bad
@@ -77,6 +80,7 @@ class Dialogue {
     this.delay = true;
   }
 
+// Calls next line of dialogue or begins branching if needed
   nextLine() {
     let notAtEndDial = this.json["dialogue"][this.getIndexInJSON()]["id"] != "will_you_press_the_button";
     
@@ -116,6 +120,7 @@ class Dialogue {
     );
   }
   
+  // Since "index" doesn't equal the actual index of an array
   getIndexInJSON() {
     for (let i = 0; i < this.json["dialogue"].length; i++) {
       if (this.json["dialogue"][i]["index"] == Dialogue.currentBranchIndex) {
@@ -124,6 +129,7 @@ class Dialogue {
     }
   }
 
+  // Switches from one dialogue file to another or simply moves between dialogue from the same character
   branchDialoguePaths(index) {
     //check if array
     //if so, index 0 is the file name we path to
