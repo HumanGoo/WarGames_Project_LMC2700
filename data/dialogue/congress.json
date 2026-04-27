@@ -347,9 +347,9 @@
         "Mr. President, what did you do!?",
         "Oh dear, oh dear oh dear."
       ],
-      "branching": true,
+      "branching": false,
       "links": [
-"endState"
+        "endState"
       ]
     }
   ],
