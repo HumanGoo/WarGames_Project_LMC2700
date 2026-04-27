@@ -65,7 +65,7 @@ function playState(p) {
 
     if (p.someoneIsCalling && p.callExists && p.checkCall()) {
       p.opacity = 225;
-      // console.log("hovering over call");
+      //console.log("hovering over call");
       p.cursor(HAND);
     } else {
       p.cursor(ARROW);
