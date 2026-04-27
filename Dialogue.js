@@ -88,7 +88,8 @@ class Dialogue {
 
 // Calls next line of dialogue or begins branching if needed
   nextLine() {
-    let notAtEndDial = this.json["dialogue"][this.getIndexInJSON()]["id"] != "will_you_press_the_button";
+    let atEndDial = this.json["dialogue"][this.getIndexInJSON()]["id"] == "will_you_press_the_button" || this.json["dialogue"][this.getIndexInJSON()]["id"].startsWith("after_leader");
+    console.log(atEndDial);
     
     stopSound("talk");
     // console.log("to next line");
@@ -96,17 +97,17 @@ class Dialogue {
       this.curLine++;
       dialStart = millis();
       
-      if (this.curLine + 1 == this.dial.length && !notAtEndDial) {
+      if (this.curLine + 1 == this.dial.length && atEndDial) {
         pleaseChoose = true;
       }
-    } else if (!this.canBranch && notAtEndDial) {
+    } else if (!this.canBranch && !atEndDial) {
       this.canClose = true;
       this.closingTimer = millis();
     }
     if (this.curLine + 1 == this.dial.length && this.canBranch) {
       givenDialogueChoices = true;
     }
-    if (notAtEndDial) {
+    if (!atEndDial) {
       this.delay = false;
       finishedLine = false;
     }
