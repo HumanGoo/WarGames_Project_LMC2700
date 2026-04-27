@@ -7,7 +7,7 @@ let buttonCovered = true;
 let bigRedButton;
 let startButton;
 let onTitle = true;
-let initializedTimer = false;
+let initializedEndTimer = false;
 
 function outsideConsole(c) {
   c.preload = function () { 
@@ -76,9 +76,9 @@ function outsideConsole(c) {
     }
     c.showBackground();
     
-    if (pleaseChoose && !initializedTimer) {
+    if (pleaseChoose && !initializedEndTimer) {
       c.timerEnd = millis() + 15000;
-      initializedTimer = true;
+      initializedEndTimer = true;
     }
     
     if (pleaseChoose) {
@@ -221,7 +221,7 @@ function overlay(o) {
     }
     o.push();
     o.fill(255, 0, 0, o.redOpacity);
-    if (o.redPeaked && o.redOpacity < 50) {
+    if (o.redPeaked && o.redOpacity < 35) {
       o.redOpacity += 1;
     } else {
       o.redOpacity -= 1;
