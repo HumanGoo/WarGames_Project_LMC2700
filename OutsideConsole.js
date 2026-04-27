@@ -30,7 +30,7 @@ function outsideConsole(c) {
       pressed: createImg(prefix + "Pressed.png", "button"),
     });
     startButton = new StartButton();
-    optionsButton = new OptionsButton();
+    //optionsButton = new OptionsButton();
   };
 
   c.setup = function () {
@@ -331,6 +331,7 @@ class StartButton {
   whenClicked = () => {
     onTitle = false;
     this.button.hide();
+    optionsButton.button.hide();
   }
 }
 
