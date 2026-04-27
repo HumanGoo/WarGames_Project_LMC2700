@@ -14,7 +14,7 @@ class Dialogue {
     this.id = name;
     this.json = file;
     this.parentCanvas = null;
-
+    this.deadYet = false;
     this.dial = this.json["dialogue"][Dialogue.currentBranchIndex]["text"];
     this.canBranch =
       this.json["dialogue"][Dialogue.currentBranchIndex]["branching"];
@@ -70,6 +70,12 @@ class Dialogue {
         e.rect(e.width / 2 - boxWidth / 2, e.height - 175, boxWidth, 150);
       } else {
         this.canDisplay = false;
+        if(Dialogue.weAreDead && !this.deadYet) {
+          this.deadYet = true;
+          let index = "endState";
+          pushedButton = true;
+          sceneNeedsChanging = true;
+        }
       }
     }
     if (this.paths == undefined && this.canBranch) {
@@ -286,6 +292,7 @@ class Dialogue {
 
   runDefCon1() {
     //console.log(this.json["dialogue"].length - 1);
+    Dialogue.weAreDead = true;
     this.branchDialoguePaths(this.json["dialogue"].length - 2);
   }
 }
