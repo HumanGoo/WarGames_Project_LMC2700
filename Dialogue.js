@@ -6,6 +6,7 @@ let pleaseChoose = false;
 class Dialogue {
   static currentBranchIndex = 0;
     static rudeToPress = 0; //0 => neutral end, 1 => good end, 2 => bad
+    static weAreDead = false;
   constructor(file, name = null) {
     this.id = name;
     this.json = file;
@@ -275,6 +276,11 @@ class Dialogue {
     }
 
     return this.linkToList.find((elem) => elem.id == givenName);
+  }
+
+  runDefCon1() {
+    //console.log(this.json["dialogue"].length - 1);
+    this.branchDialoguePaths(this.json["dialogue"].length - 2);
   }
 }
 class DialogueChoice {

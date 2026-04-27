@@ -198,6 +198,7 @@ function overlay(o) {
   };
   o.opacity = 0;
   o.peak = false;
+  o.pushedit = false;
   o.draw = function () {
     o.clear();
     o.image(
@@ -206,6 +207,11 @@ function overlay(o) {
       computer.location.y + computer.size.height / 2 + 33,
     );
     if (nuclearMeltDown) {
+      if(!o.pushedit) {
+        o.pushedit = true;
+        //console.log("nukes")
+        currentDialogue.runDefCon1();
+      }
       o.redScreenBlaring();
     }
   };
