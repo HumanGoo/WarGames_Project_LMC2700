@@ -22,10 +22,8 @@ function endState(e) {
     
     if (!initializedEndTimer) { // checks for if you pressed the button early, if you do it's an automatic loss
       e.botClicked = true;
-    }
-    
-    console.log(Dialogue.currentBranchIndex);
-    switch (Dialogue.currentBranchIndex) {
+    } else {
+      switch (Dialogue.currentBranchIndex) {
       case 15:
         e.botClicked = false;
         break;
@@ -34,6 +32,7 @@ function endState(e) {
         break;
       default:
         e.botClicked = round(random());
+    }
     }
     
     e.getEnding();
