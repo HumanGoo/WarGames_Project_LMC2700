@@ -136,3 +136,8 @@
     transform: translate(-100%, -100%);
     z-index: 10; 
 }
+
+.volume-slider {
+	width: 12rem;
+	cursor: pointer;
+}
