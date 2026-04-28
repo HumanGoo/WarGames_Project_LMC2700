@@ -51,7 +51,8 @@ class Dialogue {
 
       let dialogueLine = this.dial[this.curLine];
       if (OPTIONSGENDER) {
-        dialogueLine = dialogueLine.replace("Mr.","Ms.").replace(" sir ", " ma'am ");
+        dialogueLine = dialogueLine.replace("Mr.","Ms.");
+        dialogueLine = dialogueLine.replace("sir", "ma'am");
       }
       setAlignment(false);
       write(this.name, 75, e.height - 145, e);
