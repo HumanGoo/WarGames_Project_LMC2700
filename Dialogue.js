@@ -49,9 +49,13 @@ class Dialogue {
       );
       e.noFill();
 
+      let dialogueLine = this.dial[this.curLine];
+      if (OPTIONSGENDER) {
+        dialogueLine = dialogueLine.replace("Mr.","Ms.").replace(" sir ", " ma'am ");
+      }
       setAlignment(false);
       write(this.name, 75, e.height - 145, e);
-      writeStream(this.dial[this.curLine], 85, e.height - 113, 25, e);
+      writeStream(dialogueLine, 85, e.height - 113, 25, e);
       if (
         this.parentCanvas.focused &&
         !audioFiles[3].isPlaying() &&

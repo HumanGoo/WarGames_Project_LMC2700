@@ -28,16 +28,16 @@ class Button {
 /**
  * displays the button object. Due to the properties of applyMatrix, can only be invoked in the draw function
  */
-show() {
+show(textColor = null) {
   let e = this.parentCanvas;
   e.applyMatrix(this.size, 0, 0, this.size, this.parentCanvas.width/2, this.parentCanvas.height/2);
   e.push();
   e.stroke(this.baseColor);
-  if (this.clickedButton) {
+  if (this.clickedButton || textColor != null) {
     e.fill(this.baseColor);
   }
   e.rect(this.pointA.x, this.pointA.y, this.dim.width, this.dim.height);
-  if (this.clickedButton) {
+  if (this.clickedButton || textColor != null) {
     e.stroke(this.highlight);
   }
   write(this.label, (this.pointA.x + this.dim.width/2) + this.textDisplacement.x,
@@ -71,7 +71,7 @@ isClicking() {
 checkClick() {
   if (this.isClicking()) {
     this.setState(true);
-    dialStart = millis();
+    //dialStart = millis();
     console.log("clicked " + this.label);
   }
 }
