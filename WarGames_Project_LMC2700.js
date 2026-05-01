@@ -2,9 +2,8 @@ let computer = {};
 let json;
 let WINDOWHEIGHT = 789;
 let WINDOWWIDTH = 1600;
-let audioFileStrs = ["phoneHangUp", "phonePickUp", "phoneRing", "talk", "alarm"];
+let audioFileStrs = ["phoneHangUp", "phonePickUp", "phoneRing", "talk", "alarm", "ambience"];
 let audioFiles = [];
-
 let jsonList = [];
 function preload() {
   // soundFormats('wav');
@@ -81,6 +80,7 @@ function playSound(sound, loop = false, variance = false) {
 
   if (loop) {
     audioFiles[index].loop();
+    //console.log("looping");
   } else {
     audioFiles[index].play();
   }
@@ -93,24 +93,13 @@ function setSoundPitch(sound, random = false, pitch = null) {
     currentPitch += talkRates[Math.floor(Math.random() * talkRates.length)];
   }
   if (
-    audioFiles[index].isPlaying() &&
-    audioFiles[index].currentTime() >= audioFiles[index].duration() - 0.05
+    audioFiles[index].isPlaying()
+    && audioFiles[index].currentTime() >= audioFiles[index].duration() - 0.05
   ) {
     audioFiles[index].rate(currentPitch);
   }
 }
-// Source - https://stackoverflow.com/a/36481059
-// Posted by Maxwell Collard, modified by community. See post 'Timeline' for change history
-// Retrieved 2026-04-22, License - CC BY-SA 4.0
 
-// Standard Normal variate using Box-Muller transform.
-function gaussianRandom(mean = 0, stdev = 1) {
-  const u = 1 - Math.random(); // Converting [0,1) to (0,1]
-  const v = Math.random();
-  const z = Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
-  // Transform to the desired mean and standard deviation:
-  return z * stdev + mean;
-}
 
 function stopSound(sound) {
   if (!audioFileStrs.includes(sound)) {
@@ -163,5 +152,11 @@ function initializeDialogues() {
 }
 
 function mousePressed() {
-  getAudioContext().resume();
+  if (getAudioContext().state != "running") {
+    getAudioContext().resume();
+  }
+}
+
+function changeVolume(newVolume) {
+  outputVolume(newVolume/100);
 }

@@ -11,7 +11,7 @@ let onTitle = true;
 let initializedEndTimer = false;
 
 function outsideConsole(c) {
-  c.preload = function () { 
+  c.preload = function () {
     c.bg = loadImage("data/environment/background.png");
     c.table = loadImage("data/environment/table.png");
     c.buttons = [];
@@ -41,12 +41,12 @@ function outsideConsole(c) {
     console.log(c.cnv.width + " and  " + c.cnv.height);
     c.rectMode(CENTER);
   };
-  
-  c.drawMM = function() {
+
+  c.drawMM = function () {
     bigRedButton.show();
     // startButton.show("START");
     c.showBackground();
-  }
+  };
 
   c.drawDefault = function () {
     bigRedButton.show();
@@ -77,20 +77,32 @@ function outsideConsole(c) {
       givenDialogueChoices = false;
     }
     c.showBackground();
-    
+
     if (pleaseChoose && !initializedEndTimer) {
       c.timerEnd = millis() + 15000;
       initializedEndTimer = true;
     }
-    
+
     if (pleaseChoose) {
       c.push();
       c.stroke(0);
-      c.fill(255 * (1 - (c.timerEnd - millis())/15000), 255 * ((c.timerEnd - millis())/15000), 0);
+      c.fill(
+        255 * (1 - (c.timerEnd - millis()) / 15000),
+        255 * ((c.timerEnd - millis()) / 15000),
+        0,
+      );
       c.strokeWeight(5);
-      c.arc(1350, 150, 200, 200, 3*HALF_PI, 3*HALF_PI + (TWO_PI * (c.timerEnd - millis())/15000), PIE);
+      c.arc(
+        1350,
+        150,
+        200,
+        200,
+        3 * HALF_PI,
+        3 * HALF_PI + (TWO_PI * (c.timerEnd - millis())) / 15000,
+        PIE,
+      );
       c.pop();
-      
+
       if (millis() > c.timerEnd || nuclearMeltDown) {
         pleaseChoose = false;
         sceneNeedsChanging = true;
@@ -102,14 +114,14 @@ function outsideConsole(c) {
       }
     }
   };
-  
-  c.draw = function() {
+
+  c.draw = function () {
     if (onTitle) {
       c.drawMM();
-    } else { 
+    } else {
       c.drawDefault();
     }
-  }
+  };
 
   c.mousePressed = function () {
     c.mouseLoc = new p5.Vector(c.mouseX, c.mouseY);
@@ -128,15 +140,15 @@ function outsideConsole(c) {
     }
       */
   };
-  
-  c.mouseReleased = function() {
+
+  c.mouseReleased = function () {
     /*
     if (c.curButton == c.buttons[3]) {
       c.swapButton("Uncovered");
     }
       */
-  }
-    
+  };
+
   /*
   c.checkButtonHover = function() {
     let butX = 915.3 - c.curButton.width;
@@ -190,9 +202,9 @@ function overlay(o) {
   o.redPeaked = true;
   o.setup = function () {
     o.cnv = o.createCanvas(WINDOWWIDTH, WINDOWHEIGHT);
-    o.cnv.style('position', 'absolute');
-    o.cnv.style('z-index', 20);
-    o.cnv.style('pointer-events', 'none');
+    o.cnv.style("position", "absolute");
+    o.cnv.style("z-index", 20);
+    o.cnv.style("pointer-events", "none");
     background(0, 0);
     o.cnv.position(0, 0);
     o.imageMode(CENTER);
@@ -202,6 +214,15 @@ function overlay(o) {
   o.peak = false;
   o.pushedit = false;
   o.draw = function () {
+    try {
+      if (
+        !onTitle &&
+        !audioFiles[5].isPlaying() &&
+        getAudioContext().state == "running"
+      ) {
+        playSound("ambience", true);
+      }
+    } catch (error) {}
     o.clear();
     o.image(
       computer.outline,
@@ -209,7 +230,7 @@ function overlay(o) {
       computer.location.y + computer.size.height / 2 + 33,
     );
     if (nuclearMeltDown) {
-      if(!o.pushedit) {
+      if (!o.pushedit) {
         o.pushedit = true;
         //console.log("nukes")
         if (!initializedEndTimer) {
@@ -221,12 +242,13 @@ function overlay(o) {
   };
   o.redScreenBlaring = function () {
     try {
-        if(!audioFiles[4].isPlaying()) {
-          playSound('alarm', true);
-        }
+      if (!audioFiles[4].isPlaying()) {
+        playSound("alarm", true);
+      }
     } catch (error) {
       // oops!
     }
+
     o.push();
     o.fill(255, 0, 0, o.redOpacity);
     if (o.redPeaked && o.redOpacity < 35) {
@@ -257,7 +279,7 @@ class BigRedButton {
       // img.mousePressed(this.pressed);
       img.mouseReleased(this.released);
     });
-    Object.values(states)[2].style('cursor: pointer');
+    Object.values(states)[2].style("cursor: pointer");
     this.isPressed = false;
   }
 
@@ -272,45 +294,45 @@ class BigRedButton {
   show(stateName) {
     let img = this.states[this.currentState];
     // Show current state
-    switch(this.currentState) {
-      case 'covered':
-        img.position(915.3,769.4);
+    switch (this.currentState) {
+      case "covered":
+        img.position(915.3, 769.4);
         break;
-      case 'hovered':
-        img.position(923.3,778.4);
+      case "hovered":
+        img.position(923.3, 778.4);
         break;
-      case 'uncovered':
-        img.position(914.3,769.75);
+      case "uncovered":
+        img.position(914.3, 769.75);
         break;
-      case 'pressed':
-        img.position(914.8,769.75);
+      case "pressed":
+        img.position(914.8, 769.75);
         break;
       default:
-        img.position(915.3,769.4);
+        img.position(915.3, 769.4);
     }
-    
+
     img.show();
   }
-  
+
   hovering() {
     if (!buttonCovered) {
       // this.states[this.currentState].hide();
       // this.currentState = 'hovered';
-      bigRedButton.setState('hovered');
+      bigRedButton.setState("hovered");
     }
   }
-  
+
   noLongerHovering() {
     if (!buttonCovered) {
       // this.states[this.currentState].hide();
       // this.currentState = 'uncovered';
-      bigRedButton.setState('uncovered');
+      bigRedButton.setState("uncovered");
     }
   }
-  
+
   released() {
     if (!buttonCovered) {
-      bigRedButton.setState('pressed');
+      bigRedButton.setState("pressed");
       buttonCovered = true;
       nuclearMeltDown = true;
     }
@@ -319,26 +341,32 @@ class BigRedButton {
 
 class StartButton {
   constructor() {
-    this.button = createButton(
-      `<span class="flicker-text">${"START"}</span>`,
-    );
+    this.button = createButton(`<span class="flicker-text">${"START"}</span>`);
     this.button.addClass("start-button");
     this.wrapper = createElement("div");
     this.wrapper.addClass("start-button-parent");
     this.wrapper.elt.appendChild(this.button.elt);
-    
-    let funSkew = (9.5 + 5)/2 - (1 - ((9.5 + 5)/2 * (this.button.elt.getBoundingClientRect().width/222.3)));
-    this.wrapper.style('transform:skew(' + str(-funSkew) + 'deg);');
-    
-    this.wrapper.position(350.2 + 222.3/2 - this.button.elt.getBoundingClientRect().width/2, 519.3 + 70/2 - this.wrapper.elt.offsetHeight/2);
-    
+
+    let funSkew =
+      (9.5 + 5) / 2 -
+      (1 -
+        ((9.5 + 5) / 2) *
+          (this.button.elt.getBoundingClientRect().width / 222.3));
+    this.wrapper.style("transform:skew(" + str(-funSkew) + "deg);");
+
+    this.wrapper.position(
+      350.2 + 222.3 / 2 - this.button.elt.getBoundingClientRect().width / 2,
+      519.3 + 70 / 2 - this.wrapper.elt.offsetHeight / 2,
+    );
+
     this.button.mouseReleased(this.whenClicked);
   }
   whenClicked = () => {
     onTitle = false;
     this.button.hide();
     optionsButton.button.hide();
-  }
+    
+  };
 }
 
 class OptionsButton {
@@ -351,21 +379,27 @@ class OptionsButton {
     this.wrapper = createElement("div");
     this.wrapper.addClass("start-button-parent");
     this.wrapper.elt.appendChild(this.button.elt);
-    
-    let funSkew =  - (1 - ((9.5 + 5)/2 * (this.button.elt.getBoundingClientRect().width/222.3)));
-    this.wrapper.style('transform:skew(' + str(-funSkew) + 'deg);');
-    
-    this.wrapper.position(550.2 + 222.3/2 - this.button.elt.getBoundingClientRect().width/2, 519.3 + 70/2 - this.wrapper.elt.offsetHeight/2);
-    
+
+    let funSkew = -(
+      1 -
+      ((9.5 + 5) / 2) * (this.button.elt.getBoundingClientRect().width / 222.3)
+    );
+    this.wrapper.style("transform:skew(" + str(-funSkew) + "deg);");
+
+    this.wrapper.position(
+      550.2 + 222.3 / 2 - this.button.elt.getBoundingClientRect().width / 2,
+      519.3 + 70 / 2 - this.wrapper.elt.offsetHeight / 2,
+    );
+
     this.button.mouseReleased(this.whenClicked);
   }
   whenClicked = () => {
     if (!this.windowInitialized) {
-    this.window = new p5(options);
-    this.windowInitialized = true;
+      this.window = new p5(options);
+      this.windowInitialized = true;
     } else {
       this.window.remove();
       this.windowInitialized = false;
     }
-  }
+  };
 }

@@ -23,7 +23,7 @@ class Button {
   this.highlight = color(0, 0, 0);
   this.textDisplacement = new p5.Vector(0, 0);
   
-  console.log('created ' + label + ' button');
+  //console.log('created ' + label + ' button');
 }
 /**
  * displays the button object. Due to the properties of applyMatrix, can only be invoked in the draw function

@@ -7,17 +7,16 @@ function options(o) {
     o.gender = OPTIONSGENDER;
     o.volume = OPTIONSVOLUME;
 
-    o.volumeHeader = new Button(`Volume: `,-190,0,175,30,o);
-    o.volumeHeader.setDisplacement(-30,8);
+    o.volumeHeader = new Button(`Volume: `, -190, 0, 175, 30, o);
+    o.volumeHeader.setDisplacement(-30, 8);
     o.volumeSlider = o.createSlider(0, 100, OPTIONSVOLUME, 1);
     o.volumeSlider.addClass("volume-slider");
-    
+
     panel.position(
       computer.location.x + currentScene.width / 2 - o.width / 2,
       computer.location.y + currentScene.height / 2 - o.height / 2,
     );
     o.volumeSlider.position(panel.x + 195, panel.y + 155);
-    console.log(panel)
     o.background(100, 200);
 
     o.exit = new Button(`X`, 220, -183, 25, 25, o);
@@ -41,9 +40,14 @@ function options(o) {
     o.fill(0);
     o.header.show();
     o.genderButton.show();
+
+    o.volumeSlider.elt.addEventListener("input", function () {
+      OPTIONSVOLUME = o.volumeSlider.value();
+      changeVolume(OPTIONSVOLUME);
+    });
   };
   o.draw = function () {
-    OPTIONSVOLUME = o.volumeSlider.value();
+    
     o.fill(0);
     o.volumeHeader.show();
     o.exit.show();
@@ -54,8 +58,8 @@ function options(o) {
 
     o.checkGender(o.Male, !o.gender);
     o.checkGender(o.Female, o.gender);
-    o.stroke(0,255,0)
-    write(`${OPTIONSVOLUME}`,150,172.5,o);
+    o.stroke(0, 255, 0);
+    write(`${OPTIONSVOLUME}`, 150, 172.5, o);
     o.cursorChange();
   };
 
@@ -93,7 +97,6 @@ function options(o) {
         }
         break;
     }
-    
   };
 
   o.checkGender = function (button, bool) {
