@@ -16,7 +16,7 @@ function options(o) {
       computer.location.x + currentScene.width / 2 - o.width / 2,
       computer.location.y + currentScene.height / 2 - o.height / 2,
     );
-    o.volumeSlider.position(panel.x + 195, panel.y + 155);
+    o.volumeSlider.position(panel.x + 195, panel.y + 148);
     o.background(100, 200);
 
     o.exit = new Button(`X`, 220, -183, 25, 25, o);

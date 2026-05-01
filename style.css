@@ -138,6 +138,29 @@
 }
 
 .volume-slider {
-	width: 12rem;
-	cursor: pointer;
+  -webkit-appearance: none;
+  width: 12rem;
+  background: #000000;
+  outline: 1px solid rgb(26, 196, 26);
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.volume-slider:hover {
+  opacity: 1;
+}
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 30px;
+
+  background: rgb(0, 255, 0);
+  cursor: pointer;
+}
+.volume-slider::-moz-range-thumb {
+  width: 25px;
+  height: 30px;
+  background: rgb(0, 255, 0);
+  cursor: pointer;
 }
