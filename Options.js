@@ -19,7 +19,7 @@ function options(o) {
     o.volumeSlider.position(panel.x + 195, panel.y + 148);
     o.background(100, 200);
 
-    o.exit = new Button(`X`, 220, -183, 25, 25, o);
+    o.exit = new Button(`X`, 220, -184, 25, 25, o);
     o.exit.setSize(0.8);
     o.exit.setDisplacement(2, 9);
 
@@ -74,7 +74,10 @@ function options(o) {
   o.mouseReleased = function () {
     if (o.exit.isClicking()) {
       this.remove();
-      optionsButton.windowInitialized = false;
+      initializedWindow = false;
+      optionsButton.button.elt.disabled = false;
+      startButton.button.elt.disabled = false;
+      creditsButton.button.elt.disabled = false;
     }
 
     switch (o.gender) {

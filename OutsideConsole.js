@@ -7,8 +7,10 @@ let buttonCovered = true;
 let bigRedButton;
 let startButton;
 let optionsButton;
+let creditsButton;
 let onTitle = true;
 let initializedEndTimer = false;
+let initializedWindow = false;
 
 function outsideConsole(c) {
   c.preload = function () {
@@ -30,7 +32,8 @@ function outsideConsole(c) {
       pressed: createImg(prefix + "Pressed.png", "button"),
     });
     startButton = new StartButton();
-    optionsButton = new OptionsButton();
+    optionsButton = new MenuButton(options, `OPTIONS`, 1);
+    creditsButton = new MenuButton(credits, `CREDITS`, 2);
   };
 
   c.setup = function () {
@@ -347,12 +350,8 @@ class StartButton {
     this.wrapper.addClass("start-button-parent");
     this.wrapper.elt.appendChild(this.button.elt);
 
-    let funSkew =
-      (9.5 + 5) / 2 -
-      (1 -
-        ((9.5 + 5) / 2) *
-          (this.button.elt.getBoundingClientRect().width / 222.3));
-    this.wrapper.style("transform:skew(" + str(-funSkew) + "deg);");
+    let funSkew = (9.5 + 5)/2 - (1 - ((9.5 + 5)/2 * (this.button.elt.getBoundingClientRect().width/222.3)));
+    this.wrapper.style('transform:skew(' + str(-funSkew) + 'deg);');
 
     this.wrapper.position(
       350.2 + 222.3 / 2 - this.button.elt.getBoundingClientRect().width / 2,
@@ -362,44 +361,65 @@ class StartButton {
     this.button.mouseReleased(this.whenClicked);
   }
   whenClicked = () => {
-    onTitle = false;
-    this.button.hide();
-    optionsButton.button.hide();
-    
+    if (!initializedWindow) {
+      onTitle = false;
+      this.button.hide();
+      optionsButton.button.hide();
+      creditsButton.button.hide();
+    }
   };
 }
 
-class OptionsButton {
-  constructor() {
-    this.windowInitialized = false;
+class MenuButton {
+  constructor(substate, title, buttonPos) {
+    this.substate = substate;
+    this.title = title;
+    this.buttonPos = buttonPos;
     this.button = createButton(
-      `<span class="flicker-text">${"OPTIONS"}</span>`,
+      `<span class="flicker-text">${title}</span>`,
     );
     this.button.addClass("start-button");
     this.wrapper = createElement("div");
     this.wrapper.addClass("start-button-parent");
     this.wrapper.elt.appendChild(this.button.elt);
 
-    let funSkew = -(
-      1 -
-      ((9.5 + 5) / 2) * (this.button.elt.getBoundingClientRect().width / 222.3)
-    );
-    this.wrapper.style("transform:skew(" + str(-funSkew) + "deg);");
-
-    this.wrapper.position(
-      550.2 + 222.3 / 2 - this.button.elt.getBoundingClientRect().width / 2,
-      519.3 + 70 / 2 - this.wrapper.elt.offsetHeight / 2,
-    );
+    let funSkew;
+    switch (this.buttonPos) {
+      case 1:
+        funSkew = (4.75 + 0)/2 - (1 - ((4.75 + 0)/2 * (this.button.elt.getBoundingClientRect().width/216.4)));
+        
+        this.wrapper.style('transform:skew(' + str(-funSkew) + 'deg);');
+        this.wrapper.position(557.9 + 216.4/2 - this.button.elt.getBoundingClientRect().width/2, 519.3 + (70/2 - this.wrapper.elt.offsetHeight/2));
+        break;
+      case 2:
+        funSkew = (0 + -4.75)/2 - (1 - ((0 + -4.75)/2 * (this.button.elt.getBoundingClientRect().width/216.4)));
+        
+        this.wrapper.style('transform:skew(' + str(-funSkew) + 'deg);');
+        this.wrapper.position(785.5 + 216.4/2 - this.button.elt.getBoundingClientRect().width/2, 519.3 + (70/2 - this.wrapper.elt.offsetHeight/2));
+        break;
+      case 3:
+        funSkew = (-5 + -9.5)/2 - (1 - ((-5 + -9.5)/2 * (this.button.elt.getBoundingClientRect().width/222.3)));
+        
+        this.wrapper.style('transform:skew(' + str(-funSkew) + 'deg);');
+        this.wrapper.position(1027.3 + 222.3/2 - this.button.elt.getBoundingClientRect().width/2, 519.3 + (70/2 - this.wrapper.elt.offsetHeight/2));
+        break;
+      default:
+        funSkew = (9.5 + 5)/2 - (1 - ((9.5 + 5)/2 * (this.button.elt.getBoundingClientRect().width/222.3)));
+        
+        this.wrapper.style('transform:skew(' + str(-funSkew) + 'deg);');
+        this.wrapper.position(350.2 + 222.3/2 - this.button.elt.getBoundingClientRect().width/2, 519.3 + (70/2 - this.wrapper.elt.offsetHeight/2));
+        break;
+    }
 
     this.button.mouseReleased(this.whenClicked);
   }
   whenClicked = () => {
-    if (!this.windowInitialized) {
-      this.window = new p5(options);
-      this.windowInitialized = true;
-    } else {
-      this.window.remove();
-      this.windowInitialized = false;
+    if (!initializedWindow) {
+      this.window = new p5(this.substate);
+      initializedWindow = true;
+      creditsButton.button.elt.disabled = true;
+      startButton.button.elt.disabled = true;
+      optionsButton.button.elt.disabled = true;
     }
   };
 }

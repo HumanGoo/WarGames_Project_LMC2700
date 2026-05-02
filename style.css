@@ -48,7 +48,7 @@
     clip-path: inset(0 0 40% 0);
 }
 
-.start-button:hover .flicker-text {
+.start-button:not(:disabled):hover .flicker-text {
   animation: flicker 1s infinite steps(1);
   transition: none;
 }
@@ -96,6 +96,11 @@
     100% {
         clip-path: inset(0 0 40% 0);
     }
+}
+
+.start-button:disabled {
+  color: rgb(64, 128, 64);
+  pointer-events: none;
 }
 
 .dialogue-button.second-anim-class {
