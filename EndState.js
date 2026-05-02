@@ -24,15 +24,15 @@ function endState(e) {
       e.botClicked = true;
     } else {
       switch (Dialogue.currentBranchIndex) {
-      case 15:
-        e.botClicked = false;
-        break;
-      case 16:
-        e.botClicked = true;
-        break;
-      default:
-        e.botClicked = round(random());
-    }
+        case 15:
+          e.botClicked = false;
+          break;
+        case 16:
+          e.botClicked = true;
+          break;
+        default:
+          e.botClicked = round(random());
+      }
     }
     
     e.getEnding();

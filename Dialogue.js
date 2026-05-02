@@ -53,6 +53,7 @@ class Dialogue {
       if (OPTIONSGENDER) {
         dialogueLine = dialogueLine.replace("Mr.","Ms.");
         dialogueLine = dialogueLine.replace("sir", "ma'am");
+        dialogueLine = dialogueLine.replace("Sir", "Ma'am");
       }
       setAlignment(false);
       write(this.name, 75, e.height - 145, e);
