@@ -95,7 +95,6 @@ class Dialogue {
 // Calls next line of dialogue or begins branching if needed
   nextLine() {
     let atEndDial = this.json["dialogue"][this.getIndexInJSON()]["id"] == "will_you_press_the_button" || this.json["dialogue"][this.getIndexInJSON()]["id"].startsWith("after_leader");
-    console.log(atEndDial);
     
     stopSound("talk");
     // console.log("to next line");

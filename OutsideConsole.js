@@ -215,7 +215,6 @@ function overlay(o) {
   };
   o.opacity = 0;
   o.peak = false;
-  o.pushedit = false;
   o.draw = function () {
     try {
       if (
@@ -233,13 +232,6 @@ function overlay(o) {
       computer.location.y + computer.size.height / 2 + 33,
     );
     if (nuclearMeltDown) {
-      if (!o.pushedit) {
-        o.pushedit = true;
-        //console.log("nukes")
-        if (!initializedEndTimer) {
-          currentDialogue.runDefCon1();
-        }
-      }
       o.redScreenBlaring();
     }
   };
@@ -338,6 +330,9 @@ class BigRedButton {
       bigRedButton.setState("pressed");
       buttonCovered = true;
       nuclearMeltDown = true;
+      if (!initializedEndTimer) {
+          currentDialogue.runDefCon1();
+      }
     }
   }
 }
