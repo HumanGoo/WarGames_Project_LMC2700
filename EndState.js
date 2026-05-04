@@ -37,7 +37,6 @@ function endState(e) {
     
     e.getEnding();
     
-    loadOverlay();
     // console.log(nuclearMeltDown);
   }
   
@@ -102,6 +101,8 @@ function endState(e) {
       onTitle = true;
       bigRedButton.setState("covered");
       startButton.button.show();
+      optionsButton.button.show();
+      creditsButton.button.show();
       dialogueChoicesInitialized = false;
       givenDialogueChoices = false;
       Dialogue.weAreDead = false;

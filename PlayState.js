@@ -24,8 +24,6 @@ function playState(p) {
     p.imageMode(CENTER)
       p.image(p.phone, computer.size.width/2, computer.size.height/2);
     p.ellipseMode(RADIUS);
-
-    loadOverlay();
   }
   p.draw = function() {
     p.background(0);
