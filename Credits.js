@@ -4,18 +4,18 @@ function credits(c) {
   }
   
   c.setup = function() {
-    panel = c.createCanvas(600, 300);
+    panel = c.createCanvas(600, 350);
     
     panel.position(
       computer.location.x + currentScene.width / 2 - c.width / 2,
       computer.location.y + currentScene.height / 2 - c.height / 2,
     );
     
-    c.exit = new Button(`X`, 345, -184, 25, 25, c);
+    c.exit = new Button(`X`, 345, -215.25, 25, 25, c);
     c.exit.setSize(0.8);
     c.exit.setDisplacement(2, 9);
 
-    c.header = new Button(`Credits`, -300, -150, 600, 25, c);
+    c.header = new Button(`Credits`, -300, -175, 600, 25, c);
     //o.header.setSize();
     c.header.setDisplacement(0, 8);
     
@@ -30,7 +30,7 @@ function credits(c) {
     c.stroke(0, 255, 0);
     c.noFill();
     c.strokeWeight(1);
-    c.rect(0, 0, 600, 300);
+    c.rect(0, 0, 600, 350);
     
     c.cursorChange();
   }
