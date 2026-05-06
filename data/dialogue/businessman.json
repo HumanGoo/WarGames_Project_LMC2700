@@ -267,7 +267,7 @@
     },
     {
       "index": 10,
-      "id": "conversation_over",
+      "id": "neutral end",
       "text": [
         "You know what? I respect that. A leader of your caliber needs lines to not cross.",
         "I really do respect that, in a way.",
@@ -283,7 +283,7 @@
       "links": [
         {
           "label": "Disconnect",
-          "linkTo": ["sec", 5]
+          "linkTo": ["sec", "checkLinks"]
         }
       ]
     },
@@ -396,7 +396,7 @@
     },
     {
       "index": 15,
-      "id": "deal",
+      "id": "bad end",
       "text": [
         "Most Excellent.",
         "Mr. President, you have just made an exceptionally intelligent decision.",
@@ -415,7 +415,7 @@
       "links": [
         {
           "label": "Disconnect",
-          "linkTo": ["sec", 5]
+          "linkTo": ["sec", "checkLinks"]
         }
       ]
     },
