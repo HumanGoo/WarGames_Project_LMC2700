@@ -65,7 +65,7 @@
     },
     {
       "index": 4,
-      "id": "end_transmission",
+      "id": "good end",
       "text": [
         "Alright! Good luck out there, sir. The whole country is counting on you.",
         "Well, the whole Congress is counting on you. The country doesn't know about any of this.",
@@ -75,7 +75,7 @@
         "Hello?"
       ],
       "branching": true,
-      "links": [{ "label": "Disconnect", "linkTo": ["sec", 5] }]
+      "links": [{ "label": "Disconnect", "linkTo": ["sec", "checkLinks"] }]
     },
     {
       "index": 5,
@@ -153,7 +153,7 @@
     },
     {
       "index": 9,
-      "id": "end_transmission_rude",
+      "id": "bad end",
       "text": [
         "Oh! How... How dare you!",
         "Congress has spent months creating that plan!",
@@ -165,7 +165,7 @@
         "Goodbye, to you, sir."
       ],
       "branching": true,
-      "links": [{ "label": "Thanks for nothing", "linkTo": ["sec", 5] }]
+      "links": [{ "label": "Thanks for nothing", "linkTo": ["sec", "checkLinks"] }]
     },
     {
       "index": 10,
@@ -215,7 +215,7 @@
     },
     {
       "index": 12,
-      "id": "final_decision",
+      "id": "bad end",
       "text": [
         "I've had a long career, Mr. President.",
         "Seventy-one years. Seen a lot of things. Fought in a lot of wars.",
@@ -228,13 +228,13 @@
       "links": [
         {
           "label": "Disconnect.",
-          "linkTo": ["sec", 5]
+          "linkTo": ["sec", "checkLinks"]
         }
       ]
     },
     {
       "index": 13,
-      "id": "joking",
+      "id": "neutral end",
       "text": [
         "Finally, you've come to stand with reason!",
         "Alright. When you go into talks with Romanov, convince her of the following:",
@@ -247,7 +247,7 @@
       "links": [
         {
           "label": "Disconnect",
-          "linkTo": ["sec", 5]
+          "linkTo": ["sec", "checkLinks"]
         }
       ]
     },

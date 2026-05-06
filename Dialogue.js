@@ -103,6 +103,7 @@ class Dialogue {
       dialStart = millis();
       
       if (this.curLine == this.dial.length - 1 && atEndDial) {
+        console.log("buh");
         pleaseChoose = true;
       }
     } else if (!this.canBranch && !atEndDial) {
@@ -112,9 +113,6 @@ class Dialogue {
     if (this.curLine + 1 == this.dial.length && this.canBranch) {
       givenDialogueChoices = true;
     }
-    /*if (!atEndDial) {
-      
-    }*/
     this.delay = false;
     finishedLine = false;
   }
@@ -224,7 +222,11 @@ class Dialogue {
         this.parentCanvas.inDialogue = false;
         this.parentCanvas.someoneIsCalling = true;
 
-        Dialogue.currentBranchIndex = index[1];
+        if (index[1] != "checkLinks") {
+          Dialogue.currentBranchIndex = index[1];
+        } else {
+          currentDialogue.branchDialoguePaths("checkLinks");
+        }
       }
     } else {
       if (this.json["dialogue"][this.getIndexInJSON()]["id"] == "confirmed_button_spiel") {
