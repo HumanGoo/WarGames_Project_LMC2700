@@ -106,6 +106,7 @@ function endState(e) {
       dialogueChoicesInitialized = false;
       givenDialogueChoices = false;
       Dialogue.weAreDead = false;
+      buttonCovered = true;
       initializeDialogues();
       e.remove();
       switchScene(mainMenu);
