@@ -162,8 +162,7 @@ class Dialogue {
         } else if (playerAlignment > 0) { //good
             Dialogue.currentBranchIndex = talkedToPress ? 9 : (playerAlignment > 1 ? 8 : 5);
         } else if (playerAlignment < 0) { //bad
-            console.log('hello you are bad')
-            // DialogueChoice.currentBranchIndex = talkedToPress ? 10 : 11;
+            console.log('hello you are bad');
             Dialogue.currentBranchIndex = talkedToPress ? 11 : 10;
         }
       }
@@ -225,11 +224,7 @@ class Dialogue {
         this.parentCanvas.inDialogue = false;
         this.parentCanvas.someoneIsCalling = true;
 
-        if (newDest.id == "sec" && allDials[0] == "sec") {
-          Dialogue.currentBranchIndex = 2;
-        } else {
-          Dialogue.currentBranchIndex = index[1];
-        }
+        Dialogue.currentBranchIndex = index[1];
       }
     } else {
       if (this.json["dialogue"][this.getIndexInJSON()]["id"] == "confirmed_button_spiel") {
