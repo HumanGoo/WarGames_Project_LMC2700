@@ -14,7 +14,7 @@
         "to discuss with you our intentions and plan to remedy this disaster.",
         "Let us strive for talks of peace!",
         "Take it from me, young'un. Wars like these never have a solution. They just get deadlier.",
-        "So, we at Cognress urge you to discuss with Katerina Romanov, the current head of Russia.",
+        "So, we at Congress urge you to discuss with Katerina Romanov, the current head of Russia.",
         "First, collectively agree to disarm all nuclear warheads.",
         "I'm sure Romanov will understand the need to do so if we are to achieve peace between us.",
         "In addition, we believe that you should convince her to loosen her strict economic policies.",
@@ -31,7 +31,7 @@
       "id": "say_yes",
       "text": [
         "That's great to hear from you!",
-        "If you fully agree to our proposal, I'll be happy to disconnect so you can talk to Romanov posthaste!"
+        "If you fully agree to our plan, I'll happily disconnect so you can talk to Romanov posthaste!"
       ],
       "branching": true,
       "links": [
@@ -59,7 +59,7 @@
       "text": ["Yes? Is something wrong, Mr. President?"],
       "branching": true,
       "links": [
-        { "label": "Explain Plan Again", "linkTo": 5 },
+        { "label": "Explain The Plan Again", "linkTo": 5 },
         { "label": "Your Plan Sucks", "linkTo": 6 }
       ]
     },
@@ -68,10 +68,10 @@
       "id": "end_transmission",
       "text": [
         "Alright! Good luck out there, sir. The whole country is counting on you.",
-        "Well — the whole Congress is counting on you. The country doesn't know about any of this.",
+        "Well, the whole Congress is counting on you. The country doesn't know about any of this.",
         "If anyone leaks this, that would spell trouble, haha! Ha.",
         "Now, how do I turn this thing off...",
-        "Is it,,, this button? No that's not it.",
+        "Is it... this button? No that's not it.",
         "Hello?"
       ],
       "branching": true,

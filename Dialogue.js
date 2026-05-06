@@ -102,7 +102,7 @@ class Dialogue {
       this.curLine++;
       dialStart = millis();
       
-      if (this.curLine + 1 == this.dial.length && atEndDial) {
+      if (this.curLine == this.dial.length - 1 && atEndDial) {
         pleaseChoose = true;
       }
     } else if (!this.canBranch && !atEndDial) {
@@ -112,10 +112,11 @@ class Dialogue {
     if (this.curLine + 1 == this.dial.length && this.canBranch) {
       givenDialogueChoices = true;
     }
-    if (!atEndDial) {
-      this.delay = false;
-      finishedLine = false;
-    }
+    /*if (!atEndDial) {
+      
+    }*/
+    this.delay = false;
+    finishedLine = false;
   }
 
   isInsideBox() {
@@ -150,7 +151,8 @@ class Dialogue {
     if (index == "checkLinks") { //secretary dialogue code
       //also array, or something
       if (allDials[0] == "sec") {
-        Dialogue.currentBranchIndex = 2; //endstate
+        // lowkey do nothing
+        // Dialogue.currentBranchIndex = 2; //endstate
       } else {
         /*
         this is where the branching paths based on your alignment and whether or not you talk to the press.
